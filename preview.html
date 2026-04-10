@@ -420,10 +420,87 @@ ul { list-style: none; }
   color: var(--muted);
 }
 
+/* ============ HOW IT WORKS (diagram) ============ */
+.how-it-works { background: #ffffff; }
+.how-it-works-lead {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 640px;
+  margin: -20px 0 56px;
+  line-height: 1.9;
+}
+.flow-diagram {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+.flow-step {
+  flex: 1 1 0;
+  min-width: 0;
+  background: #ffffff;
+  border: 2px solid #f5e4c6;
+  border-radius: 20px;
+  padding: 40px 20px 28px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.flow-step:hover {
+  transform: translateY(-6px);
+  border-color: var(--orange);
+  box-shadow: 0 24px 50px rgba(242, 140, 46, 0.18);
+}
+.flow-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.1em;
+  box-shadow: 0 6px 14px rgba(242, 140, 46, 0.3);
+}
+.flow-icon {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff4e0 0%, #ffe0b3 100%);
+  color: var(--orange-dark);
+  display: grid;
+  place-items: center;
+}
+.flow-icon svg { width: 36px; height: 36px; }
+.flow-step h4 {
+  font-size: 16px;
+  color: var(--dark);
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+.flow-step p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.flow-arrow {
+  display: grid;
+  place-items: center;
+  color: var(--orange);
+  flex: 0 0 28px;
+  align-self: center;
+}
+.flow-arrow svg { width: 22px; height: 22px; }
+
 /* ============ SUPPORT ============ */
 .support {
-  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
-  color: #fff;
+  background: var(--bg-soft);
+  color: var(--dark);
 }
 .stats-grid {
   display: grid;
@@ -431,27 +508,50 @@ ul { list-style: none; }
   gap: 24px;
 }
 .stat-card {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.22);
-  border-radius: var(--radius);
-  padding: 32px 24px;
+  background: #ffffff;
+  border: 1px solid #f5e4c6;
+  border-radius: 20px;
+  padding: 44px 24px 36px;
   text-align: center;
-  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--orange);
+  box-shadow: 0 24px 50px rgba(242, 140, 46, 0.2);
 }
 .stat-num {
-  font-size: 42px;
+  font-size: 52px;
   font-weight: 900;
   line-height: 1.1;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #f5994a 0%, #e0761a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--orange-dark);
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
 }
-.stat-num span {
-  font-size: 18px;
-  margin-left: 4px;
-  font-weight: 700;
+.stat-number { min-width: 1ch; }
+.stat-prefix {
+  font-size: 24px;
+  font-weight: 800;
+}
+.stat-unit {
+  font-size: 22px;
+  font-weight: 800;
 }
 .stat-label {
   font-size: 13px;
-  opacity: 0.95;
+  color: var(--muted);
+  font-weight: 500;
+  line-height: 1.6;
 }
 
 /* ============ MOMENTS ============ */
@@ -932,6 +1032,9 @@ ul { list-style: none; }
 @media (max-width: 1024px) {
   .donate-layout { grid-template-columns: 1fr; }
   .donate-summary { position: static; }
+  .flow-diagram { flex-wrap: wrap; }
+  .flow-step { flex: 1 1 calc(50% - 20px); max-width: none; }
+  .flow-arrow { display: none; }
 }
 
 @media (max-width: 900px) {
@@ -978,6 +1081,9 @@ ul { list-style: none; }
     justify-self: center;
     margin-top: 12px;
   }
+  .flow-diagram { flex-direction: column; gap: 32px; }
+  .flow-step { flex: 0 0 auto; max-width: none; }
+  .how-it-works-lead { margin-bottom: 40px; }
   .story-grid,
   .concept-grid,
   .stats-grid,
@@ -1174,34 +1280,129 @@ ul { list-style: none; }
   </div>
 </section>
 
+<!-- ============ HOW IT WORKS (diagram) ============ -->
+<section class="how-it-works" id="how-it-works">
+  <div class="section-inner">
+    <p class="section-eyebrow" data-i18n="howItWorks.eyebrow">HOW IT WORKS</p>
+    <h2 class="section-title" data-i18n="howItWorks.title" data-i18n-html>あなたの寄付が<br>子どもの未来になるまで</h2>
+    <p class="how-it-works-lead" data-i18n="howItWorks.lead">
+      一つの寄付が、4つの支援を通じて、未来のリーダーを育てます。
+    </p>
+
+    <div class="flow-diagram">
+      <div class="flow-step">
+        <div class="flow-badge">01</div>
+        <div class="flow-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h4 data-i18n="howItWorks.step1.title">あなたの寄付</h4>
+        <p data-i18n="howItWorks.step1.body">1,000円から。今回のみ、または毎月の継続から選べます。</p>
+      </div>
+
+      <div class="flow-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-badge">02</div>
+        <div class="flow-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h4 data-i18n="howItWorks.step2.title">GLOBE JUNGLE</h4>
+        <p data-i18n="howItWorks.step2.body">認定NPOとして現地へ直接届けます。</p>
+      </div>
+
+      <div class="flow-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-badge">03</div>
+        <div class="flow-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+            <circle cx="9" cy="10" r="0.9" fill="currentColor"/>
+            <circle cx="15" cy="10" r="0.9" fill="currentColor"/>
+          </svg>
+        </div>
+        <h4 data-i18n="howItWorks.step3.title">4つの支援</h4>
+        <p data-i18n="howItWorks.step3.body" data-i18n-html>食・教育・仕事・家<br>暮らしの全てを支えます。</p>
+      </div>
+
+      <div class="flow-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-badge">04</div>
+        <div class="flow-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <h4 data-i18n="howItWorks.step4.title">未来のリーダー</h4>
+        <p data-i18n="howItWorks.step4.body">自立して地域を支える大人へ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ SUPPORT / STATS ============ -->
 <section class="support" id="support">
   <div class="section-inner">
-    <p class="section-eyebrow light" data-i18n="support.eyebrow">SUPPORT</p>
-    <h2 class="section-title light" data-i18n="support.title">21年間の支援の軌跡</h2>
+    <p class="section-eyebrow" data-i18n="support.eyebrow">SUPPORT</p>
+    <h2 class="section-title" data-i18n="support.title">21年間の支援の軌跡</h2>
     <div class="stats-grid">
       <div class="stat-card">
-        <p class="stat-num">21<span data-i18n="support.stat1.unit">年間</span></p>
+        <p class="stat-num">
+          <span class="stat-number" data-count="21">0</span><span class="stat-unit" data-i18n="support.stat1.unit">年間</span>
+        </p>
         <p class="stat-label" data-i18n="support.stat1.label">2003年から活動を継続</p>
       </div>
       <div class="stat-card">
-        <p class="stat-num">12,800<span data-i18n="support.stat2.unit">人</span></p>
+        <p class="stat-num">
+          <span class="stat-number" data-count="12800">0</span><span class="stat-unit" data-i18n="support.stat2.unit">人</span>
+        </p>
         <p class="stat-label" data-i18n="support.stat2.label">支援プログラムに参加した子どもたち</p>
       </div>
       <div class="stat-card">
-        <p class="stat-num">24<span data-i18n="support.stat3.unit">人</span></p>
+        <p class="stat-num">
+          <span class="stat-number" data-count="24">0</span><span class="stat-unit" data-i18n="support.stat3.unit">人</span>
+        </p>
         <p class="stat-label" data-i18n="support.stat3.label">ハッピを巣立った卒業生たち</p>
       </div>
       <div class="stat-card">
-        <p class="stat-num">67<span data-i18n="support.stat4.unit">校</span></p>
+        <p class="stat-num">
+          <span class="stat-number" data-count="67">0</span><span class="stat-unit" data-i18n="support.stat4.unit">校</span>
+        </p>
         <p class="stat-label" data-i18n="support.stat4.label">学校建設・修繕支援</p>
       </div>
       <div class="stat-card">
-        <p class="stat-num">995<span data-i18n="support.stat5.unit">人</span></p>
+        <p class="stat-num">
+          <span class="stat-number" data-count="995">0</span><span class="stat-unit" data-i18n="support.stat5.unit">人</span>
+        </p>
         <p class="stat-label" data-i18n="support.stat5.label">2024年度の継続支援者</p>
       </div>
       <div class="stat-card">
-        <p class="stat-num">Top 3%</p>
+        <p class="stat-num">
+          <span class="stat-prefix">Top </span><span class="stat-number" data-count="3">0</span><span class="stat-unit">%</span>
+        </p>
         <p class="stat-label" data-i18n="support.stat6.label">認定NPO法人</p>
       </div>
     </div>
@@ -1394,6 +1595,18 @@ const I18N = {
     "concept.item4.title": "家",
     "concept.item4.body": "安心して眠れる、愛情に満ちた「家」があること。一人ひとりに帰る場所を。",
 
+    "howItWorks.eyebrow": "HOW IT WORKS",
+    "howItWorks.title": "あなたの寄付が<br>子どもの未来になるまで",
+    "howItWorks.lead": "一つの寄付が、4つの支援を通じて、未来のリーダーを育てます。",
+    "howItWorks.step1.title": "あなたの寄付",
+    "howItWorks.step1.body": "1,000円から。今回のみ、または毎月の継続から選べます。",
+    "howItWorks.step2.title": "GLOBE JUNGLE",
+    "howItWorks.step2.body": "認定NPOとして現地へ直接届けます。",
+    "howItWorks.step3.title": "4つの支援",
+    "howItWorks.step3.body": "食・教育・仕事・家<br>暮らしの全てを支えます。",
+    "howItWorks.step4.title": "未来のリーダー",
+    "howItWorks.step4.body": "自立して地域を支える大人へ。",
+
     "support.eyebrow": "SUPPORT",
     "support.title": "21年間の支援の軌跡",
     "support.stat1.unit": "年間",
@@ -1525,6 +1738,18 @@ const I18N = {
     "concept.item4.icon": "Home",
     "concept.item4.title": "Home",
     "concept.item4.body": "A loving home where you can sleep peacefully. A place to come back to for everyone.",
+
+    "howItWorks.eyebrow": "HOW IT WORKS",
+    "howItWorks.title": "How Your Gift Becomes<br>a Child's Future",
+    "howItWorks.lead": "One donation supports four pillars, raising future leaders.",
+    "howItWorks.step1.title": "Your Donation",
+    "howItWorks.step1.body": "From 1,000 JPY — one-time or monthly.",
+    "howItWorks.step2.title": "GLOBE JUNGLE",
+    "howItWorks.step2.body": "A certified NPO delivering directly on the ground.",
+    "howItWorks.step3.title": "Four Pillars",
+    "howItWorks.step3.body": "Food, education, work, and home<br>for every part of life.",
+    "howItWorks.step4.title": "Future Leaders",
+    "howItWorks.step4.body": "Growing into adults who support their community.",
 
     "support.eyebrow": "SUPPORT",
     "support.title": "21 Years of Impact",
@@ -1696,6 +1921,75 @@ const I18N = {
 
   // Expose small API for other scripts
   window.GJ_I18N = { getLang, setLang, applyLang, dict: I18N };
+})();
+
+</script>
+<script>
+/* ============================================================
+ * stats.js — Animated count-up for stat numbers
+ *
+ * Usage: add data-count="12800" to any element.
+ * The element's text is animated from 0 to the target
+ * when it scrolls into view (via IntersectionObserver).
+ * ============================================================ */
+
+(function () {
+  const DURATION = 1800; // ms
+  const formatter = new Intl.NumberFormat("en-US");
+
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function animate(el, target) {
+    const startTime = performance.now();
+    function tick(now) {
+      const progress = Math.min(1, (now - startTime) / DURATION);
+      const value = Math.round(target * easeOutCubic(progress));
+      el.textContent = formatter.format(value);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function init() {
+    const nodes = document.querySelectorAll("[data-count]");
+    if (!nodes.length) return;
+
+    // Reduced motion: skip animation, show final value
+    const prefersReduced = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReduced || !("IntersectionObserver" in window)) {
+      nodes.forEach((n) => {
+        const t = parseInt(n.dataset.count, 10) || 0;
+        n.textContent = formatter.format(t);
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          if (el.dataset.counted) return;
+          el.dataset.counted = "1";
+          const target = parseInt(el.dataset.count, 10) || 0;
+          animate(el, target);
+          observer.unobserve(el);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    nodes.forEach((n) => observer.observe(n));
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
 
 </script>

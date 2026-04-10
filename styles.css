@@ -412,10 +412,87 @@ ul { list-style: none; }
   color: var(--muted);
 }
 
+/* ============ HOW IT WORKS (diagram) ============ */
+.how-it-works { background: #ffffff; }
+.how-it-works-lead {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 640px;
+  margin: -20px 0 56px;
+  line-height: 1.9;
+}
+.flow-diagram {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+.flow-step {
+  flex: 1 1 0;
+  min-width: 0;
+  background: #ffffff;
+  border: 2px solid #f5e4c6;
+  border-radius: 20px;
+  padding: 40px 20px 28px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.flow-step:hover {
+  transform: translateY(-6px);
+  border-color: var(--orange);
+  box-shadow: 0 24px 50px rgba(242, 140, 46, 0.18);
+}
+.flow-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.1em;
+  box-shadow: 0 6px 14px rgba(242, 140, 46, 0.3);
+}
+.flow-icon {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff4e0 0%, #ffe0b3 100%);
+  color: var(--orange-dark);
+  display: grid;
+  place-items: center;
+}
+.flow-icon svg { width: 36px; height: 36px; }
+.flow-step h4 {
+  font-size: 16px;
+  color: var(--dark);
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+.flow-step p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.flow-arrow {
+  display: grid;
+  place-items: center;
+  color: var(--orange);
+  flex: 0 0 28px;
+  align-self: center;
+}
+.flow-arrow svg { width: 22px; height: 22px; }
+
 /* ============ SUPPORT ============ */
 .support {
-  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
-  color: #fff;
+  background: var(--bg-soft);
+  color: var(--dark);
 }
 .stats-grid {
   display: grid;
@@ -423,27 +500,50 @@ ul { list-style: none; }
   gap: 24px;
 }
 .stat-card {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.22);
-  border-radius: var(--radius);
-  padding: 32px 24px;
+  background: #ffffff;
+  border: 1px solid #f5e4c6;
+  border-radius: 20px;
+  padding: 44px 24px 36px;
   text-align: center;
-  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--orange);
+  box-shadow: 0 24px 50px rgba(242, 140, 46, 0.2);
 }
 .stat-num {
-  font-size: 42px;
+  font-size: 52px;
   font-weight: 900;
   line-height: 1.1;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #f5994a 0%, #e0761a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--orange-dark);
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
 }
-.stat-num span {
-  font-size: 18px;
-  margin-left: 4px;
-  font-weight: 700;
+.stat-number { min-width: 1ch; }
+.stat-prefix {
+  font-size: 24px;
+  font-weight: 800;
+}
+.stat-unit {
+  font-size: 22px;
+  font-weight: 800;
 }
 .stat-label {
   font-size: 13px;
-  opacity: 0.95;
+  color: var(--muted);
+  font-weight: 500;
+  line-height: 1.6;
 }
 
 /* ============ MOMENTS ============ */
@@ -924,6 +1024,9 @@ ul { list-style: none; }
 @media (max-width: 1024px) {
   .donate-layout { grid-template-columns: 1fr; }
   .donate-summary { position: static; }
+  .flow-diagram { flex-wrap: wrap; }
+  .flow-step { flex: 1 1 calc(50% - 20px); max-width: none; }
+  .flow-arrow { display: none; }
 }
 
 @media (max-width: 900px) {
@@ -970,6 +1073,9 @@ ul { list-style: none; }
     justify-self: center;
     margin-top: 12px;
   }
+  .flow-diagram { flex-direction: column; gap: 32px; }
+  .flow-step { flex: 0 0 auto; max-width: none; }
+  .how-it-works-lead { margin-bottom: 40px; }
   .story-grid,
   .concept-grid,
   .stats-grid,
