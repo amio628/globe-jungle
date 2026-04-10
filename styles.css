@@ -200,6 +200,8 @@ ul { list-style: none; }
   position: absolute;
   border-radius: 50%;
   opacity: 0.95;
+  transform: scale(0);
+  animation: circle-pop 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 /* Large gradient blob behind hero text (desktop: left side) */
 .circle-1 {
@@ -210,6 +212,7 @@ ul { list-style: none; }
     #f5994a 38%,
     #f4c15e 60%,
     #7ec8a8 92%);
+  animation-delay: 0.1s;
 }
 /* Medium orange accent blob (center-right) */
 .circle-2 {
@@ -217,6 +220,7 @@ ul { list-style: none; }
   right: 10%; top: 56%;
   background: radial-gradient(circle at 35% 35%, #ffd27a, #f28c2e 75%);
   opacity: 0.85;
+  animation-delay: 0.45s;
 }
 /* Solid white circle that "carves out" empty space */
 .circle-3 {
@@ -224,26 +228,72 @@ ul { list-style: none; }
   left: 45%; top: 52%;
   background: #ffffff;
   box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  animation-delay: 0.7s;
 }
 /* Tiny accent dot bottom-right */
 .circle-4 {
   width: 70px; height: 70px;
   right: 8%; bottom: 14%;
   background: radial-gradient(circle, #ffd27a, #f28c2e);
+  animation-delay: 0.9s;
 }
 .circle-outline {
   position: absolute;
   border: 2px solid #f28c2e;
   border-radius: 50%;
   background: transparent;
+  transform: scale(0);
+  animation: circle-pop 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 .circle-outline-1 {
   width: 250px; height: 250px;
   left: 49%; top: 34%;
+  animation-delay: 0.55s;
 }
 .circle-outline-2 {
   width: 92px; height: 92px;
   right: 6%; bottom: 6%;
+  animation-delay: 0.85s;
+}
+
+/* Keyframe: scale up from center with a soft ripple-in feel */
+@keyframes circle-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: var(--circle-opacity, 0.95);
+  }
+}
+
+/* Gentle continuous breathing after the initial pop */
+.circle-1,
+.circle-2,
+.circle-4 {
+  animation:
+    circle-pop 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    circle-breathe 6s ease-in-out infinite;
+}
+.circle-2 { animation-delay: 0.45s, 1.9s; }
+.circle-1 { animation-delay: 0.1s, 1.6s; }
+.circle-4 { animation-delay: 0.9s, 2.3s; }
+
+@keyframes circle-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circle,
+  .circle-outline {
+    animation: none;
+    transform: scale(1);
+  }
 }
 
 .hero-inner {
