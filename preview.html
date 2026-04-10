@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.title">GLOBE JUNGLE | Happyの連鎖を一緒にひろげよう</title>
+<meta name="description" data-i18n="meta.description" content="カンボジアの子どもたちに、当たり前の幸せを届ける認定NPO法人グローブジャングルの寄付サイトです。">
+<style>
+/* ============ BASE ============ */
+:root {
+  --orange: #f28c2e;
+  --orange-dark: #e0761a;
+  --yellow: #f7c948;
+  --pink: #f06c9b;
+  --green: #4fb59c;
+  --dark: #1a1a1a;
+  --text: #2a2a2a;
+  --muted: #6b6b6b;
+  --bg: #ffffff;
+  --bg-soft: #fff7ec;
+  --radius: 16px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --font-jp: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-jp);
+  color: var(--text);
+  line-height: 1.7;
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 24px;
+}
+
+.section-eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--orange);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.section-eyebrow.light { color: #fff; }
+.section-eyebrow.accent { color: var(--orange); font-size: 22px; font-style: italic; }
+
+.section-title {
+  font-size: 34px;
+  line-height: 1.4;
+  font-weight: 800;
+  margin-bottom: 40px;
+  color: var(--dark);
+}
+.section-title.light { color: #fff; }
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--orange);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(242, 140, 46, 0.35);
+}
+.btn-primary:hover { transform: translateY(-2px); background: var(--orange-dark); }
+.btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.15); }
+.btn-small {
+  padding: 10px 22px;
+  font-size: 13px;
+  background: var(--orange);
+  color: #fff;
+}
+
+/* ============ HEADER ============ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #eee;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; }
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.logo-mark.big { width: 56px; height: 56px; font-size: 18px; }
+.logo-text { color: var(--dark); letter-spacing: 0.05em; }
+
+.global-nav ul { display: flex; gap: 28px; }
+.global-nav a {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--dark);
+}
+.global-nav a:hover { color: var(--orange); }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-cta {
+  background: var(--orange);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Language toggle (JP / EN tab) */
+.lang-toggle {
+  display: inline-flex;
+  background: #f3f3f3;
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+}
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lang-btn.active,
+.lang-btn[aria-selected="true"] {
+  background: #fff;
+  color: var(--dark);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.lang-btn:hover:not(.active) { color: var(--dark); }
+
+/* Mobile menu button (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--dark);
+}
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  background: #0a0a0a;
+  color: #fff;
+  overflow: hidden;
+  min-height: 560px;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.95;
+}
+.circle-1 {
+  width: 620px; height: 620px;
+  left: -120px; top: -120px;
+  background: radial-gradient(circle at 35% 35%, #f06c9b 0%, #f28c2e 40%, #4fb59c 90%);
+}
+.circle-2 {
+  width: 360px; height: 360px;
+  right: -60px; top: -40px;
+  background: radial-gradient(circle at 40% 40%, #ffd27a, #f28c2e 70%);
+}
+.circle-3 {
+  width: 200px; height: 200px;
+  left: 52%; top: 58%;
+  background: #ffffff;
+  filter: none;
+}
+.circle-4 {
+  width: 80px; height: 80px;
+  right: 18%; bottom: 10%;
+  background: radial-gradient(circle at 40% 40%, #ffd27a, #f28c2e);
+}
+.circle-outline {
+  position: absolute;
+  border: 2px solid;
+  border-radius: 50%;
+  background: transparent;
+}
+.circle-outline-1 {
+  width: 220px; height: 220px;
+  left: 46%; top: 44%;
+  border-image: linear-gradient(135deg, #f06c9b, #f28c2e, #ffd27a) 1;
+  border-color: #f28c2e;
+}
+.circle-outline-2 {
+  width: 90px; height: 90px;
+  right: 10%; bottom: 8%;
+  border-color: #f28c2e;
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 110px 24px 120px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.hero-eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: #ffd27a;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.hero-title {
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  background: linear-gradient(90deg, #ffffff 0%, #ffd27a 60%, #f28c2e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.02em;
+}
+.hero-lead {
+  font-size: 16px;
+  color: #e8e8e8;
+  margin-bottom: 32px;
+  line-height: 1.9;
+}
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-photo img {
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* ============ FEATURE BAR ============ */
+.feature-bar {
+  background: var(--bg-soft);
+  border-bottom: 1px solid #f1e3cc;
+}
+.feature-bar-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.feature-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 700;
+  color: var(--dark);
+}
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  color: var(--orange);
+  font-size: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* ============ STORY ============ */
+.story { background: #fff; }
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.story-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+.story-card:hover { transform: translateY(-4px); }
+.story-card img { width: 100%; height: 200px; object-fit: cover; }
+.story-card h3 {
+  padding: 20px 20px 8px;
+  font-size: 18px;
+  color: var(--dark);
+}
+.story-card p {
+  padding: 0 20px 24px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* ============ CONCEPT ============ */
+.concept { background: var(--bg-soft); }
+.concept-lead {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 48px;
+  max-width: 720px;
+}
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.concept-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 28px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.concept-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+.concept-text h4 {
+  font-size: 18px;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.concept-text p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ============ SUPPORT ============ */
+.support {
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+  color: #fff;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.stat-card {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+.stat-num {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.stat-num span {
+  font-size: 18px;
+  margin-left: 4px;
+  font-weight: 700;
+}
+.stat-label {
+  font-size: 13px;
+  opacity: 0.95;
+}
+
+/* ============ MOMENTS ============ */
+.moments { background: #fff; }
+.moments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.moments-grid img {
+  border-radius: 12px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.moments-grid img:hover { transform: scale(1.02); }
+
+/* ============ DONATE ============ */
+.donate { background: var(--bg-soft); }
+.donate-lead {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 720px;
+  margin-bottom: 40px;
+}
+.donate-list { display: grid; gap: 16px; }
+.donate-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  border-left: 6px solid var(--orange);
+  box-shadow: var(--shadow);
+}
+.donate-info h4 {
+  font-size: 17px;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+.donate-info p {
+  font-size: 13px;
+  color: var(--muted);
+}
+.donate-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.amount-value {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--orange);
+}
+
+/* ============ REPORT ============ */
+.report { background: #fff; }
+.report-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.report-copy p { color: var(--muted); margin-bottom: 24px; }
+.report-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 16px;
+}
+.report-logo .small { font-size: 11px; color: var(--muted); }
+.report-logo .big-name { font-weight: 800; font-size: 18px; color: var(--dark); }
+.report-links {
+  display: grid;
+  gap: 14px;
+}
+.report-link {
+  display: block;
+  padding: 18px 24px;
+  background: var(--bg-soft);
+  border-radius: 999px;
+  font-weight: 700;
+  color: var(--dark);
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+.report-link:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+/* ============ FINAL CTA ============ */
+.final-cta {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a1a, #2a1a0a);
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+.final-cta::before,
+.final-cta::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.4;
+}
+.final-cta::before {
+  width: 400px; height: 400px;
+  left: -100px; top: -100px;
+  background: radial-gradient(circle, var(--pink), var(--orange));
+}
+.final-cta::after {
+  width: 300px; height: 300px;
+  right: -80px; bottom: -80px;
+  background: radial-gradient(circle, var(--yellow), var(--orange));
+}
+.final-cta-inner {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+.final-cta h2 {
+  font-size: 38px;
+  font-weight: 900;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.final-cta p {
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+.final-cta .hero-ctas { justify-content: center; }
+
+/* ============ FOOTER ============ */
+.site-footer {
+  background: #0f0f0f;
+  color: #bbb;
+  padding: 60px 24px 30px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #2a2a2a;
+}
+.footer-logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.footer-col h5 {
+  color: #fff;
+  font-size: 13px;
+  margin-bottom: 14px;
+  letter-spacing: 0.1em;
+}
+.small { font-size: 12px; color: #999; }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a { font-size: 12px; }
+.footer-links a:hover { color: var(--orange); }
+.copyright {
+  text-align: center;
+  font-size: 11px;
+  color: #666;
+  padding-top: 24px;
+}
+
+/* ============ DONATE PAGE ============ */
+.page-donate { background: var(--bg-soft); }
+
+.donate-page { min-height: 70vh; }
+
+.donate-hero {
+  position: relative;
+  background: #0a0a0a;
+  color: #fff;
+  overflow: hidden;
+  padding: 72px 24px 96px;
+}
+.donate-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.donate-hero-bg .circle-1 {
+  width: 480px; height: 480px;
+  left: -140px; top: -140px;
+  background: radial-gradient(circle at 35% 35%, #f06c9b 0%, #f28c2e 50%, #4fb59c 95%);
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.9;
+}
+.donate-hero-bg .circle-2 {
+  width: 260px; height: 260px;
+  right: -40px; top: 20px;
+  background: radial-gradient(circle at 40% 40%, #ffd27a, #f28c2e 70%);
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+.donate-hero-bg .circle-outline-1 {
+  width: 160px; height: 160px;
+  right: 20%; bottom: 10%;
+  border: 2px solid #f28c2e;
+  border-radius: 50%;
+  position: absolute;
+}
+.donate-hero-inner {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.donate-hero h1 {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, #ffffff 0%, #ffd27a 60%, #f28c2e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.donate-hero p {
+  max-width: 640px;
+  color: #e8e8e8;
+  font-size: 15px;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #ffd27a;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  letter-spacing: 0.05em;
+}
+.breadcrumb a { color: #ffd27a; }
+.breadcrumb a:hover { color: #fff; }
+
+.donate-layout {
+  max-width: 1100px;
+  margin: -48px auto 0;
+  padding: 0 24px 96px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 32px;
+  align-items: flex-start;
+  position: relative;
+}
+
+.donate-form {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px;
+}
+
+.form-field {
+  border: none;
+  padding: 0;
+  margin-bottom: 28px;
+}
+.form-field legend {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+/* Segmented control (one-time / monthly) */
+.segmented {
+  display: inline-flex;
+  background: #f3f3f3;
+  padding: 4px;
+  border-radius: 999px;
+  width: 100%;
+  max-width: 360px;
+}
+.segmented-option {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+.segmented-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.segmented-option span {
+  display: block;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+.segmented-option input:checked + span {
+  background: #fff;
+  color: var(--dark);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Amount chips */
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.amount-chip {
+  position: relative;
+  cursor: pointer;
+}
+.amount-chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.amount-chip span {
+  display: block;
+  text-align: center;
+  padding: 18px 12px;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--dark);
+  transition: all 0.2s;
+  background: #fff;
+}
+.amount-chip:hover span { border-color: var(--orange); }
+.amount-chip input:checked + span {
+  border-color: var(--orange);
+  background: linear-gradient(135deg, #fff4e0, #ffe4bf);
+  color: var(--orange-dark);
+  box-shadow: 0 4px 14px rgba(242, 140, 46, 0.2);
+}
+.amount-chip-custom span { font-size: 13px; }
+
+.custom-amount-wrap {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f9f9f9;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  padding: 0 16px;
+}
+.custom-amount-wrap .currency {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--orange);
+}
+.custom-amount-wrap input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 700;
+  outline: none;
+}
+
+/* Generic text/select inputs */
+.donate-form input[type="text"],
+.donate-form input[type="email"],
+.donate-form select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  font-size: 14px;
+  background: #fff;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  outline: none;
+}
+.donate-form input:focus,
+.donate-form select:focus {
+  border-color: var(--orange);
+}
+
+.btn-large {
+  width: 100%;
+  padding: 18px 32px;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.security-note {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+.back-link {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 13px;
+}
+.back-link a { color: var(--muted); }
+.back-link a:hover { color: var(--orange); }
+
+/* Summary sidebar */
+.donate-summary {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  position: sticky;
+  top: 100px;
+}
+.donate-summary h3 {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: var(--dark);
+  letter-spacing: 0.02em;
+}
+.donate-summary dl {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.donate-summary dl > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.donate-summary dt {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.donate-summary dd {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--dark);
+  text-align: right;
+}
+#summary-amount { font-size: 20px; color: var(--orange); }
+
+.impact-box {
+  background: var(--bg-soft);
+  border-radius: 12px;
+  padding: 18px;
+}
+.impact-box h4 {
+  font-size: 12px;
+  color: var(--orange);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+.impact-box p {
+  font-size: 13px;
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .donate-layout { grid-template-columns: 1fr; }
+  .donate-summary { position: static; }
+}
+
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; padding: 80px 24px; text-align: center; }
+  .hero-ctas { justify-content: center; }
+  .hero-title { font-size: 40px; }
+  .hero-photo { margin-top: 24px; }
+  .story-grid,
+  .concept-grid,
+  .stats-grid,
+  .moments-grid { grid-template-columns: repeat(2, 1fr); }
+  .report-inner { grid-template-columns: 1fr; gap: 32px; }
+  .global-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    padding: 16px 24px;
+  }
+  .global-nav.open { display: block; }
+  .global-nav ul { flex-direction: column; gap: 16px; }
+  .menu-toggle { display: block; }
+  .header-cta { display: none; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .donate-item { grid-template-columns: 1fr; }
+  .donate-amount { align-items: flex-start; }
+  .section-title { font-size: 26px; }
+  .final-cta h2 { font-size: 28px; }
+  .donate-hero h1 { font-size: 30px; }
+  .donate-form { padding: 28px 20px; }
+}
+
+@media (max-width: 560px) {
+  .hero-title { font-size: 30px; }
+  .story-grid,
+  .concept-grid,
+  .stats-grid,
+  .moments-grid { grid-template-columns: 1fr; }
+  .section-inner { padding: 64px 20px; }
+  .feature-bar-inner { grid-template-columns: 1fr; }
+  .amount-grid { grid-template-columns: repeat(2, 1fr); }
+  .header-inner { gap: 12px; }
+  .logo-text { display: none; }
+  .lang-toggle { padding: 2px; }
+  .lang-btn { padding: 5px 10px; font-size: 11px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">GJ</span>
+      <span class="logo-text">GLOBE JUNGLE</span>
+    </a>
+    <nav class="global-nav">
+      <ul>
+        <li><a href="#story" data-i18n="nav.story">STORY</a></li>
+        <li><a href="#concept" data-i18n="nav.concept">CONCEPT</a></li>
+        <li><a href="#support" data-i18n="nav.support">SUPPORT</a></li>
+        <li><a href="#report" data-i18n="nav.report">REPORT</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">CONTACT</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="lang-toggle" role="tablist" aria-label="Language">
+        <button type="button" class="lang-btn" data-lang="ja" aria-selected="true">JP</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-selected="false">EN</button>
+      </div>
+      <a href="#donate" class="header-cta" data-i18n="nav.donate">寄付する</a>
+    </div>
+    <button class="menu-toggle" aria-label="menu">☰</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+    <div class="circle circle-4"></div>
+    <div class="circle-outline circle-outline-1"></div>
+    <div class="circle-outline circle-outline-2"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="hero-eyebrow" data-i18n="hero.eyebrow">認定NPO法人グローブジャングル</p>
+      <h1 class="hero-title" data-i18n="hero.title" data-i18n-html>Happyの連鎖を<br>一緒にひろげよう</h1>
+      <p class="hero-lead" data-i18n="hero.lead" data-i18n-html>カンボジアの子どもたちに、当たり前の幸せを。<br>あなたの想いが、未来のリーダーを育てます。</p>
+      <div class="hero-ctas">
+        <a href="#donate" class="btn btn-primary" data-i18n="hero.ctaPrimary">子どもの未来を応援する</a>
+        <a href="#story" class="btn btn-ghost" data-i18n="hero.ctaSecondary">ストーリーを見る</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <!-- 画像差し替え: assets/images/hero-children.png を配置してください -->
+      <img src="assets/images/hero-children.png"
+           onerror="this.onerror=null;this.src='https://placehold.co/560x420/ffd27a/ffffff?text=Children+of+Kukuma';"
+           alt="Children of Kukuma">
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE BAR ============ -->
+<section class="feature-bar">
+  <div class="feature-bar-inner">
+    <div class="feature-item">
+      <div class="feature-icon">◎</div>
+      <p data-i18n="featureBar.item1">寄付は10円から</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">◉</div>
+      <p data-i18n="featureBar.item2">寄付の使い道</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">◯</div>
+      <p data-i18n="featureBar.item3">質問と回答</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORY ============ -->
+<section class="story" id="story">
+  <div class="section-inner">
+    <p class="section-eyebrow" data-i18n="story.eyebrow">STORY</p>
+    <h2 class="section-title" data-i18n="story.title" data-i18n-html>くっくま孤児院から始まる、<br>未来のリーダーたち</h2>
+    <div class="story-grid">
+      <article class="story-card">
+        <img src="assets/images/story-1.jpg"
+             onerror="this.onerror=null;this.src='https://placehold.co/400x260/efb058/ffffff?text=Kukuma+Orphanage';"
+             alt="Kukuma Orphanage">
+        <h3 data-i18n="story.card1.title">くっくま孤児院</h3>
+        <p data-i18n="story.card1.body">貧困や家庭の事情で行き場を失った子どもたちに、安心して暮らせる家を。カンボジア・プノンペンの小さな孤児院から物語は始まりました。</p>
+      </article>
+      <article class="story-card">
+        <img src="assets/images/story-2.jpg"
+             onerror="this.onerror=null;this.src='https://placehold.co/400x260/e89a4f/ffffff?text=Daily+Life';"
+             alt="Daily life">
+        <h3 data-i18n="story.card2.title">毎日の時からの挑戦</h3>
+        <p data-i18n="story.card2.body">子どもたちが夢を抱き、学び、笑い合える日常を。小さな一歩の積み重ねが、大きな変化を生み出しています。</p>
+      </article>
+      <article class="story-card">
+        <img src="assets/images/story-3.jpg"
+             onerror="this.onerror=null;this.src='https://placehold.co/400x260/d98543/ffffff?text=Graduates';"
+             alt="Graduates">
+        <h3 data-i18n="story.card3.title">夢を実現した卒業生</h3>
+        <p data-i18n="story.card3.body">くっくまを巣立った子どもたちが、今度は地域のリーダーとして活躍。Happyの連鎖がひろがっています。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCEPT ============ -->
+<section class="concept" id="concept">
+  <div class="section-inner">
+    <p class="section-eyebrow" data-i18n="concept.eyebrow">CONCEPT</p>
+    <h2 class="section-title" data-i18n="concept.title" data-i18n-html>すべての子どもに<br>当たり前の幸せを</h2>
+    <p class="concept-lead" data-i18n="concept.lead">
+      私たちは、「特別」ではなく「当たり前の日常」をつくることを目指しています。
+    </p>
+    <div class="concept-grid">
+      <div class="concept-item">
+        <div class="concept-icon" data-i18n="concept.item1.icon">食</div>
+        <div class="concept-text">
+          <h4 data-i18n="concept.item1.title">栄養いっぱいの食事</h4>
+          <p data-i18n="concept.item1.body">おなかいっぱい食べられること。子どもたちの健康は食から。</p>
+        </div>
+      </div>
+      <div class="concept-item">
+        <div class="concept-icon" data-i18n="concept.item2.icon">育</div>
+        <div class="concept-text">
+          <h4 data-i18n="concept.item2.title">教育</h4>
+          <p data-i18n="concept.item2.body">子どもが夢を描ける力を育てる。学ぶ楽しさと、未来への投資を行います。</p>
+        </div>
+      </div>
+      <div class="concept-item">
+        <div class="concept-icon" data-i18n="concept.item3.icon">職</div>
+        <div class="concept-text">
+          <h4 data-i18n="concept.item3.title">仕事</h4>
+          <p data-i18n="concept.item3.body">働く喜びと誇りをもって、自立して生きていける力を育みます。</p>
+        </div>
+      </div>
+      <div class="concept-item">
+        <div class="concept-icon" data-i18n="concept.item4.icon">家</div>
+        <div class="concept-text">
+          <h4 data-i18n="concept.item4.title">家</h4>
+          <p data-i18n="concept.item4.body">安心して眠れる、愛情に満ちた「家」があること。一人ひとりに帰る場所を。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUPPORT / STATS ============ -->
+<section class="support" id="support">
+  <div class="section-inner">
+    <p class="section-eyebrow light" data-i18n="support.eyebrow">SUPPORT</p>
+    <h2 class="section-title light" data-i18n="support.title">21年間の支援の軌跡</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <p class="stat-num">21<span data-i18n="support.stat1.unit">年間</span></p>
+        <p class="stat-label" data-i18n="support.stat1.label">2003年から活動を継続</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-num">12,800<span data-i18n="support.stat2.unit">人</span></p>
+        <p class="stat-label" data-i18n="support.stat2.label">支援プログラムに参加した子どもたち</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-num">24<span data-i18n="support.stat3.unit">人</span></p>
+        <p class="stat-label" data-i18n="support.stat3.label">ハッピを巣立った卒業生たち</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-num">67<span data-i18n="support.stat4.unit">校</span></p>
+        <p class="stat-label" data-i18n="support.stat4.label">学校建設・修繕支援</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-num">995<span data-i18n="support.stat5.unit">人</span></p>
+        <p class="stat-label" data-i18n="support.stat5.label">2024年度の継続支援者</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-num">Top 3%</p>
+        <p class="stat-label" data-i18n="support.stat6.label">認定NPO法人</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVERYDAY MOMENTS ============ -->
+<section class="moments">
+  <div class="section-inner">
+    <p class="section-eyebrow" data-i18n="moments.eyebrow">EVERYDAY MOMENTS</p>
+    <h2 class="section-title" data-i18n="moments.title">子どもたちの日常</h2>
+    <div class="moments-grid">
+      <img src="assets/images/moment-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/f3a847/ffffff?text=Moment+1';" alt="Moment 1">
+      <img src="assets/images/moment-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/efb058/ffffff?text=Moment+2';" alt="Moment 2">
+      <img src="assets/images/moment-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/e89a4f/ffffff?text=Moment+3';" alt="Moment 3">
+      <img src="assets/images/moment-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/d98543/ffffff?text=Moment+4';" alt="Moment 4">
+      <img src="assets/images/moment-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/f3a847/ffffff?text=Moment+5';" alt="Moment 5">
+      <img src="assets/images/moment-6.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/efb058/ffffff?text=Moment+6';" alt="Moment 6">
+    </div>
+  </div>
+</section>
+
+<!-- ============ DONATE / CHANGES LIVES TODAY ============ -->
+<section class="donate" id="donate">
+  <div class="section-inner">
+    <p class="section-eyebrow accent" data-i18n="donate.eyebrow">Changes Lives Today.</p>
+    <h2 class="section-title" data-i18n="donate.title">今、最も必要な支援を</h2>
+    <p class="donate-lead" data-i18n="donate.lead">
+      現場の声と子どもたちのリアルなニーズに基づき、リアルタイムで公開するプロジェクト形式の支援です。
+    </p>
+    <ul class="donate-list">
+      <li class="donate-item">
+        <div class="donate-info">
+          <h4 data-i18n="donate.item1.title">学校の屋根修繕</h4>
+          <p data-i18n="donate.item1.body">雨期でも安全な教室を守るため、屋根の修繕に必要な資金を集めています。</p>
+        </div>
+        <div class="donate-amount">
+          <span class="amount-value">¥324,800</span>
+          <a href="#donate" class="btn btn-small" data-i18n="donate.action">支援する</a>
+        </div>
+      </li>
+      <li class="donate-item">
+        <div class="donate-info">
+          <h4 data-i18n="donate.item2.title">学校のトイレ改修</h4>
+          <p data-i18n="donate.item2.body">安心して使える衛生的なトイレは、女の子たちが学び続けるために欠かせません。</p>
+        </div>
+        <div class="donate-amount">
+          <span class="amount-value">¥480,201</span>
+          <a href="#donate" class="btn btn-small" data-i18n="donate.action">支援する</a>
+        </div>
+      </li>
+      <li class="donate-item">
+        <div class="donate-info">
+          <h4 data-i18n="donate.item3.title">毎日の食事</h4>
+          <p data-i18n="donate.item3.body">毎日温かいごはんを食べられること。子どもたちの成長を支える基本のプロジェクトです。</p>
+        </div>
+        <div class="donate-amount">
+          <span class="amount-value" data-i18n="donate.item3.amount">継続募集中</span>
+          <a href="#donate" class="btn btn-small" data-i18n="donate.action">支援する</a>
+        </div>
+      </li>
+      <li class="donate-item">
+        <div class="donate-info">
+          <h4 data-i18n="donate.item4.title">最も必要なところへ</h4>
+          <p data-i18n="donate.item4.body">寄付を私たちに一任いただくことで、今最も必要とされている分野にお届けします。</p>
+        </div>
+        <div class="donate-amount">
+          <span class="amount-value" data-i18n="donate.item4.amount">金額自由</span>
+          <a href="#donate" class="btn btn-small" data-i18n="donate.action">支援する</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ REPORT ============ -->
+<section class="report" id="report">
+  <div class="section-inner report-inner">
+    <div class="report-copy">
+      <p class="section-eyebrow" data-i18n="report.eyebrow">REPORT</p>
+      <h2 class="section-title" data-i18n="report.title" data-i18n-html>隠れたコストはありません<br>正直なインパクトのみ。</h2>
+      <p data-i18n="report.body">寄付の使い道から成果まで、すべて公開しています。</p>
+      <div class="report-logo">
+        <span class="logo-mark big">GJ</span>
+        <div>
+          <p class="small" data-i18n="report.orgLabel">認定NPO法人</p>
+          <p class="big-name">GLOBE JUNGLE</p>
+        </div>
+      </div>
+    </div>
+    <div class="report-links">
+      <a href="#" class="report-link" data-i18n="report.link1">財務報告書公開</a>
+      <a href="#" class="report-link" data-i18n="report.link2">現地からのリアル報告</a>
+      <a href="#" class="report-link" data-i18n="report.link3">スタッフブログ</a>
+      <a href="#" class="report-link" data-i18n="report.link4">2024年度活動報告書</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2 data-i18n="finalCta.title">The children are waiting for you.</h2>
+    <p data-i18n="finalCta.body">あなたの一歩が、子どもたちの未来を変えます。</p>
+    <div class="hero-ctas">
+      <a href="#donate" class="btn btn-primary" data-i18n="finalCta.ctaPrimary">寄付する</a>
+      <a href="#story" class="btn btn-ghost" data-i18n="finalCta.ctaSecondary">活動を知る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <p class="footer-logo">GLOBE JUNGLE</p>
+      <p class="small" data-i18n="footer.orgName">認定NPO法人グローブジャングル</p>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer.contactHeading">お問い合わせ</h5>
+      <p class="small">TEL: 03-XXXX-XXXX</p>
+      <p class="small">info@globejungle.example</p>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer.linksHeading">リンク</h5>
+      <ul class="footer-links">
+        <li><a href="#story" data-i18n="nav.story">STORY</a></li>
+        <li><a href="#concept" data-i18n="nav.concept">CONCEPT</a></li>
+        <li><a href="#support" data-i18n="nav.support">SUPPORT</a></li>
+        <li><a href="#report" data-i18n="nav.report">REPORT</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">&copy; GLOBE JUNGLE. All Rights Reserved.</p>
+</footer>
+
+<script>
+/* ============================================================
+ * i18n.js — JP / EN language switcher
+ * Usage:
+ *   <h1 data-i18n="hero.title">デフォルト日本語</h1>
+ *   <h1 data-i18n="hero.title" data-i18n-html>改行<br>を許可</h1>
+ * Language preference is stored in localStorage ("gj-lang").
+ * ============================================================ */
+
+const I18N = {
+  ja: {
+    "meta.title": "GLOBE JUNGLE | Happyの連鎖を一緒にひろげよう",
+    "meta.description": "カンボジアの子どもたちに、当たり前の幸せを届ける認定NPO法人グローブジャングルの寄付サイトです。",
+
+    "nav.story": "STORY",
+    "nav.concept": "CONCEPT",
+    "nav.support": "SUPPORT",
+    "nav.report": "REPORT",
+    "nav.contact": "CONTACT",
+    "nav.donate": "寄付する",
+
+    "hero.eyebrow": "認定NPO法人グローブジャングル",
+    "hero.title": "Happyの連鎖を<br>一緒にひろげよう",
+    "hero.lead": "カンボジアの子どもたちに、当たり前の幸せを。<br>あなたの想いが、未来のリーダーを育てます。",
+    "hero.ctaPrimary": "子どもの未来を応援する",
+    "hero.ctaSecondary": "ストーリーを見る",
+
+    "featureBar.item1": "寄付は10円から",
+    "featureBar.item2": "寄付の使い道",
+    "featureBar.item3": "質問と回答",
+
+    "story.eyebrow": "STORY",
+    "story.title": "くっくま孤児院から始まる、<br>未来のリーダーたち",
+    "story.card1.title": "くっくま孤児院",
+    "story.card1.body": "貧困や家庭の事情で行き場を失った子どもたちに、安心して暮らせる家を。カンボジア・プノンペンの小さな孤児院から物語は始まりました。",
+    "story.card2.title": "毎日の時からの挑戦",
+    "story.card2.body": "子どもたちが夢を抱き、学び、笑い合える日常を。小さな一歩の積み重ねが、大きな変化を生み出しています。",
+    "story.card3.title": "夢を実現した卒業生",
+    "story.card3.body": "くっくまを巣立った子どもたちが、今度は地域のリーダーとして活躍。Happyの連鎖がひろがっています。",
+
+    "concept.eyebrow": "CONCEPT",
+    "concept.title": "すべての子どもに<br>当たり前の幸せを",
+    "concept.lead": "私たちは、「特別」ではなく「当たり前の日常」をつくることを目指しています。",
+    "concept.item1.icon": "食",
+    "concept.item1.title": "栄養いっぱいの食事",
+    "concept.item1.body": "おなかいっぱい食べられること。子どもたちの健康は食から。",
+    "concept.item2.icon": "育",
+    "concept.item2.title": "教育",
+    "concept.item2.body": "子どもが夢を描ける力を育てる。学ぶ楽しさと、未来への投資を行います。",
+    "concept.item3.icon": "職",
+    "concept.item3.title": "仕事",
+    "concept.item3.body": "働く喜びと誇りをもって、自立して生きていける力を育みます。",
+    "concept.item4.icon": "家",
+    "concept.item4.title": "家",
+    "concept.item4.body": "安心して眠れる、愛情に満ちた「家」があること。一人ひとりに帰る場所を。",
+
+    "support.eyebrow": "SUPPORT",
+    "support.title": "21年間の支援の軌跡",
+    "support.stat1.unit": "年間",
+    "support.stat1.label": "2003年から活動を継続",
+    "support.stat2.unit": "人",
+    "support.stat2.label": "支援プログラムに参加した子どもたち",
+    "support.stat3.unit": "人",
+    "support.stat3.label": "ハッピを巣立った卒業生たち",
+    "support.stat4.unit": "校",
+    "support.stat4.label": "学校建設・修繕支援",
+    "support.stat5.unit": "人",
+    "support.stat5.label": "2024年度の継続支援者",
+    "support.stat6.label": "認定NPO法人",
+
+    "moments.eyebrow": "EVERYDAY MOMENTS",
+    "moments.title": "子どもたちの日常",
+
+    "donate.eyebrow": "Changes Lives Today.",
+    "donate.title": "今、最も必要な支援を",
+    "donate.lead": "現場の声と子どもたちのリアルなニーズに基づき、リアルタイムで公開するプロジェクト形式の支援です。",
+    "donate.action": "支援する",
+    "donate.item1.title": "学校の屋根修繕",
+    "donate.item1.body": "雨期でも安全な教室を守るため、屋根の修繕に必要な資金を集めています。",
+    "donate.item2.title": "学校のトイレ改修",
+    "donate.item2.body": "安心して使える衛生的なトイレは、女の子たちが学び続けるために欠かせません。",
+    "donate.item3.title": "毎日の食事",
+    "donate.item3.body": "毎日温かいごはんを食べられること。子どもたちの成長を支える基本のプロジェクトです。",
+    "donate.item3.amount": "継続募集中",
+    "donate.item4.title": "最も必要なところへ",
+    "donate.item4.body": "寄付を私たちに一任いただくことで、今最も必要とされている分野にお届けします。",
+    "donate.item4.amount": "金額自由",
+
+    "report.eyebrow": "REPORT",
+    "report.title": "隠れたコストはありません<br>正直なインパクトのみ。",
+    "report.body": "寄付の使い道から成果まで、すべて公開しています。",
+    "report.orgLabel": "認定NPO法人",
+    "report.link1": "財務報告書公開",
+    "report.link2": "現地からのリアル報告",
+    "report.link3": "スタッフブログ",
+    "report.link4": "2024年度活動報告書",
+
+    "finalCta.title": "The children are waiting for you.",
+    "finalCta.body": "あなたの一歩が、子どもたちの未来を変えます。",
+    "finalCta.ctaPrimary": "寄付する",
+    "finalCta.ctaSecondary": "活動を知る",
+
+    "footer.orgName": "認定NPO法人グローブジャングル",
+    "footer.contactHeading": "お問い合わせ",
+    "footer.linksHeading": "リンク",
+
+    /* ----- donate.html ----- */
+    "donatePage.meta.title": "寄付する | GLOBE JUNGLE",
+    "donatePage.breadcrumb.home": "ホーム",
+    "donatePage.breadcrumb.donate": "寄付する",
+    "donatePage.title": "あなたの寄付が未来を変えます",
+    "donatePage.lead": "ご支援いただいた寄付は、子どもたちの食事、教育、住まい、そして夢のために大切に使わせていただきます。",
+    "donatePage.frequency.label": "寄付の頻度",
+    "donatePage.frequency.onetime": "今回のみ",
+    "donatePage.frequency.monthly": "毎月",
+    "donatePage.amount.label": "寄付金額を選択",
+    "donatePage.amount.custom": "その他の金額",
+    "donatePage.amount.placeholder": "金額を入力",
+    "donatePage.project.label": "支援先プロジェクト",
+    "donatePage.project.general": "最も必要なところへ",
+    "donatePage.project.roof": "学校の屋根修繕",
+    "donatePage.project.toilet": "学校のトイレ改修",
+    "donatePage.project.meals": "毎日の食事",
+    "donatePage.email.label": "メールアドレス（任意）",
+    "donatePage.email.placeholder": "example@mail.com",
+    "donatePage.name.label": "お名前（任意）",
+    "donatePage.name.placeholder": "山田 太郎",
+    "donatePage.submit": "Stripeで決済する",
+    "donatePage.securityNote": "決済は Stripe で安全に処理されます。当サイトにカード情報は保存されません。",
+    "donatePage.summary.title": "ご寄付内容",
+    "donatePage.summary.frequency": "頻度",
+    "donatePage.summary.amount": "金額",
+    "donatePage.summary.project": "支援先",
+    "donatePage.impact.title": "この金額でできること",
+    "donatePage.impact.1000": "1,000円で、子ども1人の1週間の給食がまかなえます。",
+    "donatePage.impact.3000": "3,000円で、教科書と学用品を1人に届けられます。",
+    "donatePage.impact.5000": "5,000円で、1人の子どもの1ヶ月の生活を支えられます。",
+    "donatePage.impact.10000": "10,000円で、教室の修繕資材の一部となります。",
+    "donatePage.impact.default": "金額に応じて、最も必要なところへ大切に使わせていただきます。",
+    "donatePage.back": "← LPに戻る"
+  },
+
+  en: {
+    "meta.title": "GLOBE JUNGLE | Join the Circle of Happiness",
+    "meta.description": "Donation site for GLOBE JUNGLE, a certified NPO delivering everyday happiness to children in Cambodia.",
+
+    "nav.story": "STORY",
+    "nav.concept": "CONCEPT",
+    "nav.support": "SUPPORT",
+    "nav.report": "REPORT",
+    "nav.contact": "CONTACT",
+    "nav.donate": "Donate",
+
+    "hero.eyebrow": "Certified NPO — GLOBE JUNGLE",
+    "hero.title": "Join the Circle<br>of Happiness.",
+    "hero.lead": "Bring everyday happiness to children in Cambodia.<br>Your kindness raises the leaders of tomorrow.",
+    "hero.ctaPrimary": "Support a Child's Future",
+    "hero.ctaSecondary": "See Our Story",
+
+    "featureBar.item1": "Donate from as little as 10 yen",
+    "featureBar.item2": "How your donation is used",
+    "featureBar.item3": "Questions & Answers",
+
+    "story.eyebrow": "STORY",
+    "story.title": "Future Leaders, Starting<br>from Kukuma Orphanage",
+    "story.card1.title": "Kukuma Orphanage",
+    "story.card1.body": "A safe home for children who have lost their place due to poverty or family circumstances. Our story began at a small orphanage in Phnom Penh, Cambodia.",
+    "story.card2.title": "Every Day is a New Challenge",
+    "story.card2.body": "An ordinary life where children can dream, learn, and laugh together. Small steps add up to create meaningful change.",
+    "story.card3.title": "Graduates Living Their Dreams",
+    "story.card3.body": "Children who grew up at Kukuma are now community leaders themselves. The circle of happiness keeps expanding.",
+
+    "concept.eyebrow": "CONCEPT",
+    "concept.title": "Everyday Happiness<br>for Every Child",
+    "concept.lead": "We aim to build not an exceptional life, but an ordinary, happy everyday for every child.",
+    "concept.item1.icon": "Food",
+    "concept.item1.title": "Nutritious Meals",
+    "concept.item1.body": "Being able to eat until full. Children's health starts with what they eat.",
+    "concept.item2.icon": "Edu",
+    "concept.item2.title": "Education",
+    "concept.item2.body": "Nurturing the power to dream. We invest in the joy of learning and the future.",
+    "concept.item3.icon": "Work",
+    "concept.item3.title": "Work",
+    "concept.item3.body": "Growing the strength to live independently with pride and joy in one's work.",
+    "concept.item4.icon": "Home",
+    "concept.item4.title": "Home",
+    "concept.item4.body": "A loving home where you can sleep peacefully. A place to come back to for everyone.",
+
+    "support.eyebrow": "SUPPORT",
+    "support.title": "21 Years of Impact",
+    "support.stat1.unit": " years",
+    "support.stat1.label": "Operating continuously since 2003",
+    "support.stat2.unit": "",
+    "support.stat2.label": "Children reached by our programs",
+    "support.stat3.unit": "",
+    "support.stat3.label": "Graduates who have left the nest",
+    "support.stat4.unit": "",
+    "support.stat4.label": "Schools built or renovated",
+    "support.stat5.unit": "",
+    "support.stat5.label": "Continuing supporters in 2024",
+    "support.stat6.label": "Certified NPO",
+
+    "moments.eyebrow": "EVERYDAY MOMENTS",
+    "moments.title": "Everyday Life of the Children",
+
+    "donate.eyebrow": "Changes Lives Today.",
+    "donate.title": "The Support Needed Right Now",
+    "donate.lead": "Project-based giving with real-time transparency, based on voices from the field and the real needs of children.",
+    "donate.action": "Support",
+    "donate.item1.title": "School Roof Repair",
+    "donate.item1.body": "Protecting safe classrooms during the rainy season — we're raising funds to repair the roof.",
+    "donate.item2.title": "School Toilet Renovation",
+    "donate.item2.body": "Clean, safe toilets are essential for girls to stay in school.",
+    "donate.item3.title": "Daily Meals",
+    "donate.item3.body": "A warm meal every day — the foundational project that supports children's growth.",
+    "donate.item3.amount": "Ongoing",
+    "donate.item4.title": "Where Needed Most",
+    "donate.item4.body": "Entrust us with your gift, and we'll direct it to where it's needed most right now.",
+    "donate.item4.amount": "Any amount",
+
+    "report.eyebrow": "REPORT",
+    "report.title": "No Hidden Costs.<br>Just Honest Impact.",
+    "report.body": "Everything is public — from how donations are used to the outcomes.",
+    "report.orgLabel": "Certified NPO",
+    "report.link1": "Financial Reports",
+    "report.link2": "Reports from the Field",
+    "report.link3": "Staff Blog",
+    "report.link4": "2024 Annual Report",
+
+    "finalCta.title": "The children are waiting for you.",
+    "finalCta.body": "Your single step can change a child's future.",
+    "finalCta.ctaPrimary": "Donate",
+    "finalCta.ctaSecondary": "Learn More",
+
+    "footer.orgName": "Certified NPO — GLOBE JUNGLE",
+    "footer.contactHeading": "Contact",
+    "footer.linksHeading": "Links",
+
+    /* ----- donate.html ----- */
+    "donatePage.meta.title": "Donate | GLOBE JUNGLE",
+    "donatePage.breadcrumb.home": "Home",
+    "donatePage.breadcrumb.donate": "Donate",
+    "donatePage.title": "Your donation changes futures",
+    "donatePage.lead": "Your gift goes directly to meals, education, homes, and dreams for the children we serve.",
+    "donatePage.frequency.label": "Frequency",
+    "donatePage.frequency.onetime": "One-time",
+    "donatePage.frequency.monthly": "Monthly",
+    "donatePage.amount.label": "Select an amount",
+    "donatePage.amount.custom": "Other amount",
+    "donatePage.amount.placeholder": "Enter amount",
+    "donatePage.project.label": "Project",
+    "donatePage.project.general": "Where needed most",
+    "donatePage.project.roof": "School roof repair",
+    "donatePage.project.toilet": "School toilet renovation",
+    "donatePage.project.meals": "Daily meals",
+    "donatePage.email.label": "Email (optional)",
+    "donatePage.email.placeholder": "example@mail.com",
+    "donatePage.name.label": "Name (optional)",
+    "donatePage.name.placeholder": "Your name",
+    "donatePage.submit": "Continue to Stripe",
+    "donatePage.securityNote": "Payments are securely processed by Stripe. We never store your card information.",
+    "donatePage.summary.title": "Your donation",
+    "donatePage.summary.frequency": "Frequency",
+    "donatePage.summary.amount": "Amount",
+    "donatePage.summary.project": "Project",
+    "donatePage.impact.title": "What your gift makes possible",
+    "donatePage.impact.1000": "1,000 JPY provides one week of school meals for a child.",
+    "donatePage.impact.3000": "3,000 JPY provides textbooks and school supplies for one child.",
+    "donatePage.impact.5000": "5,000 JPY covers one month of living essentials for a child.",
+    "donatePage.impact.10000": "10,000 JPY contributes to classroom repair materials.",
+    "donatePage.impact.default": "Your gift will be directed where it is needed most.",
+    "donatePage.back": "← Back to LP"
+  }
+};
+
+(function () {
+  const STORAGE_KEY = "gj-lang";
+  const DEFAULT_LANG = "ja";
+
+  function getLang() {
+    return localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
+  }
+
+  function setLang(lang) {
+    if (!I18N[lang]) return;
+    localStorage.setItem(STORAGE_KEY, lang);
+    applyLang(lang);
+  }
+
+  function applyLang(lang) {
+    const dict = I18N[lang] || I18N[DEFAULT_LANG];
+    document.documentElement.lang = lang;
+
+    // Update <title>
+    const titleEl = document.querySelector("title[data-i18n]");
+    if (titleEl) {
+      const key = titleEl.getAttribute("data-i18n");
+      if (dict[key]) titleEl.textContent = dict[key];
+    }
+
+    // Update all [data-i18n] elements
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      const value = dict[key];
+      if (value == null) return;
+
+      if (el.tagName === "TITLE") {
+        el.textContent = value;
+      } else if (el.tagName === "META") {
+        el.setAttribute("content", value);
+      } else if (el.tagName === "INPUT" && (el.type === "text" || el.type === "email" || el.type === "number")) {
+        el.placeholder = value;
+      } else if (el.hasAttribute("data-i18n-html")) {
+        el.innerHTML = value;
+      } else {
+        el.textContent = value;
+      }
+    });
+
+    // Update placeholder attributes via data-i18n-placeholder
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      if (dict[key]) el.setAttribute("placeholder", dict[key]);
+    });
+
+    // Sync lang toggle active state
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      const active = btn.getAttribute("data-lang") === lang;
+      btn.setAttribute("aria-selected", String(active));
+      btn.classList.toggle("active", active);
+    });
+
+    // Broadcast so other scripts (donate page) can react
+    document.dispatchEvent(new CustomEvent("langchange", { detail: { lang } }));
+  }
+
+  function init() {
+    // Attach click handlers to language buttons
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang")));
+    });
+    // Mobile menu toggle (simple)
+    const menuBtn = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".global-nav");
+    if (menuBtn && nav) {
+      menuBtn.addEventListener("click", () => nav.classList.toggle("open"));
+    }
+    applyLang(getLang());
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+  // Expose small API for other scripts
+  window.GJ_I18N = { getLang, setLang, applyLang, dict: I18N };
+})();
+
+</script>
+</body>
+</html>
