@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="donatePage.meta.title">寄付する | GLOBE JUNGLE</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-donate">
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">GJ</span>
+      <span class="logo-text">GLOBE JUNGLE</span>
+    </a>
+    <nav class="global-nav">
+      <ul>
+        <li><a href="index.html#story" data-i18n="nav.story">STORY</a></li>
+        <li><a href="index.html#concept" data-i18n="nav.concept">CONCEPT</a></li>
+        <li><a href="index.html#support" data-i18n="nav.support">SUPPORT</a></li>
+        <li><a href="index.html#report" data-i18n="nav.report">REPORT</a></li>
+        <li><a href="index.html#contact" data-i18n="nav.contact">CONTACT</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="lang-toggle" role="tablist" aria-label="Language">
+        <button type="button" class="lang-btn" data-lang="ja" aria-selected="true">JP</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-selected="false">EN</button>
+      </div>
+    </div>
+    <button class="menu-toggle" aria-label="menu">☰</button>
+  </div>
+</header>
+
+<!-- ============ DONATE PAGE ============ -->
+<main class="donate-page">
+  <div class="donate-hero">
+    <div class="donate-hero-bg">
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+      <div class="circle-outline circle-outline-1"></div>
+    </div>
+    <div class="donate-hero-inner">
+      <nav class="breadcrumb">
+        <a href="index.html" data-i18n="donatePage.breadcrumb.home">ホーム</a>
+        <span>/</span>
+        <span data-i18n="donatePage.breadcrumb.donate">寄付する</span>
+      </nav>
+      <h1 data-i18n="donatePage.title">あなたの寄付が未来を変えます</h1>
+      <p data-i18n="donatePage.lead">ご支援いただいた寄付は、子どもたちの食事、教育、住まい、そして夢のために大切に使わせていただきます。</p>
+    </div>
+  </div>
+
+  <div class="donate-layout">
+    <form class="donate-form" id="donate-form" novalidate>
+      <!-- Frequency -->
+      <fieldset class="form-field">
+        <legend data-i18n="donatePage.frequency.label">寄付の頻度</legend>
+        <div class="segmented" role="radiogroup">
+          <label class="segmented-option">
+            <input type="radio" name="frequency" value="onetime" checked>
+            <span data-i18n="donatePage.frequency.onetime">今回のみ</span>
+          </label>
+          <label class="segmented-option">
+            <input type="radio" name="frequency" value="monthly">
+            <span data-i18n="donatePage.frequency.monthly">毎月</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Amount presets -->
+      <fieldset class="form-field">
+        <legend data-i18n="donatePage.amount.label">寄付金額を選択</legend>
+        <div class="amount-grid" role="radiogroup">
+          <label class="amount-chip">
+            <input type="radio" name="amount" value="1000">
+            <span>¥1,000</span>
+          </label>
+          <label class="amount-chip">
+            <input type="radio" name="amount" value="3000" checked>
+            <span>¥3,000</span>
+          </label>
+          <label class="amount-chip">
+            <input type="radio" name="amount" value="5000">
+            <span>¥5,000</span>
+          </label>
+          <label class="amount-chip">
+            <input type="radio" name="amount" value="10000">
+            <span>¥10,000</span>
+          </label>
+          <label class="amount-chip">
+            <input type="radio" name="amount" value="30000">
+            <span>¥30,000</span>
+          </label>
+          <label class="amount-chip amount-chip-custom">
+            <input type="radio" name="amount" value="custom">
+            <span data-i18n="donatePage.amount.custom">その他の金額</span>
+          </label>
+        </div>
+        <div class="custom-amount-wrap" hidden>
+          <span class="currency">¥</span>
+          <input type="number" id="custom-amount" min="100" step="100"
+                 data-i18n-placeholder="donatePage.amount.placeholder" placeholder="金額を入力">
+        </div>
+      </fieldset>
+
+      <!-- Project -->
+      <fieldset class="form-field">
+        <legend data-i18n="donatePage.project.label">支援先プロジェクト</legend>
+        <select id="project" name="project">
+          <option value="general" data-i18n="donatePage.project.general">最も必要なところへ</option>
+          <option value="roof" data-i18n="donatePage.project.roof">学校の屋根修繕</option>
+          <option value="toilet" data-i18n="donatePage.project.toilet">学校のトイレ改修</option>
+          <option value="meals" data-i18n="donatePage.project.meals">毎日の食事</option>
+        </select>
+      </fieldset>
+
+      <!-- Donor info -->
+      <fieldset class="form-field">
+        <legend data-i18n="donatePage.name.label">お名前(任意)</legend>
+        <input type="text" id="donor-name" name="name"
+               data-i18n-placeholder="donatePage.name.placeholder" placeholder="山田 太郎">
+      </fieldset>
+
+      <fieldset class="form-field">
+        <legend data-i18n="donatePage.email.label">メールアドレス(任意)</legend>
+        <input type="email" id="donor-email" name="email"
+               data-i18n-placeholder="donatePage.email.placeholder" placeholder="example@mail.com">
+      </fieldset>
+
+      <button type="submit" class="btn btn-primary btn-large" id="donate-submit" data-i18n="donatePage.submit">
+        Stripeで決済する
+      </button>
+      <p class="security-note" data-i18n="donatePage.securityNote">
+        決済は Stripe で安全に処理されます。当サイトにカード情報は保存されません。
+      </p>
+      <p class="back-link"><a href="index.html" data-i18n="donatePage.back">← LPに戻る</a></p>
+    </form>
+
+    <!-- Live summary card -->
+    <aside class="donate-summary">
+      <h3 data-i18n="donatePage.summary.title">ご寄付内容</h3>
+      <dl>
+        <div>
+          <dt data-i18n="donatePage.summary.frequency">頻度</dt>
+          <dd id="summary-frequency">—</dd>
+        </div>
+        <div>
+          <dt data-i18n="donatePage.summary.amount">金額</dt>
+          <dd id="summary-amount">—</dd>
+        </div>
+        <div>
+          <dt data-i18n="donatePage.summary.project">支援先</dt>
+          <dd id="summary-project">—</dd>
+        </div>
+      </dl>
+      <div class="impact-box">
+        <h4 data-i18n="donatePage.impact.title">この金額でできること</h4>
+        <p id="impact-text" data-i18n="donatePage.impact.default">金額に応じて、最も必要なところへ大切に使わせていただきます。</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <p class="footer-logo">GLOBE JUNGLE</p>
+      <p class="small" data-i18n="footer.orgName">認定NPO法人グローブジャングル</p>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer.contactHeading">お問い合わせ</h5>
+      <p class="small">TEL: 03-XXXX-XXXX</p>
+      <p class="small">info@globejungle.example</p>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer.linksHeading">リンク</h5>
+      <ul class="footer-links">
+        <li><a href="index.html#story" data-i18n="nav.story">STORY</a></li>
+        <li><a href="index.html#concept" data-i18n="nav.concept">CONCEPT</a></li>
+        <li><a href="index.html#support" data-i18n="nav.support">SUPPORT</a></li>
+        <li><a href="index.html#report" data-i18n="nav.report">REPORT</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">&copy; GLOBE JUNGLE. All Rights Reserved.</p>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/donate.js"></script>
+</body>
+</html>
