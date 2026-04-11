@@ -94,9 +94,9 @@ ul { list-style: none; }
 .section-eyebrow.accent { color: var(--orange); font-size: 22px; font-style: italic; }
 
 .section-title {
-  font-size: 34px;
-  line-height: 1.4;
-  font-weight: 800;
+  font-size: 40px;
+  line-height: 1.45;
+  font-weight: 600;
   margin-bottom: 40px;
   color: var(--dark);
 }
@@ -251,21 +251,27 @@ ul { list-style: none; }
 }
 /* Large gradient blob behind hero text (desktop: left side) */
 .circle-1 {
-  width: 760px; height: 760px;
-  left: -160px; top: -120px;
-  background: radial-gradient(circle at 32% 34%,
-    #f06c9b 0%,
-    #f5994a 38%,
-    #f4c15e 60%,
-    #7ec8a8 92%);
+  width: 880px; height: 760px;
+  left: -200px; top: -140px;
+  background: radial-gradient(ellipse 120% 95% at 34% 40%,
+    #4ECDC4 0%,
+    #4ECDC4 40%,
+    #FFA500 75%,
+    #FF6B9D 85%,
+    #FF6B9D 100%);
+  border-radius: 50%;
   animation-delay: 0.2s;
 }
-/* Medium orange accent blob (center-right) */
+/* Medium accent blob (center-right) */
 .circle-2 {
-  width: 300px; height: 300px;
-  right: 10%; top: 56%;
-  background: radial-gradient(circle at 35% 35%, #ffd27a, #f28c2e 75%);
-  opacity: 0.85;
+  width: 340px; height: 300px;
+  right: 8%; top: 54%;
+  background: radial-gradient(ellipse 120% 95% at 38% 40%,
+    #4ECDC4 0%,
+    #FFA500 60%,
+    #FF6B9D 95%);
+  border-radius: 50%;
+  opacity: 0.9;
   animation-delay: 0.7s;
 }
 /* Solid white circle that "carves out" empty space */
@@ -280,12 +286,12 @@ ul { list-style: none; }
 .circle-4 {
   width: 70px; height: 70px;
   right: 8%; bottom: 14%;
-  background: radial-gradient(circle, #ffd27a, #f28c2e);
+  background: radial-gradient(circle, #FFA500, #FF6B9D);
   animation-delay: 1.3s;
 }
 .circle-outline {
   position: absolute;
-  border: 2px solid #f28c2e;
+  border: 2px solid #FF6B9D;
   border-radius: 50%;
   background: transparent;
   transform: scale(0);
@@ -362,6 +368,7 @@ ul { list-style: none; }
   text-shadow: 0 1px 10px rgba(0,0,0,0.18);
 }
 .hero-title {
+  font-family: var(--font-body);
   font-size: 56px;
   font-weight: 900;
   line-height: 1.2;
@@ -1078,8 +1085,8 @@ ul { list-style: none; }
 
 .donate-hero {
   position: relative;
-  background: #0a0a0a;
-  color: #fff;
+  background: #ffffff;
+  color: var(--dark);
   overflow: hidden;
   padding: 72px 24px 96px;
 }
@@ -1089,26 +1096,33 @@ ul { list-style: none; }
   pointer-events: none;
 }
 .donate-hero-bg .circle-1 {
-  width: 480px; height: 480px;
-  left: -140px; top: -140px;
-  background: radial-gradient(circle at 35% 35%, #f06c9b 0%, #f28c2e 50%, #4fb59c 95%);
+  width: 560px; height: 480px;
+  left: -160px; top: -160px;
+  background: radial-gradient(ellipse 120% 95% at 36% 40%,
+    #4ECDC4 0%,
+    #4ECDC4 40%,
+    #FFA500 75%,
+    #FF6B9D 85%,
+    #FF6B9D 100%);
   position: absolute;
   border-radius: 50%;
-  filter: blur(2px);
-  opacity: 0.9;
+  opacity: 0.95;
 }
 .donate-hero-bg .circle-2 {
-  width: 260px; height: 260px;
-  right: -40px; top: 20px;
-  background: radial-gradient(circle at 40% 40%, #ffd27a, #f28c2e 70%);
+  width: 300px; height: 260px;
+  right: -60px; top: 10px;
+  background: radial-gradient(ellipse 120% 95% at 38% 40%,
+    #4ECDC4 0%,
+    #FFA500 60%,
+    #FF6B9D 95%);
   position: absolute;
   border-radius: 50%;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .donate-hero-bg .circle-outline-1 {
   width: 160px; height: 160px;
   right: 20%; bottom: 10%;
-  border: 2px solid #f28c2e;
+  border: 2px solid #FF6B9D;
   border-radius: 50%;
   position: absolute;
 }
@@ -1118,30 +1132,28 @@ ul { list-style: none; }
   margin: 0 auto;
 }
 .donate-hero h1 {
+  font-family: var(--font-body);
   font-size: 42px;
-  font-weight: 900;
-  line-height: 1.3;
+  font-weight: 700;
+  line-height: 1.4;
   margin-bottom: 16px;
-  background: linear-gradient(90deg, #ffffff 0%, #ffd27a 60%, #f28c2e 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--dark);
 }
 .donate-hero p {
   max-width: 640px;
-  color: #e8e8e8;
+  color: var(--muted);
   font-size: 15px;
 }
 .breadcrumb {
   font-size: 12px;
-  color: #ffd27a;
+  color: var(--muted);
   margin-bottom: 20px;
   display: flex;
   gap: 10px;
   letter-spacing: 0.05em;
 }
-.breadcrumb a { color: #ffd27a; }
-.breadcrumb a:hover { color: #fff; }
+.breadcrumb a { color: var(--orange); }
+.breadcrumb a:hover { color: var(--orange-dark); }
 
 .donate-layout {
   max-width: 1100px;
@@ -1455,7 +1467,7 @@ ul { list-style: none; }
   .donate-thumb { width: 120px; height: 100px; grid-row: 1 / span 2; }
   .donate-amount { grid-column: 2; align-items: flex-start; flex-direction: row; gap: 14px; }
   .concept-item { border-radius: 20px; padding: 20px; }
-  .section-title { font-size: 26px; }
+  .section-title { font-size: 30px; }
   .final-cta h2 { font-size: 28px; }
   .donate-hero h1 { font-size: 30px; }
   .donate-form { padding: 28px 20px; }
