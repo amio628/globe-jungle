@@ -1461,55 +1461,56 @@ ul { list-style: none; }
   .hero { min-height: auto; }
   .hero-inner {
     grid-template-columns: 1fr;
-    padding: 0 24px 40px;
+    padding: 0 24px 32px;
     text-align: center;
     gap: 0;
   }
   .hero-copy {
     position: relative;
     z-index: 5;
-    padding-top: 100px;
-    padding-bottom: 40px;
+    padding-top: 90px;
+    padding-bottom: 30px;
   }
   .hero-ctas { justify-content: center; }
-  .hero-title { font-size: 34px; }
-  .hero-lead { font-size: 14px; }
-  /* circle-1 fills viewport width so text sits ON the gradient */
+  .hero-title { font-size: 32px; }
+  .hero-lead { font-size: 13px; }
+  .hero-sub { font-size: 12px; margin-bottom: 24px; }
+  /* circle-1: centered, large enough to cover text + CTAs */
   .circle-1 {
-    width: 110vw; height: 110vw;
-    left: 50%; top: -20vw;
-    transform: translateX(-50%);
+    width: 140vw; height: 140vw;
+    left: 50%; top: 0;
+    transform: translate(-50%, -30%);
   }
   .circle-photo-bg {
-    width: 200px; height: 200px;
-    right: -20px; top: 10px;
+    width: 160px; height: 160px;
+    right: -10px; top: 20px;
   }
   .circle-2 {
-    width: 140px; height: 140px;
-    right: -30px; top: auto; bottom: 20%;
+    width: 100px; height: 100px;
+    right: -20px; top: auto; bottom: 30%;
   }
   .circle-3 {
-    width: 80px; height: 80px;
-    left: 8%; top: auto; bottom: 28%;
+    width: 60px; height: 60px;
+    left: 5%; top: auto; bottom: 32%;
   }
   .circle-4 {
-    width: 40px; height: 40px;
-    right: 18%; bottom: 10%;
+    width: 36px; height: 36px;
+    right: 14%; bottom: 18%;
   }
   .circle-outline-1 {
-    width: 120px; height: 120px;
-    left: 5%; top: auto; bottom: 22%;
+    width: 90px; height: 90px;
+    left: 3%; top: auto; bottom: 26%;
   }
   .circle-outline-2 {
-    width: 50px; height: 50px;
-    right: 8%; top: 14%;
+    width: 44px; height: 44px;
+    right: 6%; top: 16%;
   }
   .hero-photo {
     position: relative;
     z-index: 4;
-    max-width: 340px;
+    max-width: 320px;
     justify-self: center;
-    margin-top: -20px;
+    margin-top: -10px;
   }
   .flow-diagram { flex-direction: column; gap: 32px; }
   .flow-step { flex: 0 0 auto; max-width: none; }
@@ -1549,12 +1550,12 @@ ul { list-style: none; }
 }
 
 @media (max-width: 560px) {
-  .hero-title { font-size: 28px; line-height: 1.3; }
-  .hero-inner { padding: 0 20px 24px; }
-  .hero-copy { padding-top: 80px; padding-bottom: 32px; }
-  .circle-1 { width: 130vw; height: 130vw; top: -28vw; }
-  .circle-photo-bg { width: 160px; height: 160px; right: -20px; top: 0; }
-  .hero-photo { max-width: 260px; margin-top: -10px; }
+  .hero-title { font-size: 26px; line-height: 1.3; }
+  .hero-inner { padding: 0 16px 20px; }
+  .hero-copy { padding-top: 76px; padding-bottom: 24px; }
+  .circle-1 { width: 160vw; height: 160vw; transform: translate(-50%, -28%); }
+  .circle-photo-bg { width: 130px; height: 130px; right: -10px; top: 10px; }
+  .hero-photo { max-width: 240px; }
   .story-grid,
   .concept-grid,
   .stats-grid { grid-template-columns: 1fr; }
