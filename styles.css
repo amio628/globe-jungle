@@ -571,8 +571,7 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 165, 0, 0.15);
-  backdrop-filter: brightness(1.05);
+  background: rgba(255, 165, 0, 0.06);
 }
 .concept .section-inner {
   position: relative;
