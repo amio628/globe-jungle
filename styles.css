@@ -563,10 +563,27 @@ ul { list-style: none; }
 }
 
 /* ============ CONCEPT ============ */
-.concept { background: var(--bg-soft); }
+.concept {
+  position: relative;
+  background: url('assets/images/concept-children.jpg') center / cover no-repeat;
+}
+.concept::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 165, 0, 0.15);
+  backdrop-filter: brightness(1.05);
+}
+.concept .section-inner {
+  position: relative;
+  z-index: 1;
+}
+.concept .section-eyebrow { color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
+.concept .section-title { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
 .concept-lead {
   font-size: 16px;
-  color: var(--muted);
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.3);
   margin-bottom: 48px;
   max-width: 720px;
 }
