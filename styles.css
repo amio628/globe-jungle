@@ -258,8 +258,9 @@ ul { list-style: none; }
   width: 340px; height: 340px;
   right: 14%; top: 50%;
   background: linear-gradient(135deg,
-    #f0a030 0%,
-    #e8637a 100%);
+    #e8637a 0%,
+    #f0a030 45%,
+    #4dc4b7 100%);
   opacity: 0.7;
   animation-delay: 0.7s;
 }
@@ -275,7 +276,7 @@ ul { list-style: none; }
 .circle-4 {
   width: 60px; height: 60px;
   right: 5%; bottom: 8%;
-  background: linear-gradient(135deg, #f0a030, #e8637a);
+  background: linear-gradient(135deg, #e8637a, #f0a030, #4dc4b7);
   animation-delay: 1.3s;
 }
 /* 5 — Photo circle (upper-right, like reference) */
@@ -296,7 +297,16 @@ ul { list-style: none; }
 .circle-outline {
   position: absolute;
   border-radius: 50%;
-  background: transparent;
+  background: linear-gradient(135deg, #e8637a, #f0a030, #4dc4b7) border-box;
+  border: 2px solid transparent;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0) border-box;
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0) border-box;
+  mask-composite: exclude;
   transform: scale(0);
   animation: circle-pop 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   transition: translate 0.5s ease;
@@ -304,13 +314,11 @@ ul { list-style: none; }
 .circle-outline-1 {
   width: 300px; height: 300px;
   left: 38%; top: 28%;
-  border: 2px solid #e8637a;
   animation-delay: 0.85s;
 }
 .circle-outline-2 {
   width: 72px; height: 72px;
   right: 4%; bottom: 4%;
-  border: 2px solid #f0a030;
   animation-delay: 1.2s;
 }
 
@@ -1144,7 +1152,7 @@ ul { list-style: none; }
 .donate-hero-bg .circle-2 {
   width: 260px; height: 260px;
   right: -40px; top: 20px;
-  background: linear-gradient(135deg, #f0a030 0%, #e8637a 100%);
+  background: linear-gradient(135deg, #e8637a 0%, #f0a030 45%, #4dc4b7 100%);
   position: absolute;
   border-radius: 50%;
   opacity: 0.7;
@@ -1152,7 +1160,16 @@ ul { list-style: none; }
 .donate-hero-bg .circle-outline-1 {
   width: 160px; height: 160px;
   right: 20%; bottom: 10%;
-  border: 2px solid #e8637a;
+  background: linear-gradient(135deg, #e8637a, #f0a030, #4dc4b7) border-box;
+  border: 2px solid transparent;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0) border-box;
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0) border-box;
+  mask-composite: exclude;
   border-radius: 50%;
   position: absolute;
 }
