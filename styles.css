@@ -248,9 +248,9 @@ ul { list-style: none; }
   width: 780px; height: 780px;
   left: -120px; top: -120px;
   background: linear-gradient(135deg,
-    #f4929e 0%,
-    #f5c960 45%,
-    #85d4cb 100%);
+    #e8637a 0%,
+    #f0a030 45%,
+    #4dc4b7 100%);
   animation-delay: 0.2s;
 }
 /* 2 — Medium gradient accent (center-right, semi-transparent overlap) */
@@ -258,8 +258,8 @@ ul { list-style: none; }
   width: 340px; height: 340px;
   right: 14%; top: 50%;
   background: linear-gradient(135deg,
-    #f5c960 0%,
-    #f4929e 100%);
+    #f0a030 0%,
+    #e8637a 100%);
   opacity: 0.7;
   animation-delay: 0.7s;
 }
@@ -275,7 +275,7 @@ ul { list-style: none; }
 .circle-4 {
   width: 60px; height: 60px;
   right: 5%; bottom: 8%;
-  background: linear-gradient(135deg, #f5c960, #f4929e);
+  background: linear-gradient(135deg, #f0a030, #e8637a);
   animation-delay: 1.3s;
 }
 /* 5 — Photo circle (upper-right, like reference) */
@@ -304,13 +304,13 @@ ul { list-style: none; }
 .circle-outline-1 {
   width: 300px; height: 300px;
   left: 38%; top: 28%;
-  border: 2px solid #f4929e;
+  border: 2px solid #e8637a;
   animation-delay: 0.85s;
 }
 .circle-outline-2 {
   width: 72px; height: 72px;
   right: 4%; bottom: 4%;
-  border: 2px solid #f5c960;
+  border: 2px solid #f0a030;
   animation-delay: 1.2s;
 }
 
@@ -1137,14 +1137,14 @@ ul { list-style: none; }
   width: 480px; height: 480px;
   left: -140px; top: -140px;
   background: linear-gradient(135deg,
-    #f4929e 0%, #f5c960 45%, #85d4cb 100%);
+    #e8637a 0%, #f0a030 45%, #4dc4b7 100%);
   position: absolute;
   border-radius: 50%;
 }
 .donate-hero-bg .circle-2 {
   width: 260px; height: 260px;
   right: -40px; top: 20px;
-  background: linear-gradient(135deg, #f5c960 0%, #f4929e 100%);
+  background: linear-gradient(135deg, #f0a030 0%, #e8637a 100%);
   position: absolute;
   border-radius: 50%;
   opacity: 0.7;
@@ -1152,7 +1152,7 @@ ul { list-style: none; }
 .donate-hero-bg .circle-outline-1 {
   width: 160px; height: 160px;
   right: 20%; bottom: 10%;
-  border: 2px solid #f4929e;
+  border: 2px solid #e8637a;
   border-radius: 50%;
   position: absolute;
 }
@@ -1423,50 +1423,59 @@ ul { list-style: none; }
 }
 
 @media (max-width: 900px) {
-  /* ---- HERO (tablet) ---- */
+  /* ---- HERO (tablet / SP): text overlays the gradient circle ---- */
   .hero { min-height: auto; }
   .hero-inner {
     grid-template-columns: 1fr;
-    padding: 72px 24px 40px;
+    padding: 0 24px 40px;
     text-align: center;
-    gap: 24px;
+    gap: 0;
+  }
+  .hero-copy {
+    position: relative;
+    z-index: 5;
+    padding-top: 100px;
+    padding-bottom: 40px;
   }
   .hero-ctas { justify-content: center; }
-  .hero-title { font-size: 38px; }
+  .hero-title { font-size: 34px; }
   .hero-lead { font-size: 14px; }
-  /* Reposition decorative circles for vertical layout */
+  /* circle-1 fills viewport width so text sits ON the gradient */
   .circle-1 {
-    width: 520px; height: 520px;
-    left: 50%; top: -120px;
+    width: 110vw; height: 110vw;
+    left: 50%; top: -20vw;
     transform: translateX(-50%);
   }
   .circle-photo-bg {
-    width: 280px; height: 280px;
-    right: -40px; top: -10px;
+    width: 200px; height: 200px;
+    right: -20px; top: 10px;
   }
   .circle-2 {
-    width: 160px; height: 160px;
-    right: -30px; top: 58%;
+    width: 140px; height: 140px;
+    right: -30px; top: auto; bottom: 20%;
   }
   .circle-3 {
-    width: 100px; height: 100px;
-    left: 8%; top: 62%;
+    width: 80px; height: 80px;
+    left: 8%; top: auto; bottom: 28%;
   }
   .circle-4 {
-    width: 50px; height: 50px;
-    right: 18%; bottom: 6%;
+    width: 40px; height: 40px;
+    right: 18%; bottom: 10%;
   }
   .circle-outline-1 {
-    width: 150px; height: 150px;
-    left: 12%; top: 70%;
+    width: 120px; height: 120px;
+    left: 5%; top: auto; bottom: 22%;
   }
   .circle-outline-2 {
-    width: 60px; height: 60px;
-    right: 12%; top: 20%;
+    width: 50px; height: 50px;
+    right: 8%; top: 14%;
   }
   .hero-photo {
-    max-width: 360px;
+    position: relative;
+    z-index: 4;
+    max-width: 340px;
     justify-self: center;
+    margin-top: -20px;
   }
   .flow-diagram { flex-direction: column; gap: 32px; }
   .flow-step { flex: 0 0 auto; max-width: none; }
@@ -1506,11 +1515,12 @@ ul { list-style: none; }
 }
 
 @media (max-width: 560px) {
-  .hero-title { font-size: 32px; line-height: 1.3; }
-  .hero-inner { padding: 64px 20px 32px; }
-  .circle-1 { width: 460px; height: 460px; top: -140px; }
-  .circle-photo-bg { width: 200px; height: 200px; right: -30px; top: 0; }
-  .hero-photo { max-width: 280px; }
+  .hero-title { font-size: 28px; line-height: 1.3; }
+  .hero-inner { padding: 0 20px 24px; }
+  .hero-copy { padding-top: 80px; padding-bottom: 32px; }
+  .circle-1 { width: 130vw; height: 130vw; top: -28vw; }
+  .circle-photo-bg { width: 160px; height: 160px; right: -20px; top: 0; }
+  .hero-photo { max-width: 260px; margin-top: -10px; }
   .story-grid,
   .concept-grid,
   .stats-grid { grid-template-columns: 1fr; }
