@@ -150,21 +150,12 @@ ul { list-style: none; }
   justify-content: space-between;
   gap: 24px;
 }
-.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; }
-.logo-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--yellow), var(--orange));
-  color: #fff;
-  font-size: 14px;
-  font-weight: 800;
+.logo { display: flex; align-items: center; }
+.logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
 }
-.logo-mark.big { width: 56px; height: 56px; font-size: 18px; }
-.logo-text { color: var(--dark); letter-spacing: 0.05em; }
 
 .global-nav ul { display: flex; gap: 28px; }
 .global-nav a {
@@ -1081,6 +1072,12 @@ ul { list-style: none; }
   font-weight: 800;
   color: #fff;
   margin-bottom: 8px;
+}
+.footer-logo-img {
+  height: 56px;
+  width: auto;
+  margin-bottom: 12px;
+  filter: brightness(10);
 }
 .footer-col h5 {
   color: #fff;
