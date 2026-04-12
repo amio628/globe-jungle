@@ -752,7 +752,7 @@ ul { list-style: none; }
   background: #ffffff;
   border: 1px solid rgba(255,255,255,0.4);
   border-radius: 20px;
-  padding: 44px 24px 36px;
+  padding: 32px 24px 32px;
   text-align: center;
   box-shadow: 0 14px 40px rgba(120, 60, 0, 0.18);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -760,6 +760,21 @@ ul { list-style: none; }
 .stat-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 24px 50px rgba(120, 60, 0, 0.28);
+}
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff4e0, #ffe8c4);
+  display: grid;
+  place-items: center;
+}
+.stat-icon .icon {
+  width: 28px;
+  height: 28px;
+  color: var(--orange);
+  stroke-width: 2;
 }
 .stat-num {
   font-size: 52px;
