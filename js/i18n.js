@@ -19,7 +19,7 @@ const I18N = {
     "nav.donate": "寄付する",
 
     "hero.eyebrow": "認定NPO法人グローブジャングル",
-    "hero.title": "HAPPYの連鎖を、<br>一緒に広げる",
+    "hero.title": "<span class=\"hero-title-line\">HAPPYの連鎖を、</span><span class=\"hero-title-line\">一緒に広げる</span>",
     "hero.lead": "つながっている同じ空の下、<br>笑い合い、応援しあえる社会へ。",
     "hero.sub": "くっくま孤児院から始まる、<br>カンボジアの次世代リーダーたちの物語",
     "hero.ctaPrimary": "子供の未来を支援する",
@@ -193,7 +193,7 @@ const I18N = {
     "nav.donate": "Donate",
 
     "hero.eyebrow": "Certified NPO — GLOBE JUNGLE",
-    "hero.title": "Spread the Circle<br>of HAPPY, together.",
+    "hero.title": "<span class=\"hero-title-line\">Spread the Circle</span><span class=\"hero-title-line\">of HAPPY, together.</span>",
     "hero.lead": "Under the same sky, a society where we can<br>laugh and cheer for each other.",
     "hero.sub": "The story of Cambodia's next-generation leaders,<br>beginning at Kukuma Orphanage.",
     "hero.ctaPrimary": "Support a Child's Future",
