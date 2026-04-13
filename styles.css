@@ -569,7 +569,7 @@ ul { list-style: none; }
 /* ============ CONCEPT ============ */
 .concept {
   position: relative;
-  background: url('assets/images/concept-children.jpg') center / cover no-repeat;
+  background: url('assets/images/final-cta-bg.jpg') center / cover no-repeat;
 }
 .concept::before {
   content: '';
