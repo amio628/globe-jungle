@@ -193,5 +193,17 @@
 
 <script src="js/i18n.js"></script>
 <script src="js/donate.js"></script>
+<script>
+  (function () {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+    var onScroll = function () {
+      if (window.scrollY > 10) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script>
 </body>
 </html>

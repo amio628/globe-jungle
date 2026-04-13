@@ -143,7 +143,7 @@ ul { list-style: none; }
   font-weight: 500;
   font-style: italic;
   margin-bottom: 18px;
-  text-transform: none;
+  text-transform: uppercase;
   display: inline-block;
   padding: 0 6px 4px;
   position: relative;
@@ -213,9 +213,19 @@ ul { list-style: none; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--beige-border);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease,
+              border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.site-header.scrolled {
+  background: rgba(253, 245, 230, 0.6);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom-color: rgba(232, 220, 194, 0.6);
+  box-shadow: 0 4px 24px rgba(74, 44, 29, 0.06);
 }
 .header-inner {
   max-width: 1200px;
