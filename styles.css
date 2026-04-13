@@ -1093,11 +1093,16 @@ ul { list-style: none; }
 }
 .report-copy p { color: var(--muted); margin-bottom: 24px; }
 .report-feature {
-  padding: 22px 24px;
-  background: linear-gradient(135deg, #fff8ec, #fff4d9);
-  border: 1px solid #fde9c9;
-  border-radius: 18px;
-  box-shadow: 0 8px 22px rgba(224, 118, 26, 0.1);
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e0dcd0;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0px rgba(230, 126, 34, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+.report-feature:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px rgba(230, 126, 34, 0.2);
 }
 .report-feature-title {
   font-family: var(--font-head);
@@ -1346,10 +1351,12 @@ ul { list-style: none; }
 }
 
 .donate-form {
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background: #ffffff;
+  border: 1px solid #e0dcd0;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0px rgba(230, 126, 34, 0.1);
   padding: 40px;
+  transition: all 0.2s ease-in-out;
 }
 
 .form-field {
@@ -1504,12 +1511,14 @@ ul { list-style: none; }
 
 /* Summary sidebar */
 .donate-summary {
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background: #ffffff;
+  border: 1px solid #e0dcd0;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0px rgba(230, 126, 34, 0.1);
   padding: 32px;
   position: sticky;
   top: 100px;
+  transition: all 0.2s ease-in-out;
 }
 .donate-summary h3 {
   font-size: 15px;
@@ -1544,9 +1553,12 @@ ul { list-style: none; }
 #summary-amount { font-size: 20px; color: var(--orange); }
 
 .impact-box {
-  background: var(--bg-soft);
-  border-radius: 12px;
-  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e0dcd0;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0px rgba(230, 126, 34, 0.1);
+  padding: 20px;
+  transition: all 0.2s ease-in-out;
 }
 .impact-box h4 {
   font-size: 12px;
