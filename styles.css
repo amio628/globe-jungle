@@ -16,15 +16,17 @@
   --bg-soft: #fdf5e6;
   --radius: 20px;
   --shadow: 0 10px 28px rgba(211, 84, 0, 0.12);
-  /* Serif for headings (Latin: Playfair Display / JP: Zen Old Mincho) */
-  --font-head: "Playfair Display", "Zen Old Mincho",
-               "Hiragino Mincho ProN", "Yu Mincho", "游明朝",
-               serif;
-  /* Body: Noto Sans JP */
-  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic",
-               "游ゴシック", system-ui, sans-serif;
+  /* Serif/English: Playfair Display. JP: Zen Maru Gothic (thin-ish) */
+  --font-head: "Playfair Display", "Zen Maru Gothic",
+               "Hiragino Maru Gothic ProN", "Hiragino Maru Gothic Pro",
+               "ヒラギノ丸ゴ ProN W4", sans-serif;
+  /* Body JP: Yu Gothic */
+  --font-body: "Yu Gothic Medium", "游ゴシック Medium",
+               YuGothic, "Yu Gothic", "游ゴシック",
+               "Hiragino Sans", "Noto Sans JP",
+               system-ui, sans-serif;
   /* Latin-only eyebrow / numerals: Playfair italic */
-  --font-en: "Playfair Display", "Zen Old Mincho", serif;
+  --font-en: "Playfair Display", "Zen Maru Gothic", serif;
   --font-jp: var(--font-body);
 }
 
@@ -34,7 +36,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-charcoal);
   line-height: 1.8;
   background: var(--earth-beige);
@@ -42,7 +44,7 @@ body {
   font-feature-settings: "palt";
 }
 
-/* Headings use serif (Playfair Display / Zen Old Mincho) */
+/* Headings: Playfair (Latin) + Zen Maru Gothic (JP, thin-ish 500) */
 h1, h2, h3, h4, h5, h6,
 .section-title,
 .hero-title,
@@ -56,7 +58,7 @@ h1, h2, h3, h4, h5, h6,
 .report-copy h2,
 .big-name {
   font-family: var(--font-head);
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.01em;
 }
 
@@ -401,7 +403,7 @@ ul { list-style: none; }
 .hero-title {
   font-family: var(--font-head);
   font-size: 54px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.25;
   margin-bottom: 22px;
   color: #ffffff;
