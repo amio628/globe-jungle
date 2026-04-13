@@ -567,8 +567,33 @@ ul { list-style: none; }
 }
 
 /* ============ CONCEPT ============ */
+/* Wave divider — used to smooth section transitions */
+.wave-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px;
+  pointer-events: none;
+  line-height: 0;
+  z-index: 2;
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.wave-divider.wave-top {
+  top: 0;
+}
+.wave-divider.wave-bottom {
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
 .concept {
   position: relative;
+  overflow: hidden;
   background: url('assets/images/concept-bg.jpg') center / cover no-repeat, #fff7ec;
 }
 .concept::before {
@@ -580,6 +605,8 @@ ul { list-style: none; }
 .concept .section-inner {
   position: relative;
   z-index: 1;
+  padding-top: 140px;
+  padding-bottom: 140px;
 }
 .concept .section-eyebrow { color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
 .concept .section-title { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
