@@ -1760,8 +1760,13 @@ ul { list-style: none; }
   .circle-1 { width: 170vw; height: 170vw; transform: translate(-50%, -44%); }
   .circle-photo-bg { width: 120px; height: 120px; right: -10px; top: auto; bottom: 0; }
   .story-grid,
-  .concept-grid,
-  .stats-grid { grid-template-columns: 1fr; }
+  .concept-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .stat-card { padding: 24px 14px; }
+  .stat-num { font-size: 38px; margin-bottom: 8px; }
+  .stat-prefix { font-size: 18px; }
+  .stat-unit { font-size: 16px; }
+  .stat-label { font-size: 11px; line-height: 1.5; }
   .moments-track img { width: 280px; height: 200px; border-radius: 4px; }
   .footer-inner { grid-template-columns: 1fr; }
   .story-quote { font-size: 16px; padding: 8px 16px; }
