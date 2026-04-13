@@ -402,20 +402,24 @@ ul { list-style: none; }
 }
 .hero-lead {
   font-size: 17px;
-  color: #fff5dd;
+  color: #ffffff;
   margin-bottom: 14px;
   line-height: 1.9;
   font-weight: 700;
-  text-shadow: 0 1px 10px rgba(0,0,0,0.2);
+  text-shadow:
+    0 2px 4px rgba(0,0,0,0.35),
+    0 1px 16px rgba(0,0,0,0.25);
 }
 .hero-sub {
   font-size: 14px;
-  color: #fff5dd;
+  color: #ffffff;
   margin-bottom: 32px;
   line-height: 1.9;
-  font-weight: 500;
-  opacity: 0.95;
-  text-shadow: 0 1px 10px rgba(0,0,0,0.18);
+  font-weight: 600;
+  opacity: 1;
+  text-shadow:
+    0 2px 4px rgba(0,0,0,0.35),
+    0 1px 16px rgba(0,0,0,0.25);
 }
 .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
@@ -563,20 +567,46 @@ ul { list-style: none; }
 }
 
 /* ============ CONCEPT ============ */
+/* Wave divider — used to smooth section transitions */
+.wave-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px;
+  pointer-events: none;
+  line-height: 0;
+  z-index: 2;
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.wave-divider.wave-top {
+  top: 0;
+}
+.wave-divider.wave-bottom {
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
 .concept {
   position: relative;
-  background: url('assets/images/concept-children.jpg') center / cover no-repeat;
+  overflow: hidden;
+  background: url('assets/images/concept-bg.jpg') center / cover no-repeat, #fff7ec;
 }
 .concept::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 165, 0, 0.15);
-  backdrop-filter: brightness(1.05);
+  background: rgba(255, 165, 0, 0.06);
 }
 .concept .section-inner {
   position: relative;
   z-index: 1;
+  padding-top: 140px;
+  padding-bottom: 140px;
 }
 .concept .section-eyebrow { color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
 .concept .section-title { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
