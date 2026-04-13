@@ -941,6 +941,7 @@ ul { list-style: none; }
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   gap: 24px;
 }
 .stat-card {
@@ -951,6 +952,11 @@ ul { list-style: none; }
   text-align: center;
   box-shadow: 4px 4px 0px rgba(230, 126, 34, 0.1);
   transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 .stat-card:hover {
   transform: translate(-2px, -2px);
@@ -1682,11 +1688,13 @@ ul { list-style: none; }
   .hero-lead { font-size: 14px; }
   .hero-sub { font-size: 13px; margin-bottom: 24px; }
   /* circle-1: the big gradient blob dominates the top of the hero,
-     text overlays it centered (like the reference) */
+     text overlays it centered (like the reference).
+     NB: use left/top (not transform) so the circle-pop/circle-breathe
+     animations — which set transform: scale(...) — don't clobber the
+     mobile positioning. */
   .circle-1 {
     width: 150vw; height: 150vw;
-    left: 50%; top: 0;
-    transform: translate(-50%, -42%);
+    left: -25vw; top: -63vw;
   }
   /* photo circle tucked into bottom-right of gradient blob */
   .circle-photo-bg {
@@ -1722,7 +1730,7 @@ ul { list-style: none; }
   .story-grid,
   .concept-grid,
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .moments-track img { width: 380px; height: 260px; }
+  .moments-track img { width: 420px; height: 300px; }
   .moments-marquee { padding-bottom: 72px; }
   .report-inner { grid-template-columns: 1fr; gap: 32px; }
   .global-nav {
@@ -1757,7 +1765,7 @@ ul { list-style: none; }
   .hero-title { font-size: 36px; line-height: 1.15; }
   .hero-inner { padding: 0 16px 40px; }
   .hero-copy { padding-top: 110px; padding-bottom: 32px; }
-  .circle-1 { width: 170vw; height: 170vw; transform: translate(-50%, -44%); }
+  .circle-1 { width: 170vw; height: 170vw; left: -35vw; top: -74vw; }
   .circle-photo-bg { width: 120px; height: 120px; right: -10px; top: auto; bottom: 0; }
   .story-grid,
   .concept-grid { grid-template-columns: 1fr; }
@@ -1767,7 +1775,7 @@ ul { list-style: none; }
   .stat-prefix { font-size: 18px; }
   .stat-unit { font-size: 16px; }
   .stat-label { font-size: 11px; line-height: 1.5; }
-  .moments-track img { width: 280px; height: 200px; border-radius: 4px; }
+  .moments-track img { width: 340px; height: 260px; border-radius: 4px; }
   .footer-inner { grid-template-columns: 1fr; }
   .story-quote { font-size: 16px; padding: 8px 16px; }
   .section-inner { padding: 64px 20px; }
