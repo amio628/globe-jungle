@@ -594,13 +594,14 @@ ul { list-style: none; }
 .concept {
   position: relative;
   overflow: hidden;
-  background: url('assets/images/concept-bg.jpg') center / cover no-repeat, #fff7ec;
+  background: #ffffff;
 }
 .concept::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 165, 0, 0.06);
+  background: url('assets/images/concept-bg.jpg') center / cover no-repeat;
+  opacity: 0.3;
 }
 .concept .section-inner {
   position: relative;
@@ -608,12 +609,11 @@ ul { list-style: none; }
   padding-top: 140px;
   padding-bottom: 140px;
 }
-.concept .section-eyebrow { color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
-.concept .section-title { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+.concept .section-eyebrow { color: var(--orange); text-shadow: none; }
+.concept .section-title { color: var(--dark); text-shadow: none; }
 .concept-lead {
   font-size: 16px;
-  color: #fff;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+  color: var(--dark);
   margin-bottom: 48px;
   max-width: 720px;
 }
