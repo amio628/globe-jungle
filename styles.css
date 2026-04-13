@@ -137,12 +137,13 @@ ul { list-style: none; }
 .section-inner > .moments-marquee { text-align: left; }
 
 .section-eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.32em;
+  font-size: 22px;
+  letter-spacing: 0.08em;
   color: var(--main-orange);
-  font-weight: 700;
-  margin-bottom: 14px;
-  text-transform: uppercase;
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 18px;
+  text-transform: none;
   display: inline-block;
   padding: 0 6px 4px;
   position: relative;
@@ -150,14 +151,14 @@ ul { list-style: none; }
 .section-eyebrow::after {
   content: "";
   display: block;
-  width: 32px;
+  width: 40px;
   height: 1px;
   background: var(--main-orange);
-  margin: 10px auto 0;
+  margin: 12px auto 0;
 }
 .section-eyebrow.light { color: #fff; }
 .section-eyebrow.light::after { background: #fff; }
-.section-eyebrow.accent { color: var(--orange); font-size: 22px; font-style: italic; }
+.section-eyebrow.accent { color: var(--orange); }
 
 .section-title {
   font-family: var(--font-head);
@@ -516,11 +517,11 @@ ul { list-style: none; }
     0 1px 16px rgba(0,0,0,0.25);
 }
 .hero-sub {
-  font-size: 14px;
+  font-size: 17px;
   color: #ffffff;
   margin-bottom: 0;
   line-height: 1.9;
-  font-weight: 600;
+  font-weight: 700;
   opacity: 1;
   text-shadow:
     0 2px 4px rgba(0,0,0,0.35),
@@ -725,7 +726,7 @@ ul { list-style: none; }
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+    linear-gradient(rgba(253, 245, 230, 0.94), rgba(253, 245, 230, 0.94)),
     url('assets/images/concept-bg.jpg') center / cover no-repeat;
 }
 .concept .section-inner {
@@ -1131,6 +1132,7 @@ ul { list-style: none; }
 }
 .report-inner .section-eyebrow,
 .report-inner .section-title { text-align: left; }
+.report-inner .section-eyebrow { color: var(--orange); }
 .report-inner .section-eyebrow::after { margin-left: 0; }
 .report-copy p { color: var(--muted); margin-bottom: 24px; }
 .report-feature {
