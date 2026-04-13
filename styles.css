@@ -25,6 +25,9 @@
                YuGothic, "Yu Gothic", "游ゴシック",
                "Hiragino Sans", "Noto Sans JP",
                system-ui, sans-serif;
+  /* Numbers / Latin characters on JP version: Futura */
+  --font-num: "Futura", "Futura PT", "ITC Futura", "Century Gothic",
+              "Jost", "Trebuchet MS", sans-serif;
   /* Latin-only eyebrow / numerals: Playfair italic */
   --font-en: "Playfair Display", "Zen Maru Gothic", serif;
   --font-jp: var(--font-body);
@@ -75,6 +78,33 @@ h1, h2, h3, h4, h5, h6,
 .btn {
   font-family: var(--font-en);
   letter-spacing: 0.04em;
+}
+
+/* JP version: numbers & Latin characters use Futura (falls through to JP fonts) */
+:lang(ja) {
+  --font-head: "Futura", "Futura PT", "ITC Futura", "Century Gothic", "Jost",
+               "Zen Maru Gothic", "Hiragino Maru Gothic ProN",
+               "ヒラギノ丸ゴ ProN W4", sans-serif;
+  --font-body: "Futura", "Futura PT", "ITC Futura", "Century Gothic", "Jost",
+               "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+               "Yu Gothic", "游ゴシック", "Hiragino Sans", sans-serif;
+  --font-en: var(--font-num);
+}
+
+:lang(ja) .section-eyebrow,
+:lang(ja) .logo-mark,
+:lang(ja) .logo-text,
+:lang(ja) .footer-logo,
+:lang(ja) .global-nav a,
+:lang(ja) .header-cta,
+:lang(ja) .amount-value,
+:lang(ja) .stat-num,
+:lang(ja) .breadcrumb,
+:lang(ja) .btn,
+:lang(ja) .hero-eyebrow,
+:lang(ja) .lang-btn {
+  font-family: var(--font-num);
+  letter-spacing: 0.05em;
 }
 
 a { color: inherit; text-decoration: none; }
