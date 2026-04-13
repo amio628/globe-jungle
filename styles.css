@@ -337,8 +337,8 @@ ul { list-style: none; }
 }
 /* 1 — Large gradient blob (upper-left, text sits on this) */
 .circle-1 {
-  width: 780px; height: 780px;
-  left: -120px; top: -120px;
+  width: 640px; height: 640px;
+  left: -90px; top: -90px;
   background: linear-gradient(135deg,
     #f6b67a 0%,
     var(--orange) 50%,
@@ -551,7 +551,7 @@ ul { list-style: none; }
   justify-self: center;
   align-self: stretch;
   width: 100%;
-  max-width: 520px;
+  max-width: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
