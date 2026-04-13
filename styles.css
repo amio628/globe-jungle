@@ -601,14 +601,9 @@ ul { list-style: none; }
 .concept {
   position: relative;
   overflow: hidden;
-  background: #ffffff;
-}
-.concept::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url('assets/images/concept-bg.jpg') center / cover no-repeat;
-  opacity: 0.3;
+  background:
+    linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+    url('assets/images/concept-bg.jpg') center / cover no-repeat;
 }
 .concept .section-inner {
   position: relative;
@@ -616,11 +611,18 @@ ul { list-style: none; }
   padding-top: 140px;
   padding-bottom: 140px;
 }
-.concept .section-eyebrow { color: var(--orange); text-shadow: none; }
-.concept .section-title { color: var(--dark); text-shadow: none; }
-.concept-lead {
+.concept .section-eyebrow {
+  color: var(--orange) !important;
+  text-shadow: none !important;
+}
+.concept .section-title {
+  color: var(--dark) !important;
+  text-shadow: none !important;
+}
+.concept .concept-lead {
   font-size: 16px;
-  color: var(--dark);
+  color: var(--dark) !important;
+  text-shadow: none !important;
   margin-bottom: 48px;
   max-width: 720px;
 }
