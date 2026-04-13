@@ -742,14 +742,14 @@ ul { list-style: none; }
   box-shadow: 0 24px 50px rgba(120, 60, 0, 0.28);
 }
 .stat-num {
-  font-size: 52px;
-  font-weight: 900;
+  font-size: 60px;
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: 14px;
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 4px;
+  gap: 2px;
   background: linear-gradient(135deg, #f5994a 0%, #e0761a 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -757,15 +757,18 @@ ul { list-style: none; }
   color: var(--orange-dark);
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
-.stat-number { min-width: 1ch; }
+.stat-number { min-width: 1ch; letter-spacing: -0.03em; }
 .stat-prefix {
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 .stat-unit {
-  font-size: 22px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 .stat-label {
   font-size: 13px;

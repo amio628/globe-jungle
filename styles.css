@@ -84,11 +84,14 @@ h1, h2, h3, h4, h5, h6,
 .global-nav a,
 .header-cta,
 .amount-value,
-.stat-num,
 .breadcrumb,
 .btn {
   font-family: var(--font-en);
   letter-spacing: 0.04em;
+}
+.stat-num {
+  font-family: var(--font-en);
+  letter-spacing: -0.02em;
 }
 
 /* JP version: numbers & Latin characters use Futura (falls through to JP fonts) */
@@ -109,13 +112,16 @@ h1, h2, h3, h4, h5, h6,
 :lang(ja) .global-nav a,
 :lang(ja) .header-cta,
 :lang(ja) .amount-value,
-:lang(ja) .stat-num,
 :lang(ja) .breadcrumb,
 :lang(ja) .btn,
 :lang(ja) .hero-eyebrow,
 :lang(ja) .lang-btn {
   font-family: var(--font-num);
   letter-spacing: 0.05em;
+}
+:lang(ja) .stat-num {
+  font-family: var(--font-num);
+  letter-spacing: -0.02em;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -981,14 +987,14 @@ ul { list-style: none; }
   stroke-linejoin: round;
 }
 .stat-num {
-  font-size: 52px;
-  font-weight: 900;
+  font-size: 60px;
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: 14px;
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 4px;
+  gap: 2px;
   background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -997,14 +1003,16 @@ ul { list-style: none; }
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
 }
-.stat-number { min-width: 1ch; }
+.stat-number { min-width: 1ch; letter-spacing: -0.03em; }
 .stat-prefix {
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 .stat-unit {
-  font-size: 22px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 .stat-label {
   font-size: 13px;
@@ -1771,9 +1779,9 @@ ul { list-style: none; }
   .concept-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .stat-card { padding: 24px 14px; }
-  .stat-num { font-size: 38px; margin-bottom: 8px; }
-  .stat-prefix { font-size: 18px; }
-  .stat-unit { font-size: 16px; }
+  .stat-num { font-size: 44px; margin-bottom: 8px; }
+  .stat-prefix { font-size: 14px; }
+  .stat-unit { font-size: 13px; }
   .stat-label { font-size: 11px; line-height: 1.5; }
   .moments-track img { width: 340px; height: 260px; border-radius: 4px; }
   .footer-inner { grid-template-columns: 1fr; }
