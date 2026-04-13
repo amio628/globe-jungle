@@ -106,19 +106,26 @@ ul { list-style: none; }
 .btn {
   display: inline-block;
   padding: 14px 32px;
-  border-radius: 999px;
+  border-radius: 100px;
   font-weight: 700;
   font-size: 15px;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   cursor: pointer;
   border: none;
+  text-decoration: none;
 }
 .btn-primary {
-  background: var(--orange);
+  background: linear-gradient(to right, var(--orange), #d35400);
   color: #fff;
-  box-shadow: 0 8px 20px rgba(242, 140, 46, 0.35);
+  padding: 18px 44px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  box-shadow: 0 10px 20px rgba(211, 84, 0, 0.22);
 }
-.btn-primary:hover { transform: translateY(-2px); background: var(--orange-dark); }
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(211, 84, 0, 0.32);
+}
 .btn-ghost {
   background: transparent;
   color: #fff;
@@ -128,7 +135,7 @@ ul { list-style: none; }
 .btn-small {
   padding: 10px 22px;
   font-size: 13px;
-  background: var(--orange);
+  background: linear-gradient(to right, var(--orange), #d35400);
   color: #fff;
 }
 
@@ -443,22 +450,22 @@ ul { list-style: none; }
 /* Hero CTA buttons */
 .hero .hero-ctas { gap: 18px; margin-top: 8px; }
 .hero .btn-primary {
-  background: var(--orange);
+  background: linear-gradient(to right, var(--orange), #d35400);
   color: #fff;
-  padding: 16px 36px;
+  padding: 20px 50px;
   font-size: 16px;
   font-weight: 800;
+  letter-spacing: 0.04em;
   box-shadow:
     0 0 0 4px rgba(255,255,255,0.9),
-    0 14px 30px rgba(176, 78, 0, 0.38),
+    0 14px 30px rgba(211, 84, 0, 0.38),
     0 4px 10px rgba(0,0,0,0.12);
 }
 .hero .btn-primary:hover {
-  transform: translateY(-3px);
-  background: var(--orange-dark);
+  transform: scale(1.05);
   box-shadow:
     0 0 0 4px rgba(255,255,255,1),
-    0 18px 36px rgba(176, 78, 0, 0.45),
+    0 18px 36px rgba(211, 84, 0, 0.45),
     0 4px 10px rgba(0,0,0,0.15);
 }
 .hero .btn-ghost {
