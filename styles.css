@@ -337,8 +337,8 @@ ul { list-style: none; }
 }
 /* 1 — Large gradient blob (upper-left, text sits on this) */
 .circle-1 {
-  width: 640px; height: 640px;
-  left: -90px; top: -90px;
+  width: 760px; height: 760px;
+  left: -120px; top: -120px;
   background: linear-gradient(135deg,
     #FE82A8 0%,
     #FFA56D 25%,
@@ -493,11 +493,30 @@ ul { list-style: none; }
   align-items: stretch;
 }
 .hero-copy {
+  position: relative;
+  isolation: isolate;
   grid-column: 1;
   grid-row: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+/* Frosted-glass scrim behind the hero copy so the text stays crisp
+   on the colorful rainbow circle without relying on text-shadow.
+   Sits between the circles (z-index 1) and .hero-inner (z-index 3). */
+.hero-copy::before {
+  content: "";
+  position: absolute;
+  inset: -28px -48px;
+  background: linear-gradient(135deg,
+    rgba(74, 44, 29, 0.42) 0%,
+    rgba(74, 44, 29, 0.28) 60%,
+    rgba(74, 44, 29, 0.08) 100%);
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  border-radius: 32px;
+  z-index: -1;
+  pointer-events: none;
 }
 .hero-photo {
   grid-column: 2;
@@ -509,7 +528,6 @@ ul { list-style: none; }
   color: var(--white);
   margin-bottom: 16px;
   font-weight: 700;
-  text-shadow: 0 1px 10px rgba(0,0,0,0.18);
 }
 .hero-title {
   font-family: var(--font-head);
@@ -520,7 +538,6 @@ ul { list-style: none; }
   color: #ffffff;
   -webkit-text-fill-color: #ffffff;
   letter-spacing: 0.02em;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.18);
 }
 .hero-title-line {
   display: block;
@@ -532,9 +549,6 @@ ul { list-style: none; }
   margin-bottom: 14px;
   line-height: 1.9;
   font-weight: 700;
-  text-shadow:
-    0 2px 4px rgba(0,0,0,0.35),
-    0 1px 16px rgba(0,0,0,0.25);
 }
 .hero-sub {
   font-size: 17px;
@@ -543,9 +557,6 @@ ul { list-style: none; }
   line-height: 1.9;
   font-weight: 700;
   opacity: 1;
-  text-shadow:
-    0 2px 4px rgba(0,0,0,0.35),
-    0 1px 16px rgba(0,0,0,0.25);
 }
 .hero-ctas { display: flex; gap: 20px; flex-wrap: wrap; }
 
