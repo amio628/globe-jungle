@@ -407,9 +407,12 @@ ul { list-style: none; }
   font-weight: 700;
 }
 .hero-title {
-  font-size: 56px;
-  font-weight: 900;
-  line-height: 1.2;
+  font-family: "Yu Gothic", "游ゴシック", "YuGothic", "游ゴシック体",
+               "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN",
+               "Hiragino Sans", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.22;
   margin-bottom: 24px;
   color: #ffffff;
   background: none;
@@ -1419,48 +1422,60 @@ ul { list-style: none; }
   .hero { min-height: auto; }
   .hero-inner {
     grid-template-columns: 1fr;
-    padding: 130px 24px 48px;
+    padding: 108px 24px 48px;
     text-align: center;
-    gap: 20px;
+    gap: 0;
+  }
+  .hero-copy {
+    padding-bottom: 108px;
   }
   .hero-ctas {
     justify-content: center;
     align-items: stretch;
     flex-direction: column;
     gap: 14px;
-    margin: 20px auto 0;
+    margin: 40px auto 0;
     width: 100%;
     max-width: 320px;
   }
   .hero-ctas .btn { width: 100%; padding: 18px 32px; font-size: 15px; }
-  .hero-title { font-size: 44px; line-height: 1.15; }
-  .hero-lead { font-size: 14px; }
+  .hero-title { font-size: 56px; line-height: 1.22; }
+  .hero-lead { font-size: 15px; }
   /* Large gradient blob pulled from the top.
      Use left/top (not transform) so circle-pop/circle-breathe
      animations don't override the positioning. */
   .circle-1 {
-    width: 150vw; height: 150vw;
-    left: -25vw; top: -63vw;
+    width: 175vw; height: 175vw;
+    left: -37.5vw; top: -44vw;
+  }
+  .circle-photo-bg {
+    width: 130px; height: 130px;
+    right: 6%; top: 24px;
+    bottom: auto;
   }
   .circle-2 {
-    width: 120px; height: 120px;
-    right: -30px; top: auto; bottom: 18%;
+    width: 96px; height: 96px;
+    left: 6%; top: 40px;
+    right: auto; bottom: auto;
   }
   .circle-3 {
-    width: 80px; height: 80px;
-    left: 6%; top: auto; bottom: 14%;
+    width: 70px; height: 70px;
+    right: 4%; top: 56%;
+    left: auto; bottom: auto;
   }
   .circle-4 {
-    width: 36px; height: 36px;
-    right: 14%; bottom: 10%;
+    width: 32px; height: 32px;
+    left: 12%; top: 46%;
+    right: auto; bottom: auto;
   }
   .circle-outline-1 {
-    width: 110px; height: 110px;
-    left: 4%; top: auto; bottom: 6%;
+    width: 90px; height: 90px;
+    left: 6%; top: 60%;
+    bottom: auto;
   }
   .circle-outline-2 {
-    width: 48px; height: 48px;
-    right: 8%; top: 12%;
+    width: 42px; height: 42px;
+    right: 12%; top: 28%;
   }
   /* Children photo sits between the copy/circle and the CTAs */
   .hero-photo {
@@ -1468,18 +1483,19 @@ ul { list-style: none; }
     justify-self: center;
     align-items: center;
     justify-content: center;
-    width: 260px;
-    height: 260px;
-    min-height: 260px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 460px;
+    min-height: 320px;
+    margin: 16px auto 24px;
     position: relative;
     z-index: 4;
   }
   .hero-photo img {
     width: 100%;
-    height: 100% !important;
-    min-height: 220px;
-    object-fit: cover;
+    height: auto !important;
+    max-height: 420px;
+    min-height: 300px;
+    object-fit: contain;
   }
   .flow-diagram { flex-direction: column; gap: 32px; }
   .flow-step { flex: 0 0 auto; max-width: none; }
@@ -1535,10 +1551,23 @@ ul { list-style: none; }
 }
 
 @media (max-width: 560px) {
-  .hero-title { font-size: 32px; line-height: 1.3; }
-  .hero-inner { padding: 64px 20px 72px; }
-  .circle-1 { width: 170vw; height: 170vw; left: -35vw; top: -74vw; }
-  .hero-photo { width: 180px; height: 180px; }
+  .hero-title { font-size: 44px; line-height: 1.22; }
+  .hero-inner { padding: 92px 16px 48px; }
+  .hero-copy { padding-bottom: 92px; }
+  .circle-1 { width: 185vw; height: 185vw; left: -42vw; top: -56vw; }
+  .circle-photo-bg { width: 108px; height: 108px; right: 5%; top: 20px; bottom: auto; }
+  .hero-photo {
+    width: 100%;
+    max-width: 380px;
+    min-height: 280px;
+    height: auto;
+    margin: 12px auto 20px;
+  }
+  .hero-photo img {
+    height: auto !important;
+    max-height: 360px;
+    min-height: 260px;
+  }
   .story-grid,
   .concept-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
