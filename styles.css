@@ -1082,9 +1082,18 @@ ul { list-style: none; }
   flex-shrink: 0;
   box-shadow: 4px 4px 0 rgba(230, 126, 34, 0.1);
 }
+/* Desktop: show wide track, hide the two mobile tracks */
+.moments-track-sp-a,
+.moments-track-sp-b {
+  display: none;
+}
 @keyframes moments-slide {
   0%   { transform: translateX(0); }
   100% { transform: translateX(calc(-50% - 12px)); }
+}
+@keyframes moments-slide-reverse {
+  0%   { transform: translateX(calc(-50% - 12px)); }
+  100% { transform: translateX(0); }
 }
 @media (prefers-reduced-motion: reduce) {
   .moments-track { animation: none; }
@@ -1748,23 +1757,29 @@ ul { list-style: none; }
   }
   /* Cutout children photo sits between the copy/circle and the CTAs */
   .hero-photo {
-    display: flex;
+    display: flex !important;
     grid-column: 1;
     grid-row: 2;
     width: 100%;
     max-width: 380px;
+    height: auto;
+    min-height: 240px;
     margin: 0 auto;
     padding: 0 8px;
     justify-self: center;
     align-self: center;
+    align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 4;
   }
   .hero-photo img {
     width: 100%;
-    height: auto;
+    height: auto !important;
     max-height: 340px;
+    min-height: 220px;
     object-fit: contain;
+    display: block;
   }
   .flow-diagram { flex-direction: column; gap: 32px; }
   .flow-step { flex: 0 0 auto; max-width: none; }
@@ -1772,8 +1787,26 @@ ul { list-style: none; }
   .story-grid,
   .concept-grid,
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .moments-track img { width: 420px; height: 300px; }
-  .moments-marquee { padding-bottom: 72px; }
+  /* Moments: 2 rows on mobile with non-overlapping photos */
+  .moments-marquee {
+    padding-bottom: 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .moments-track-desktop { display: none; }
+  .moments-track-sp-a,
+  .moments-track-sp-b {
+    display: flex;
+  }
+  .moments-track-sp-b {
+    animation-name: moments-slide-reverse;
+    animation-duration: 60s;
+  }
+  .moments-track-sp-a {
+    animation-duration: 60s;
+  }
+  .moments-track img { width: 300px; height: 220px; }
   .report-inner { grid-template-columns: 1fr; gap: 32px; }
   .global-nav {
     display: none;
@@ -1809,8 +1842,8 @@ ul { list-style: none; }
   .hero-copy { padding-top: 110px; padding-bottom: 32px; }
   .circle-1 { width: 170vw; height: 170vw; left: -35vw; top: -74vw; }
   .circle-photo-bg { width: 120px; height: 120px; right: -10px; top: auto; bottom: 0; }
-  .hero-photo { max-width: 300px; }
-  .hero-photo img { max-height: 280px; }
+  .hero-photo { max-width: 300px; min-height: 200px; }
+  .hero-photo img { max-height: 280px; min-height: 180px; }
   .story-grid,
   .concept-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
@@ -1819,7 +1852,8 @@ ul { list-style: none; }
   .stat-prefix { font-size: 14px; }
   .stat-unit { font-size: 13px; }
   .stat-label { font-size: 11px; line-height: 1.5; }
-  .moments-track img { width: 340px; height: 260px; border-radius: 4px; }
+  .moments-track img { width: 240px; height: 180px; border-radius: 4px; }
+  .moments-marquee { gap: 14px; padding-bottom: 64px; }
   .footer-inner { grid-template-columns: 1fr; }
   .story-quote { font-size: 16px; padding: 8px 16px; }
   .section-inner { padding: 64px 20px; }

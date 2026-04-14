@@ -853,9 +853,18 @@ ul { list-style: none; }
   flex-shrink: 0;
   box-shadow: 0 18px 40px rgba(224, 118, 26, 0.18);
 }
+/* Desktop: show wide track, hide the two mobile tracks */
+.moments-track-sp-a,
+.moments-track-sp-b {
+  display: none;
+}
 @keyframes moments-slide {
   0%   { transform: translateX(0); }
   100% { transform: translateX(calc(-50% - 12px)); }
+}
+@keyframes moments-slide-reverse {
+  0%   { transform: translateX(calc(-50% - 12px)); }
+  100% { transform: translateX(0); }
 }
 @media (prefers-reduced-motion: reduce) {
   .moments-track { animation: none; }
@@ -1439,13 +1448,22 @@ ul { list-style: none; }
   }
   /* Children photo sits between the copy/circle and the CTAs */
   .hero-photo {
-    display: block;
+    display: flex !important;
     justify-self: center;
+    align-items: center;
+    justify-content: center;
     width: 260px;
     height: 260px;
+    min-height: 260px;
     margin: 0 auto;
     position: relative;
     z-index: 4;
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100% !important;
+    min-height: 220px;
+    object-fit: cover;
   }
   .flow-diagram { flex-direction: column; gap: 32px; }
   .flow-step { flex: 0 0 auto; max-width: none; }
@@ -1453,8 +1471,24 @@ ul { list-style: none; }
   .story-grid,
   .concept-grid,
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .moments-track img { width: 420px; height: 300px; }
-  .moments-marquee { padding-bottom: 72px; }
+  /* Moments: 2 rows on mobile with non-overlapping photos */
+  .moments-marquee {
+    padding-bottom: 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .moments-track-desktop { display: none; }
+  .moments-track-sp-a,
+  .moments-track-sp-b {
+    display: flex;
+  }
+  .moments-track-sp-b {
+    animation-name: moments-slide-reverse;
+    animation-duration: 60s;
+  }
+  .moments-track-sp-a { animation-duration: 60s; }
+  .moments-track img { width: 300px; height: 220px; }
   .report-inner { grid-template-columns: 1fr; gap: 32px; }
   .global-nav {
     display: none;
@@ -1492,7 +1526,8 @@ ul { list-style: none; }
   .story-grid,
   .concept-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .moments-track img { width: 340px; height: 260px; border-radius: 22px; }
+  .moments-track img { width: 240px; height: 180px; border-radius: 22px; }
+  .moments-marquee { gap: 14px; padding-bottom: 64px; }
   .footer-inner { grid-template-columns: 1fr; }
   .story-quote { font-size: 16px; padding: 24px 20px; }
   .section-inner { padding: 64px 20px; }
@@ -1812,7 +1847,8 @@ ul { list-style: none; }
     <h2 class="section-title" data-i18n="moments.title">子どもたちの日常</h2>
   </div>
   <div class="moments-marquee" aria-hidden="false">
-    <div class="moments-track">
+    <!-- Desktop: single wide marquee with all 6 moments -->
+    <div class="moments-track moments-track-desktop">
       <img src="assets/images/moment-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/f3a847/ffffff?text=Moment+1';" alt="Moment 1">
       <img src="assets/images/moment-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/efb058/ffffff?text=Moment+2';" alt="Moment 2">
       <img src="assets/images/moment-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/e89a4f/ffffff?text=Moment+3';" alt="Moment 3">
@@ -1823,6 +1859,26 @@ ul { list-style: none; }
       <img src="assets/images/moment-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/f3a847/ffffff?text=Moment+1';" alt="" aria-hidden="true">
       <img src="assets/images/moment-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/efb058/ffffff?text=Moment+2';" alt="" aria-hidden="true">
       <img src="assets/images/moment-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/e89a4f/ffffff?text=Moment+3';" alt="" aria-hidden="true">
+      <img src="assets/images/moment-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/d98543/ffffff?text=Moment+4';" alt="" aria-hidden="true">
+      <img src="assets/images/moment-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/f3a847/ffffff?text=Moment+5';" alt="" aria-hidden="true">
+      <img src="assets/images/moment-6.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/efb058/ffffff?text=Moment+6';" alt="" aria-hidden="true">
+    </div>
+    <!-- Mobile: row 1 — moments 1, 2, 3 (left direction) -->
+    <div class="moments-track moments-track-sp-a">
+      <img src="assets/images/moment-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/f3a847/ffffff?text=Moment+1';" alt="Moment 1">
+      <img src="assets/images/moment-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/efb058/ffffff?text=Moment+2';" alt="Moment 2">
+      <img src="assets/images/moment-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/e89a4f/ffffff?text=Moment+3';" alt="Moment 3">
+      <!-- duplicate set for seamless infinite loop -->
+      <img src="assets/images/moment-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/f3a847/ffffff?text=Moment+1';" alt="" aria-hidden="true">
+      <img src="assets/images/moment-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/efb058/ffffff?text=Moment+2';" alt="" aria-hidden="true">
+      <img src="assets/images/moment-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/e89a4f/ffffff?text=Moment+3';" alt="" aria-hidden="true">
+    </div>
+    <!-- Mobile: row 2 — moments 4, 5, 6 (right direction for visual contrast) -->
+    <div class="moments-track moments-track-sp-b">
+      <img src="assets/images/moment-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/d98543/ffffff?text=Moment+4';" alt="Moment 4">
+      <img src="assets/images/moment-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/f3a847/ffffff?text=Moment+5';" alt="Moment 5">
+      <img src="assets/images/moment-6.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/efb058/ffffff?text=Moment+6';" alt="Moment 6">
+      <!-- duplicate set for seamless infinite loop -->
       <img src="assets/images/moment-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/d98543/ffffff?text=Moment+4';" alt="" aria-hidden="true">
       <img src="assets/images/moment-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/f3a847/ffffff?text=Moment+5';" alt="" aria-hidden="true">
       <img src="assets/images/moment-6.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x220/efb058/ffffff?text=Moment+6';" alt="" aria-hidden="true">
