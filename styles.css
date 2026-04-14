@@ -761,7 +761,7 @@ ul { list-style: none; }
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(rgba(253, 245, 230, 0.94), rgba(253, 245, 230, 0.94)),
+    linear-gradient(rgba(253, 245, 230, 0.72), rgba(253, 245, 230, 0.72)),
     url('assets/images/concept-bg.jpg') center / cover no-repeat;
 }
 .concept .section-inner {
@@ -1700,29 +1700,42 @@ ul { list-style: none; }
 }
 
 @media (max-width: 900px) {
-  /* ---- HERO (tablet / SP): giant circle from the top, white title overlaid ---- */
-  .hero { min-height: auto; }
+  /* ---- HERO (tablet / SP): reference-matched layout.
+     Title is left-aligned inside the upper-left gradient blob, a small photo
+     circle sits top-right, decorative circles are distributed through the
+     middle, and a small photo circle anchors the lower-left. The cutout
+     children photo is hidden on mobile so the circles can breathe. */
+  .hero { min-height: 0; }
   .hero-inner {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto;
     padding: 0 24px 48px;
-    text-align: center;
+    text-align: left;
     column-gap: 0;
     row-gap: 0;
+    min-height: 960px;
   }
   .hero-copy {
     grid-column: 1;
     grid-row: 1;
     position: relative;
     z-index: 5;
-    padding-top: 120px;
-    padding-bottom: 120px;
-    justify-content: center;
-    align-items: center;
+    padding-top: 96px;
+    padding-bottom: 40px;
+    padding-right: 150px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
   }
+  .hero-title,
+  .hero-lead,
+  .hero-sub {
+    text-align: left;
+  }
+  .hero-title { max-width: 260px; }
   .hero .hero-ctas {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 2;
     justify-content: center;
     align-items: stretch;
     flex-direction: column;
@@ -1731,6 +1744,7 @@ ul { list-style: none; }
     width: 100%;
     max-width: 320px;
     justify-self: center;
+    align-self: end;
   }
   .hero .btn-primary,
   .hero .btn-ghost {
@@ -1739,75 +1753,54 @@ ul { list-style: none; }
     min-width: 0;
     width: 100%;
   }
-  .hero-title { font-size: 52px; line-height: 1.2; }
+  .hero-title { font-size: 48px; line-height: 1.2; }
   .hero-title-line { white-space: normal; }
   .hero-lead { font-size: 15px; }
   .hero-sub { font-size: 14px; margin-bottom: 24px; }
-  /* circle-1: the big gradient blob dominates the top of the hero,
-     text overlays it centered (like the reference).
-     NB: use left/top (not transform) so the circle-pop/circle-breathe
-     animations — which set transform: scale(...) — don't clobber the
-     mobile positioning. */
+  /* circle-1: large gradient blob fills the top-left, title overlays it. */
   .circle-1 {
-    width: 175vw; height: 175vw;
-    left: -37.5vw; top: -44vw;
+    width: 155vw; height: 155vw;
+    left: -48vw; top: -50vw;
   }
-  /* photo circle tucked into top-right of gradient blob */
+  /* photo circle (children with hearts) — top-right, overlapping circle-1 */
   .circle-photo-bg {
-    width: 180px; height: 180px;
-    right: 5%; top: 28px;
+    width: 168px; height: 168px;
+    right: 4%; top: 170px;
     bottom: auto;
   }
+  /* circle-2: small filled gradient dot overlapping the upper-left of the
+     larger outline circle in the middle area (per reference) */
   .circle-2 {
-    width: 96px; height: 96px;
-    left: 6%; top: 40px;
+    width: 78px; height: 78px;
+    left: 40%; top: 52%;
     right: auto; bottom: auto;
   }
+  /* circle-3: small photo circle anchored lower-left (per reference) */
   .circle-3 {
-    width: 70px; height: 70px;
-    right: 4%; top: 56%;
-    left: auto; bottom: auto;
+    width: 128px; height: 128px;
+    left: 5%; bottom: 13%;
+    right: auto; top: auto;
   }
-  .circle-4 {
-    width: 32px; height: 32px;
-    left: 12%; top: 46%;
-    right: auto; bottom: auto;
-  }
+  /* circle-4 hidden — reference has no tiny dot */
+  .circle-4 { display: none; }
+  /* circle-outline-1: large gradient-outlined ring in the center-right of
+     the middle area — circle-2 overlaps its top-left corner */
   .circle-outline-1 {
-    width: 90px; height: 90px;
-    left: 6%; top: 60%;
+    width: 186px; height: 186px;
+    right: 6%; top: 56%;
     bottom: auto;
+    left: auto;
   }
+  /* circle-outline-2: small outline ring on the far-left edge, half cut off */
   .circle-outline-2 {
-    width: 42px; height: 42px;
-    right: 12%; top: 28%;
+    width: 92px; height: 92px;
+    left: -32px; top: 62%;
+    bottom: auto;
+    right: auto;
   }
-  /* Cutout children photo sits between the copy/circle and the CTAs */
-  .hero-photo {
-    display: flex !important;
-    grid-column: 1;
-    grid-row: 2;
-    width: 100%;
-    max-width: 540px;
-    height: auto;
-    min-height: 400px;
-    margin: 20px auto 32px;
-    padding: 0 8px;
-    justify-self: center;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 4;
-  }
-  .hero-photo img {
-    width: 100%;
-    height: auto !important;
-    max-height: 500px;
-    min-height: 380px;
-    object-fit: contain;
-    display: block;
-  }
+  /* Cutout children photo is hidden on mobile — reference shows only
+     decorative circles and the small photo circles */
+  .hero-photo { display: none !important; }
   .flow-diagram { flex-direction: column; gap: 32px; }
   .flow-step { flex: 0 0 auto; max-width: none; }
   .how-it-works-lead { margin-bottom: 40px; }
@@ -1864,17 +1857,19 @@ ul { list-style: none; }
 }
 
 @media (max-width: 560px) {
-  .hero-title { font-size: 44px; line-height: 1.2; }
-  .hero-inner { padding: 0 16px 40px; }
-  .hero-copy { padding-top: 108px; padding-bottom: 108px; }
-  .circle-1 { width: 190vw; height: 190vw; left: -45vw; top: -52vw; }
-  .circle-photo-bg { width: 150px; height: 150px; right: 4%; top: 24px; bottom: auto; }
-  .hero-photo {
-    max-width: 440px;
-    min-height: 340px;
-    margin: 16px auto 28px;
+  .hero-title { font-size: 42px; line-height: 1.2; max-width: 240px; }
+  .hero-inner { padding: 0 16px 40px; min-height: 880px; }
+  .hero-copy {
+    padding-top: 84px;
+    padding-bottom: 32px;
+    padding-right: 130px;
   }
-  .hero-photo img { max-height: 420px; min-height: 320px; }
+  .circle-1 { width: 180vw; height: 180vw; left: -55vw; top: -58vw; }
+  .circle-photo-bg { width: 150px; height: 150px; right: 4%; top: 150px; bottom: auto; }
+  .circle-2 { width: 68px; height: 68px; left: 38%; top: 50%; }
+  .circle-3 { width: 116px; height: 116px; left: 5%; bottom: 13%; }
+  .circle-outline-1 { width: 168px; height: 168px; right: 5%; top: 54%; }
+  .circle-outline-2 { width: 82px; height: 82px; left: -28px; top: 60%; }
   .story-grid,
   .concept-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
