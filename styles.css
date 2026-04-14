@@ -1754,8 +1754,8 @@ ul { list-style: none; }
   }
   /* photo circle tucked into top-right of gradient blob */
   .circle-photo-bg {
-    width: 130px; height: 130px;
-    right: 6%; top: 24px;
+    width: 180px; height: 180px;
+    right: 5%; top: 28px;
     bottom: auto;
   }
   .circle-2 {
@@ -1868,7 +1868,7 @@ ul { list-style: none; }
   .hero-inner { padding: 0 16px 40px; }
   .hero-copy { padding-top: 108px; padding-bottom: 108px; }
   .circle-1 { width: 190vw; height: 190vw; left: -45vw; top: -52vw; }
-  .circle-photo-bg { width: 116px; height: 116px; right: 5%; top: 20px; bottom: auto; }
+  .circle-photo-bg { width: 150px; height: 150px; right: 4%; top: 24px; bottom: auto; }
   .hero-photo {
     max-width: 440px;
     min-height: 340px;
