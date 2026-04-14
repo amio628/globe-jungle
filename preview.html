@@ -1437,8 +1437,16 @@ ul { list-style: none; }
     width: 48px; height: 48px;
     right: 8%; top: 12%;
   }
-  /* Hide the cutout children photo — gradient circle is the anchor */
-  .hero-photo { display: none; }
+  /* Children photo sits between the copy/circle and the CTAs */
+  .hero-photo {
+    display: block;
+    justify-self: center;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 4;
+  }
   .flow-diagram { flex-direction: column; gap: 32px; }
   .flow-step { flex: 0 0 auto; max-width: none; }
   .how-it-works-lead { margin-bottom: 40px; }
