@@ -262,8 +262,8 @@ ul { list-style: none; }
 }
 /* Large gradient blob behind hero text (desktop: left side) */
 .circle-1 {
-  width: 640px; height: 640px;
-  left: -110px; top: -90px;
+  width: 760px; height: 760px;
+  left: -140px; top: -120px;
   background: linear-gradient(135deg,
     #FE82A8 0%,
     #FFA56D 25%,
@@ -378,13 +378,32 @@ ul { list-style: none; }
   gap: 40px;
   align-items: center;
 }
+.hero-copy {
+  position: relative;
+  isolation: isolate;
+}
+/* Frosted-glass scrim behind hero copy (instead of text-shadow)
+   so white text stays crisp on the rainbow circle. */
+.hero-copy::before {
+  content: "";
+  position: absolute;
+  inset: -28px -48px;
+  background: linear-gradient(135deg,
+    rgba(43, 30, 16, 0.42) 0%,
+    rgba(43, 30, 16, 0.28) 60%,
+    rgba(43, 30, 16, 0.08) 100%);
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  border-radius: 32px;
+  z-index: -1;
+  pointer-events: none;
+}
 .hero-eyebrow {
   font-size: 13px;
   letter-spacing: 0.2em;
   color: #fff8e0;
   margin-bottom: 16px;
   font-weight: 700;
-  text-shadow: 0 1px 10px rgba(0,0,0,0.18);
 }
 .hero-title {
   font-size: 56px;
@@ -395,7 +414,6 @@ ul { list-style: none; }
   background: none;
   -webkit-text-fill-color: #ffffff;
   letter-spacing: 0.02em;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.18);
 }
 .hero-lead {
   font-size: 18px;
@@ -403,7 +421,6 @@ ul { list-style: none; }
   margin-bottom: 14px;
   line-height: 1.9;
   font-weight: 700;
-  text-shadow: 0 1px 10px rgba(0,0,0,0.2);
 }
 .hero-sub {
   font-size: 14px;
@@ -412,7 +429,6 @@ ul { list-style: none; }
   line-height: 1.9;
   font-weight: 500;
   opacity: 0.95;
-  text-shadow: 0 1px 10px rgba(0,0,0,0.18);
 }
 .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 .hero-photo {
