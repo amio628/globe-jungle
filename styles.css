@@ -330,8 +330,7 @@ ul { list-style: none; }
 .circle {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.95;
-  transform: scale(0);
+  opacity: 0;
   animation: circle-pop 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   transition: translate 0.5s ease;
 }
@@ -346,7 +345,7 @@ ul { list-style: none; }
     #FABD5E 50%,
     #BECC90 68%,
     #8DDBD1 84%,
-    #8DDBD1 100%);
+    #8DDBD1 100%) fixed;
   animation-delay: 0.2s;
 }
 /* 2 — Medium gradient accent (center-right, semi-transparent overlap) */
@@ -360,8 +359,8 @@ ul { list-style: none; }
     #FABD5E 50%,
     #BECC90 68%,
     #8DDBD1 84%,
-    #8DDBD1 100%);
-  opacity: 0.85;
+    #8DDBD1 100%) fixed;
+  --circle-opacity: 0.85;
   animation-delay: 0.7s;
 }
 /* 3 — White circle with faded photo (center, carves out space) */
@@ -395,7 +394,7 @@ ul { list-style: none; }
     #FABD5E 50%,
     #BECC90 68%,
     #8DDBD1 84%,
-    #8DDBD1 100%);
+    #8DDBD1 100%) fixed;
   animation-delay: 1.3s;
 }
 /* 5 — Photo circle (upper-right, like reference) */
@@ -424,7 +423,7 @@ ul { list-style: none; }
     #FABD5E 50%,
     #BECC90 68%,
     #8DDBD1 84%,
-    #8DDBD1 100%) border-box;
+    #8DDBD1 100%) fixed border-box;
   border: 2px solid transparent;
   -webkit-mask:
     linear-gradient(#fff 0 0) padding-box,
@@ -434,7 +433,7 @@ ul { list-style: none; }
     linear-gradient(#fff 0 0) padding-box,
     linear-gradient(#fff 0 0) border-box;
   mask-composite: exclude;
-  transform: scale(0);
+  opacity: 0;
   animation: circle-pop 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   transition: translate 0.5s ease;
 }
@@ -459,14 +458,14 @@ ul { list-style: none; }
 .hero:hover .circle-outline-2 { translate:  6px  -4px; }
 .hero:hover .hero-photo    { transform: translateY(-10px); }
 
-/* Keyframe: scale up from center with a soft ripple-in feel */
+/* Keyframe: gentle fade-in (no transform — keeps background-attachment: fixed
+   working so all circles share one viewport-anchored gradient) */
 @keyframes circle-pop {
-  0%  { transform: scale(0); opacity: 0; }
-  60% { opacity: 1; }
-  100%{ transform: scale(1); opacity: var(--circle-opacity, 0.95); }
+  0%  { opacity: 0; }
+  100%{ opacity: var(--circle-opacity, 0.95); }
 }
 
-/* Gentle continuous breathing after the initial pop */
+/* Gentle continuous opacity breathing after the initial fade-in */
 .circle-1,
 .circle-2,
 .circle-4 {
@@ -479,13 +478,13 @@ ul { list-style: none; }
 .circle-4 { animation-delay: 1.3s, 4s; }
 
 @keyframes circle-breathe {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.035); }
+  0%, 100% { opacity: var(--circle-opacity, 0.95); }
+  50%      { opacity: calc(var(--circle-opacity, 0.95) * 0.88); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .circle,
-  .circle-outline { animation: none; transform: scale(1); }
+  .circle-outline { animation: none; opacity: var(--circle-opacity, 0.95); }
   .hero:hover .circle-1,
   .hero:hover .circle-2,
   .hero:hover .circle-3,
@@ -761,7 +760,7 @@ ul { list-style: none; }
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(rgba(253, 245, 230, 0.94), rgba(253, 245, 230, 0.94)),
+    linear-gradient(rgba(245, 226, 189, 0.92), rgba(245, 226, 189, 0.92)),
     url('assets/images/concept-bg.jpg') center / cover no-repeat;
 }
 .concept .section-inner {
@@ -1385,7 +1384,7 @@ ul { list-style: none; }
     #FABD5E 50%,
     #BECC90 68%,
     #8DDBD1 84%,
-    #8DDBD1 100%);
+    #8DDBD1 100%) fixed;
   position: absolute;
   border-radius: 50%;
 }
@@ -1399,7 +1398,7 @@ ul { list-style: none; }
     #FABD5E 50%,
     #BECC90 68%,
     #8DDBD1 84%,
-    #8DDBD1 100%);
+    #8DDBD1 100%) fixed;
   position: absolute;
   border-radius: 50%;
   opacity: 0.85;
@@ -1414,7 +1413,7 @@ ul { list-style: none; }
     #FABD5E 50%,
     #BECC90 68%,
     #8DDBD1 84%,
-    #8DDBD1 100%) border-box;
+    #8DDBD1 100%) fixed border-box;
   border: 2px solid transparent;
   -webkit-mask:
     linear-gradient(#fff 0 0) padding-box,
