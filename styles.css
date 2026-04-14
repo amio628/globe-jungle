@@ -339,11 +339,13 @@ ul { list-style: none; }
 .circle-1 {
   width: 760px; height: 760px;
   left: -120px; top: -120px;
-  background: linear-gradient(135deg,
-    #FE82A8 0%,
-    #FFA56D 25%,
+  background: linear-gradient(130deg,
+    #FE82B3 0%,
+    #FE82B3 16%,
+    #FFA56D 32%,
     #FABD5E 50%,
-    #BECC90 75%,
+    #BECC90 68%,
+    #8DDBD1 84%,
     #8DDBD1 100%);
   animation-delay: 0.2s;
 }
@@ -351,13 +353,15 @@ ul { list-style: none; }
 .circle-2 {
   width: 340px; height: 340px;
   right: 14%; top: 50%;
-  background: linear-gradient(135deg,
-    #FE82A8 0%,
-    #FFA56D 25%,
+  background: linear-gradient(130deg,
+    #FE82B3 0%,
+    #FE82B3 16%,
+    #FFA56D 32%,
     #FABD5E 50%,
-    #BECC90 75%,
+    #BECC90 68%,
+    #8DDBD1 84%,
     #8DDBD1 100%);
-  opacity: 0.7;
+  opacity: 0.85;
   animation-delay: 0.7s;
 }
 /* 3 — White circle with faded photo (center, carves out space) */
@@ -384,7 +388,14 @@ ul { list-style: none; }
 .circle-4 {
   width: 60px; height: 60px;
   right: 5%; bottom: 8%;
-  background: linear-gradient(135deg, #FE82A8, #FFA56D, #FABD5E, #BECC90, #8DDBD1);
+  background: linear-gradient(130deg,
+    #FE82B3 0%,
+    #FE82B3 16%,
+    #FFA56D 32%,
+    #FABD5E 50%,
+    #BECC90 68%,
+    #8DDBD1 84%,
+    #8DDBD1 100%);
   animation-delay: 1.3s;
 }
 /* 5 — Photo circle (upper-right, like reference) */
@@ -406,7 +417,14 @@ ul { list-style: none; }
 .circle-outline {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(135deg, #FE82A8, #FFA56D, #FABD5E, #BECC90, #8DDBD1) border-box;
+  background: linear-gradient(130deg,
+    #FE82B3 0%,
+    #FE82B3 16%,
+    #FFA56D 32%,
+    #FABD5E 50%,
+    #BECC90 68%,
+    #8DDBD1 84%,
+    #8DDBD1 100%) border-box;
   border: 2px solid transparent;
   -webkit-mask:
     linear-gradient(#fff 0 0) padding-box,
@@ -494,29 +512,11 @@ ul { list-style: none; }
 }
 .hero-copy {
   position: relative;
-  isolation: isolate;
   grid-column: 1;
   grid-row: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-/* Frosted-glass scrim behind the hero copy so the text stays crisp
-   on the colorful rainbow circle without relying on text-shadow.
-   Sits between the circles (z-index 1) and .hero-inner (z-index 3). */
-.hero-copy::before {
-  content: "";
-  position: absolute;
-  inset: -28px -48px;
-  background: linear-gradient(135deg,
-    rgba(74, 44, 29, 0.42) 0%,
-    rgba(74, 44, 29, 0.28) 60%,
-    rgba(74, 44, 29, 0.08) 100%);
-  backdrop-filter: blur(6px) saturate(120%);
-  -webkit-backdrop-filter: blur(6px) saturate(120%);
-  border-radius: 32px;
-  z-index: -1;
-  pointer-events: none;
 }
 .hero-photo {
   grid-column: 2;
@@ -578,7 +578,6 @@ ul { list-style: none; }
   max-height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 16px 40px rgba(0,0,0,0.18));
 }
 
 /* Hero CTA buttons */
@@ -984,22 +983,19 @@ ul { list-style: none; }
   box-shadow: 6px 6px 0px rgba(230, 126, 34, 0.2);
 }
 .stat-icon {
-  margin: 0 auto 20px;
+  margin: 0 auto 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--orange);
 }
-.stat-icon .icon {
-  width: 36px;
-  height: 36px;
+.stat-icon .stat-icon-svg {
+  width: 68px;
+  height: 68px;
   display: block;
   color: var(--orange);
-  fill: none;
-  stroke: var(--orange);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  fill: currentColor;
+  stroke: none;
 }
 .stat-num {
   font-size: 60px;
@@ -1377,22 +1373,43 @@ ul { list-style: none; }
 .donate-hero-bg .circle-1 {
   width: 480px; height: 480px;
   left: -140px; top: -140px;
-  background: linear-gradient(135deg, #FE82A8 0%, #FFA56D 25%, #FABD5E 50%, #BECC90 75%, #8DDBD1 100%);
+  background: linear-gradient(130deg,
+    #FE82B3 0%,
+    #FE82B3 16%,
+    #FFA56D 32%,
+    #FABD5E 50%,
+    #BECC90 68%,
+    #8DDBD1 84%,
+    #8DDBD1 100%);
   position: absolute;
   border-radius: 50%;
 }
 .donate-hero-bg .circle-2 {
   width: 260px; height: 260px;
   right: -40px; top: 20px;
-  background: linear-gradient(135deg, #FE82A8 0%, #FFA56D 25%, #FABD5E 50%, #BECC90 75%, #8DDBD1 100%);
+  background: linear-gradient(130deg,
+    #FE82B3 0%,
+    #FE82B3 16%,
+    #FFA56D 32%,
+    #FABD5E 50%,
+    #BECC90 68%,
+    #8DDBD1 84%,
+    #8DDBD1 100%);
   position: absolute;
   border-radius: 50%;
-  opacity: 0.7;
+  opacity: 0.85;
 }
 .donate-hero-bg .circle-outline-1 {
   width: 160px; height: 160px;
   right: 20%; bottom: 10%;
-  background: linear-gradient(135deg, #FE82A8, #FFA56D, #FABD5E, #BECC90, #8DDBD1) border-box;
+  background: linear-gradient(130deg,
+    #FE82B3 0%,
+    #FE82B3 16%,
+    #FFA56D 32%,
+    #FABD5E 50%,
+    #BECC90 68%,
+    #8DDBD1 84%,
+    #8DDBD1 100%) border-box;
   border: 2px solid transparent;
   -webkit-mask:
     linear-gradient(#fff 0 0) padding-box,
