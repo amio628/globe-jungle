@@ -998,9 +998,9 @@ ul { list-style: none; }
   stroke: none;
 }
 .stat-num {
-  font-size: 60px;
-  font-weight: 700;
-  line-height: 1.1;
+  font-size: 76px;
+  font-weight: 500;
+  line-height: 1.05;
   margin-bottom: 14px;
   display: flex;
   align-items: baseline;
@@ -1014,15 +1014,15 @@ ul { list-style: none; }
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
 }
-.stat-number { min-width: 1ch; letter-spacing: -0.03em; }
+.stat-number { min-width: 1ch; letter-spacing: -0.035em; font-weight: 500; }
 .stat-prefix {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
   letter-spacing: 0;
 }
 .stat-unit {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 500;
   letter-spacing: 0;
 }
 .stat-label {
@@ -1865,9 +1865,9 @@ ul { list-style: none; }
   .concept-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .stat-card { padding: 24px 14px; }
-  .stat-num { font-size: 44px; margin-bottom: 8px; }
-  .stat-prefix { font-size: 14px; }
-  .stat-unit { font-size: 13px; }
+  .stat-num { font-size: 56px; margin-bottom: 8px; font-weight: 500; }
+  .stat-prefix { font-size: 16px; font-weight: 500; }
+  .stat-unit { font-size: 15px; font-weight: 500; }
   .stat-label { font-size: 11px; line-height: 1.5; }
   .moments-track img { width: 240px; height: 180px; border-radius: 4px; }
   .moments-marquee { gap: 14px; padding-bottom: 64px; }
