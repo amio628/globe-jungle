@@ -1752,8 +1752,8 @@ ul { list-style: none; }
     grid-row: 1;
     position: relative;
     z-index: 5;
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 96px;
+    padding-bottom: 96px;
     justify-content: center;
     align-items: center;
   }
@@ -1787,10 +1787,10 @@ ul { list-style: none; }
      mobile positioning.
      --c1-bottom tracks where circle-1 ends (top + height in vw) so
      every accent circle below can anchor to it without clashing. */
-  .hero-bg { --c1-bottom: 131vw; }
+  .hero-bg { --c1-bottom: 112vw; }
   .circle-1 {
-    width: 175vw; height: 175vw;
-    left: -37.5vw; top: -44vw;
+    width: 150vw; height: 150vw;
+    left: -25vw; top: -38vw;
   }
   /* photo circle tucked into top-right of gradient blob */
   .circle-photo-bg {
@@ -1912,11 +1912,11 @@ ul { list-style: none; }
 @media (max-width: 560px) {
   .hero-title { font-size: 44px; line-height: 1.2; }
   .hero-inner { padding: 0 16px 40px; }
-  .hero-copy { padding-top: 108px; padding-bottom: 108px; }
+  .hero-copy { padding-top: 78px; padding-bottom: 78px; }
   /* On narrow phones circle-1 is bigger, so push --c1-bottom further down
      and every accent rides along via their calc(var(--c1-bottom) + ...) */
-  .hero-bg { --c1-bottom: 138vw; }
-  .circle-1 { width: 190vw; height: 190vw; left: -45vw; top: -52vw; }
+  .hero-bg { --c1-bottom: 118vw; }
+  .circle-1 { width: 160vw; height: 160vw; left: -30vw; top: -42vw; }
   .circle-photo-bg { width: 148px; height: 148px; right: 4%; top: 20px; bottom: auto; }
   .hero-photo {
     max-width: 440px;
@@ -1939,8 +1939,10 @@ ul { list-style: none; }
   .section-inner { padding: 64px 24px; }
   .concept .section-inner { padding-top: 104px; }
   .amount-grid { grid-template-columns: repeat(2, 1fr); }
-  .header-inner { gap: 12px; }
-  .logo-text { display: none; }
+  .header-inner { gap: 10px; padding: 14px 16px; }
+  .logo { gap: 8px; }
+  .logo-img { height: 36px; }
+  .logo-text { font-size: 13px; letter-spacing: 0.03em; }
   .lang-toggle { padding: 2px; }
   .lang-btn { padding: 5px 10px; font-size: 11px; }
   .donate-item { grid-template-columns: 1fr; }
