@@ -1,0 +1,14 @@
+# --- Node / npm ---
+node_modules/
+npm-debug.log*
+.npm/
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+
+# --- Editors ---
+.vscode/
+.idea/
+*.swp
+*.swo

@@ -1,0 +1,13 @@
+{
+  "name": "globe-jungle",
+  "version": "1.0.0",
+  "description": "Static LP for NPO Globe Jungle — Cambodia children support.",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.css --minify",
+    "dev:css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
