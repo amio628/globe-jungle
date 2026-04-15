@@ -635,16 +635,77 @@ ul { list-style: none; }
 
 /* ============ FEATURE BAR ============ */
 .feature-bar {
-  background: var(--beige);
+  background: #ffffff;
   border-bottom: 1px solid var(--beige-border);
 }
 .feature-bar-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 24px;
+  max-width: 960px;
+  margin: -40px auto 0;
+  padding: 28px 32px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1px solid var(--beige-border);
+  box-shadow: 0 24px 56px -28px rgba(74, 44, 29, 0.22);
+  position: relative;
+  z-index: 2;
+}
+
+/* ============ SECTION WAVE DIVIDERS (Phase 3) ============ */
+/* Thin wrapper that hosts an inline SVG path so one section's
+   background colour flows smoothly into the next.  Place it
+   BETWEEN sections in markup — its own background matches the
+   OUTGOING section, and the SVG path fills with the INCOMING
+   section's colour. */
+.section-wave {
+  display: block;
+  width: 100%;
+  line-height: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.section-wave svg {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+@media (max-width: 900px) {
+  .section-wave svg { height: 56px; }
+}
+/* Hero (beige) → Feature bar (white) */
+.section-wave-hero { background: var(--beige); }
+/* How-it-works (beige) → Support (orange) */
+.section-wave-support {
+  background: var(--beige);
+}
+/* Support (orange) → Moments (white) */
+.section-wave-moments {
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
+}
+/* Concept (white image overlay) → How-it-works (beige) */
+.section-wave-howitworks { background: #ffffff; }
+
+/* ============ REVEAL ON SCROLL (Phase 5) ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 .feature-item {
   display: flex;
@@ -688,11 +749,11 @@ ul { list-style: none; }
 .story-card {
   position: relative;
   background: #ffffff;
-  border-radius: 4px;
+  border-radius: 32px;
   border: 1px solid var(--beige-border);
   overflow: hidden;
-  box-shadow: 4px 4px 0px rgba(230, 126, 34, 0.1);
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 12px 32px -18px rgba(74, 44, 29, 0.2);
+  transition: all 0.3s ease-in-out;
   counter-increment: story;
 }
 .story-card::before {
@@ -710,8 +771,8 @@ ul { list-style: none; }
   padding: 8px 14px;
 }
 .story-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px rgba(230, 126, 34, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 28px 60px -24px rgba(74, 44, 29, 0.35);
 }
 .story-card img { width: 100%; height: 220px; object-fit: cover; }
 .story-card h3 {
@@ -732,28 +793,9 @@ ul { list-style: none; }
 }
 
 /* ============ CONCEPT ============ */
-/* Wave divider — section-to-section transition */
-.wave-divider {
-  position: relative;
-  height: 50px;
-  background: var(--earth-beige);
-  pointer-events: none;
-  line-height: 0;
-}
-.wave-divider::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg"><path fill="%23ffffff" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.wave-divider.wave-flip::before {
-  transform: scaleY(-1);
-}
+/* (Legacy .wave-divider removed — replaced by the generic
+   .section-wave wrapper with an inline SVG child, placed
+   between sections in index.html.) */
 
 /* Downward V-cut divider — the STORY section's bottom edge dips
    into a centered point, with the beige peeking through the two
@@ -831,9 +873,9 @@ ul { list-style: none; }
 }
 .concept-photo {
   position: relative;
-  border-radius: 4px;
+  border-radius: 32px;
   overflow: hidden;
-  box-shadow: 4px 4px 0 rgba(230, 126, 34, 0.1);
+  box-shadow: 0 24px 60px -24px rgba(74, 44, 29, 0.25);
   aspect-ratio: 4 / 5;
   background: var(--beige-soft);
 }
@@ -849,14 +891,14 @@ ul { list-style: none; }
   gap: 18px;
   padding: 24px;
   background: #ffffff;
-  border-radius: 4px;
+  border-radius: 24px;
   border: 1px solid var(--beige-border);
-  box-shadow: 4px 4px 0px rgba(230, 126, 34, 0.1);
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 12px 30px -18px rgba(74, 44, 29, 0.18);
+  transition: all 0.3s ease-in-out;
 }
 .concept-item:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px rgba(230, 126, 34, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px -20px rgba(74, 44, 29, 0.3);
 }
 .concept-icon {
   flex-shrink: 0;
@@ -913,16 +955,16 @@ ul { list-style: none; }
   min-width: 0;
   background: #ffffff;
   border: 1px solid var(--beige-border);
-  border-radius: 4px;
+  border-radius: 24px;
   padding: 48px 28px 36px;
   text-align: center;
   position: relative;
-  box-shadow: 4px 4px 0px rgba(230, 126, 34, 0.1);
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 12px 30px -18px rgba(74, 44, 29, 0.18);
+  transition: all 0.3s ease-in-out;
 }
 .flow-step:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px rgba(230, 126, 34, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px -20px rgba(74, 44, 29, 0.3);
 }
 .flow-badge {
   position: absolute;
@@ -1003,12 +1045,12 @@ ul { list-style: none; }
 }
 .stat-card {
   background: #ffffff;
-  border: 1px solid var(--beige-border);
-  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
   padding: 32px 24px;
   text-align: center;
-  box-shadow: 4px 4px 0px rgba(230, 126, 34, 0.1);
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 16px 40px -22px rgba(74, 44, 29, 0.35);
+  transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1017,8 +1059,8 @@ ul { list-style: none; }
   min-width: 0;
 }
 .stat-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px rgba(230, 126, 34, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 28px 60px -24px rgba(74, 44, 29, 0.45);
 }
 .stat-icon {
   margin: 0 auto 18px;
@@ -1114,9 +1156,9 @@ ul { list-style: none; }
   width: 520px;
   height: 360px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 24px;
   flex-shrink: 0;
-  box-shadow: 4px 4px 0 rgba(230, 126, 34, 0.1);
+  box-shadow: 0 18px 40px -22px rgba(74, 44, 29, 0.3);
 }
 /* Desktop: show wide track, hide the two mobile tracks */
 .moments-track-sp-a,
@@ -1150,22 +1192,22 @@ ul { list-style: none; }
   align-items: center;
   gap: 24px;
   background: #ffffff;
-  border-radius: 4px;
-  padding: 24px;
+  border-radius: 24px;
+  padding: 28px;
   border: 1px solid var(--beige-border);
   border-left: 6px solid var(--orange);
-  box-shadow: 4px 4px 0px rgba(230, 126, 34, 0.1);
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 14px 36px -20px rgba(74, 44, 29, 0.2);
+  transition: all 0.3s ease-in-out;
 }
 .donate-item:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px rgba(230, 126, 34, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -24px rgba(74, 44, 29, 0.35);
 }
 .donate-thumb {
   position: relative;
   width: 140px;
   height: 110px;
-  border-radius: 14px;
+  border-radius: 20px;
   overflow: hidden;
   background: var(--bg-soft);
   flex-shrink: 0;
@@ -1223,16 +1265,16 @@ ul { list-style: none; }
 .report-inner .section-eyebrow::after { margin-left: 0; }
 .report-copy p { color: var(--muted); margin-bottom: 24px; }
 .report-feature {
-  padding: 24px;
+  padding: 28px;
   background: #ffffff;
   border: 1px solid var(--beige-border);
-  border-radius: 4px;
-  box-shadow: 4px 4px 0px rgba(230, 126, 34, 0.1);
-  transition: all 0.2s ease-in-out;
+  border-radius: 24px;
+  box-shadow: 0 14px 36px -20px rgba(74, 44, 29, 0.2);
+  transition: all 0.3s ease-in-out;
 }
 .report-feature:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px rgba(230, 126, 34, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -24px rgba(74, 44, 29, 0.35);
 }
 .report-feature-title {
   font-family: var(--font-head);
@@ -1902,7 +1944,7 @@ ul { list-style: none; }
   .stat-prefix { font-size: 16px; font-weight: 500; }
   .stat-unit { font-size: 15px; font-weight: 500; }
   .stat-label { font-size: 11px; line-height: 1.5; }
-  .moments-track img { width: 240px; height: 180px; border-radius: 4px; }
+  .moments-track img { width: 240px; height: 180px; border-radius: 20px; }
   .moments-marquee { gap: 14px; padding-bottom: 64px; }
   .footer-inner { grid-template-columns: 1fr; }
   .story-quote { font-size: 16px; padding: 8px 16px; }
@@ -1923,6 +1965,8 @@ ul { list-style: none; }
   .feature-bar-inner {
     padding: 18px 12px;
     gap: 8px;
+    margin: -28px 16px 0;
+    border-radius: 22px;
   }
   .feature-item {
     flex-direction: column;
