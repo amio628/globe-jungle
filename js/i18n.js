@@ -193,7 +193,7 @@ const I18N = {
     "nav.donate": "Donate",
 
     "hero.eyebrow": "Certified NPO — GLOBE JUNGLE",
-    "hero.title": "<span class=\"hero-title-line\">Spread the Circle</span><span class=\"hero-title-line\">of HAPPY, together.</span>",
+    "hero.title": "<span class=\"hero-title-line\">Join the Circle</span><span class=\"hero-title-line\">of Happiness.</span>",
     "hero.lead": "Under the same sky, a society where we can<br>laugh and cheer for each other.",
     "hero.sub": "The story of Cambodia's next-generation leaders,<br>beginning at CCMHA Orphanage.",
     "hero.ctaPrimary": "Support a Child's Future",
