@@ -1,0 +1,21 @@
+/*
+ * Tailwind CSS input file.
+ *
+ * This file is compiled by the `build:css` npm script into
+ * `assets/css/tailwind.css`, which is what the browser actually loads.
+ *
+ * Preflight (Tailwind's CSS reset) is disabled in tailwind.config.js
+ * so the existing hand-written `styles.css` stays untouched.  Tailwind
+ * here acts as an ADDITIVE utility layer — every class we sprinkle
+ * into the HTML gets picked up by the JIT scanner and emitted into the
+ * output file.
+ *
+ * Usage order in index.html:
+ *   1. styles.css          (existing base styles, full design system)
+ *   2. assets/css/tailwind.css   (Tailwind utilities — loaded AFTER so
+ *                                 any class we add can override base)
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
