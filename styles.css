@@ -774,32 +774,23 @@ ul { list-style: none; }
   transform: scaleY(-1);
 }
 
-/* Downward triangle divider — guides the eye from STORY into CONCEPT */
+/* Downward V-cut divider — the STORY section's bottom edge dips
+   into a centered point, with the beige peeking through the two
+   cut corners. Mirrors the classic LP "下矢印" section joint. */
 .section-arrow-down {
-  background: #fff;
-  padding: 28px 24px 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
   position: relative;
+  height: 88px;
+  background: var(--beige);
+  overflow: hidden;
+  pointer-events: none;
   line-height: 0;
 }
-.section-arrow-shape {
-  width: 0;
-  height: 0;
-  border-left: 38px solid transparent;
-  border-right: 38px solid transparent;
-  border-top: 44px solid var(--orange);
-  filter: drop-shadow(0 6px 10px rgba(230, 126, 34, 0.25));
-  animation: section-arrow-bounce 2.4s ease-in-out infinite;
-}
-@keyframes section-arrow-bounce {
-  0%, 100% { transform: translateY(0); }
-  50%     { transform: translateY(8px); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .section-arrow-shape { animation: none; }
+.section-arrow-down::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  clip-path: polygon(0 0, 100% 0, 100% 38%, 50% 100%, 0 38%);
 }
 
 .concept {
@@ -1977,12 +1968,7 @@ ul { list-style: none; }
   .section-inner { padding: 64px 24px; }
   .concept .section-inner { padding-top: 104px; }
   .amount-grid { grid-template-columns: repeat(2, 1fr); }
-  .section-arrow-down { padding: 20px 16px 28px; }
-  .section-arrow-shape {
-    border-left-width: 30px;
-    border-right-width: 30px;
-    border-top-width: 34px;
-  }
+  .section-arrow-down { height: 60px; }
   .header-inner { gap: 10px; padding: 14px 16px; }
   .logo { gap: 8px; }
   .logo-img { height: 36px; }
