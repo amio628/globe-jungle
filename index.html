@@ -271,42 +271,55 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-bg">
-    <div class="circle circle-1"></div>
-    <div class="circle circle-2"></div>
-    <div class="circle circle-3">
-      <img src="assets/images/hero-circle-photo-2.jpg"
-           loading="eager" decoding="async" fetchpriority="high"
-           onerror="this.onerror=null;this.src='https://placehold.co/280x280/f3a847/ffffff?text=Children';"
-           alt="">
-    </div>
-    <div class="circle circle-4"></div>
-    <div class="circle circle-photo-bg">
-      <img src="assets/images/hero-circle-photo.jpg"
-           loading="eager" decoding="async" fetchpriority="high"
-           onerror="this.onerror=null;this.src='https://placehold.co/480x480/f3a847/ffffff?text=Children+Drawing+Hearts';"
-           alt="">
-    </div>
-    <div class="circle-outline circle-outline-1"></div>
-    <div class="circle-outline circle-outline-2"></div>
+  <!-- Decorative background: dot grid + soft grey blobs for depth -->
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-dots"></div>
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
   </div>
+
   <div class="hero-inner">
+    <!-- LEFT: Copy column -->
     <div class="hero-copy">
       <p class="hero-eyebrow" data-i18n="hero.eyebrow">認定NPO法人グローブジャングル</p>
       <h1 class="hero-title tracking-tight" data-i18n="hero.title" data-i18n-html><span class="hero-title-line">HAPPYの連鎖を、</span><span class="hero-title-line">一緒に広げよう</span></h1>
       <p class="hero-lead" data-i18n="hero.lead" data-i18n-html>つながっている同じ空の下、<br>笑い合い、応援しあえる社会へ。</p>
       <p class="hero-sub" data-i18n="hero.sub" data-i18n-html>くっくま孤児院から始まる、<br>カンボジアの次世代リーダーたちの物語</p>
+      <div class="hero-ctas">
+        <a href="donate.html" class="btn btn-primary" data-i18n="hero.ctaPrimary">子供の未来を支援する</a>
+        <a href="#story" class="btn btn-ghost" data-i18n="hero.ctaSecondary">ストーリーを見る</a>
+      </div>
     </div>
-    <div class="hero-photo">
-      <!-- 子供たちの切り抜きPNG: assets/images/hero-children.png -->
+
+    <!-- RIGHT: Capsule composition (AUR-style tilted pills) -->
+    <div class="hero-capsules" aria-hidden="true">
+      <div class="capsule capsule-photo capsule-1">
+        <img src="assets/images/hero-circle-photo.jpg"
+             loading="eager" decoding="async" fetchpriority="high"
+             onerror="this.onerror=null;this.src='https://placehold.co/400x800/f3a847/ffffff?text=Children';"
+             alt="">
+      </div>
+      <div class="capsule capsule-photo capsule-2">
+        <img src="assets/images/hero-circle-photo-2.jpg"
+             loading="eager" decoding="async" fetchpriority="high"
+             onerror="this.onerror=null;this.src='https://placehold.co/400x800/f3a847/ffffff?text=Children';"
+             alt="">
+      </div>
+      <div class="capsule capsule-solid capsule-3"></div>
+      <div class="capsule capsule-outline capsule-4"></div>
+      <!-- Gainlove-style accent dots -->
+      <span class="hero-accent-dot hero-accent-dot-1"></span>
+      <span class="hero-accent-dot hero-accent-dot-2"></span>
+      <span class="hero-accent-dot hero-accent-dot-3"></span>
+      <span class="hero-accent-ring"></span>
+    </div>
+
+    <!-- Children cutout — visible on mobile as the hero photo anchor -->
+    <div class="hero-photo hero-photo-mobile">
       <img src="assets/images/hero-children.png"
            loading="eager" decoding="async" fetchpriority="high"
            onerror="this.onerror=null;this.src='https://placehold.co/560x520/ffffff/f3a847?text=Children+Cutout';"
            alt="Children of CCMHA">
-    </div>
-    <div class="hero-ctas">
-      <a href="donate.html" class="btn btn-primary" data-i18n="hero.ctaPrimary">子供の未来を支援する</a>
-      <a href="#story" class="btn btn-ghost" data-i18n="hero.ctaSecondary">ストーリーを見る</a>
     </div>
   </div>
 </section>
