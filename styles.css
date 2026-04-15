@@ -524,6 +524,28 @@ ul { list-style: none; }
   flex-direction: column;
   justify-content: center;
 }
+/* Cambodia silhouette behind hero text (boosts text contrast) */
+.hero-country {
+  position: absolute;
+  inset: -20px -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-country svg {
+  width: 118%;
+  max-width: 620px;
+  height: auto;
+  fill: #000;
+  opacity: 0.42;
+  filter: blur(1px);
+}
+.hero-copy > :not(.hero-country) {
+  position: relative;
+  z-index: 1;
+}
 .hero-photo {
   grid-column: 2;
   grid-row: 1;
