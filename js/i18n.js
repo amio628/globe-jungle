@@ -16,10 +16,10 @@ const I18N = {
     "nav.support": "SUPPORT",
     "nav.report": "REPORT",
     "nav.contact": "CONTACT",
-    "nav.donate": "寄付する",
+    "nav.donate": "今すぐ寄付する",
 
     "hero.eyebrow": "認定NPO法人グローブジャングル",
-    "hero.title": "<span class=\"hero-title-line\">HAPPYの連鎖を、</span><span class=\"hero-title-line\">一緒に広げる</span>",
+    "hero.title": "<span class=\"hero-title-line\">HAPPYの連鎖を、</span><span class=\"hero-title-line\">一緒に広げよう</span>",
     "hero.lead": "つながっている同じ空の下、<br>笑い合い、応援しあえる社会へ。",
     "hero.sub": "くっくま孤児院から始まる、<br>カンボジアの次世代リーダーたちの物語",
     "hero.ctaPrimary": "子供の未来を支援する",
