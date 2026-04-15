@@ -1784,40 +1784,49 @@ ul { list-style: none; }
      text overlays it centered (like the reference).
      NB: use left/top (not transform) so the circle-pop/circle-breathe
      animations — which set transform: scale(...) — don't clobber the
-     mobile positioning. */
+     mobile positioning.
+     --c1-bottom tracks where circle-1 ends (top + height in vw) so
+     every accent circle below can anchor to it without clashing. */
+  .hero-bg { --c1-bottom: 131vw; }
   .circle-1 {
     width: 175vw; height: 175vw;
     left: -37.5vw; top: -44vw;
   }
   /* photo circle tucked into top-right of gradient blob */
   .circle-photo-bg {
-    width: 180px; height: 180px;
-    right: 5%; top: 28px;
+    width: 170px; height: 170px;
+    right: 5%; top: 24px;
     bottom: auto;
   }
+  /* Medium gradient accent — far left, just below circle-1 */
   .circle-2 {
-    width: 96px; height: 96px;
-    left: 6%; top: 40px;
+    width: 86px; height: 86px;
+    left: 4vw; top: calc(var(--c1-bottom) + 24px);
     right: auto; bottom: auto;
   }
+  /* Small photo circle — far right, slightly below circle-2 */
   .circle-3 {
-    width: 70px; height: 70px;
-    right: 4%; top: 56%;
+    width: 68px; height: 68px;
+    right: 5vw; top: calc(var(--c1-bottom) + 80px);
     left: auto; bottom: auto;
   }
+  /* Tiny gradient dot — lower right area, well separated from circle-1/2 */
   .circle-4 {
-    width: 32px; height: 32px;
-    left: 12%; top: 46%;
+    width: 34px; height: 34px;
+    right: 24vw; top: calc(var(--c1-bottom) + 210px);
+    left: auto; bottom: auto;
+  }
+  /* Outline ring — left side, lower-middle area */
+  .circle-outline-1 {
+    width: 54px; height: 54px;
+    left: 26vw; top: calc(var(--c1-bottom) + 190px);
     right: auto; bottom: auto;
   }
-  .circle-outline-1 {
-    width: 90px; height: 90px;
-    left: 6%; top: 60%;
-    bottom: auto;
-  }
+  /* Small outline ring — upper right, paired with photo-bg area */
   .circle-outline-2 {
-    width: 42px; height: 42px;
-    right: 12%; top: 28%;
+    width: 38px; height: 38px;
+    right: 8vw; top: calc(var(--c1-bottom) + 14px);
+    left: auto; bottom: auto;
   }
   /* Cutout children photo sits between the copy/circle and the CTAs */
   .hero-photo {
@@ -1904,8 +1913,11 @@ ul { list-style: none; }
   .hero-title { font-size: 44px; line-height: 1.2; }
   .hero-inner { padding: 0 16px 40px; }
   .hero-copy { padding-top: 108px; padding-bottom: 108px; }
+  /* On narrow phones circle-1 is bigger, so push --c1-bottom further down
+     and every accent rides along via their calc(var(--c1-bottom) + ...) */
+  .hero-bg { --c1-bottom: 138vw; }
   .circle-1 { width: 190vw; height: 190vw; left: -45vw; top: -52vw; }
-  .circle-photo-bg { width: 150px; height: 150px; right: 4%; top: 24px; bottom: auto; }
+  .circle-photo-bg { width: 148px; height: 148px; right: 4%; top: 20px; bottom: auto; }
   .hero-photo {
     max-width: 440px;
     min-height: 340px;
