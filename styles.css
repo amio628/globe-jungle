@@ -371,13 +371,12 @@ ul { list-style: none; }
   --circle-opacity: 0.85;
   animation-delay: 0.7s;
 }
-/* 3 — Small photo circle (lower-left, matches reference layout) */
+/* 3 — Small photo circle */
 .circle-3 {
-  width: 220px; height: 220px;
-  left: 2%; bottom: 6%;
-  top: auto;
+  width: 240px; height: 240px;
+  left: 42%; top: 46%;
   background: #ffffff;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
   animation-delay: 1s;
   border-radius: 50%;
   overflow: hidden;
@@ -390,7 +389,7 @@ ul { list-style: none; }
   object-fit: cover;
   border-radius: 50%;
   clip-path: circle(50%);
-  opacity: 0.95;
+  opacity: 0.35;
 }
 /* 4 — Tiny gradient dot (bottom-right) */
 .circle-4 {
@@ -419,7 +418,7 @@ ul { list-style: none; }
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  opacity: 0.95;
+  opacity: 0.35;
 }
 
 .circle-outline {
