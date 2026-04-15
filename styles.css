@@ -524,22 +524,23 @@ ul { list-style: none; }
   flex-direction: column;
   justify-content: center;
 }
-/* Cambodia silhouette behind hero text (boosts text contrast) */
+/* Cambodia flag backdrop behind hero text (darkened, lower opacity) */
 .hero-country {
   position: absolute;
-  inset: -20px -10px;
+  inset: -24px -16px;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
+  border-radius: 12px;
 }
 .hero-country svg {
   width: 110%;
-  max-width: 640px;
+  max-width: 680px;
   height: auto;
-  color: #000;
-  opacity: 0.45;
+  opacity: 0.55;
 }
 .hero-copy > :not(.hero-country) {
   position: relative;
