@@ -347,28 +347,24 @@ ul { list-style: none; }
 .circle-1 {
   width: 760px; height: 760px;
   left: -120px; top: -120px;
-  background: linear-gradient(130deg,
-    #FE82B3 0%,
-    #FE82B3 16%,
-    #FFA56D 32%,
-    #FABD5E 50%,
-    #BECC90 68%,
-    #8DDBD1 84%,
-    #8DDBD1 100%);
+  background: linear-gradient(135deg,
+    #f0ad4e 0%,
+    #e67e22 30%,
+    #c4621a 60%,
+    #7a3b14 85%,
+    #4a2c1d 100%);
   animation-delay: 0.2s;
 }
 /* 2 — Medium gradient accent (center-right, semi-transparent overlap) */
 .circle-2 {
   width: 340px; height: 340px;
   right: 14%; top: 50%;
-  background: linear-gradient(130deg,
-    #FE82B3 0%,
-    #FE82B3 16%,
-    #FFA56D 32%,
-    #FABD5E 50%,
-    #BECC90 68%,
-    #8DDBD1 84%,
-    #8DDBD1 100%);
+  background: linear-gradient(135deg,
+    #f0ad4e 0%,
+    #e67e22 30%,
+    #c4621a 60%,
+    #7a3b14 85%,
+    #4a2c1d 100%);
   --circle-opacity: 0.85;
   animation-delay: 0.7s;
 }
@@ -396,14 +392,12 @@ ul { list-style: none; }
 .circle-4 {
   width: 60px; height: 60px;
   right: 5%; bottom: 8%;
-  background: linear-gradient(130deg,
-    #FE82B3 0%,
-    #FE82B3 16%,
-    #FFA56D 32%,
-    #FABD5E 50%,
-    #BECC90 68%,
-    #8DDBD1 84%,
-    #8DDBD1 100%);
+  background: linear-gradient(135deg,
+    #f0ad4e 0%,
+    #e67e22 30%,
+    #c4621a 60%,
+    #7a3b14 85%,
+    #4a2c1d 100%);
   animation-delay: 1.3s;
 }
 /* 5 — Photo circle (upper-right, like reference) */
@@ -425,14 +419,12 @@ ul { list-style: none; }
 .circle-outline {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(130deg,
-    #FE82B3 0%,
-    #FE82B3 16%,
-    #FFA56D 32%,
-    #FABD5E 50%,
-    #BECC90 68%,
-    #8DDBD1 84%,
-    #8DDBD1 100%) border-box;
+  background: linear-gradient(135deg,
+    #f0ad4e 0%,
+    #e67e22 30%,
+    #c4621a 60%,
+    #7a3b14 85%,
+    #4a2c1d 100%) border-box;
   border: 2px solid transparent;
   -webkit-mask:
     linear-gradient(#fff 0 0) padding-box,
@@ -718,7 +710,7 @@ ul { list-style: none; }
 }
 
 /* ============ STORY ============ */
-.story { background: #fff; }
+.story { background: var(--orange-soft); }
 .story-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -788,7 +780,7 @@ ul { list-style: none; }
   content: "";
   position: absolute;
   inset: 0;
-  background: #fff;
+  background: var(--orange-soft);
   clip-path: polygon(0 0, 100% 0, 100% 38%, 50% 100%, 0 38%);
 }
 
