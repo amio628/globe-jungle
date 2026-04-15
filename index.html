@@ -270,7 +270,7 @@
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="hero">
+<section class="hero reveal">
   <!-- Decorative background: dot grid + soft grey blobs for depth -->
   <div class="hero-bg" aria-hidden="true">
     <div class="hero-dots"></div>
@@ -324,8 +324,15 @@
   </div>
 </section>
 
+<!-- Wave divider: hero (beige) → feature bar (white) -->
+<div class="section-wave section-wave-hero" aria-hidden="true">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C240,110 480,0 720,50 C960,100 1200,30 1440,80 L1440,120 L0,120 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
 <!-- ============ FEATURE BAR ============ -->
-<section class="feature-bar">
+<section class="feature-bar reveal">
   <div class="feature-bar-inner">
     <div class="feature-item">
       <div class="feature-icon"><svg class="icon"><use href="#icon-check"/></svg></div>
@@ -343,12 +350,12 @@
 </section>
 
 <!-- ============ STORY ============ -->
-<section class="story" id="story">
+<section class="story reveal" id="story">
   <div class="section-inner">
     <p class="section-eyebrow" data-i18n="story.eyebrow">STORY</p>
     <h2 class="section-title" data-i18n="story.title" data-i18n-html>くっくま孤児院から始まる、<br>未来のリーダーたち</h2>
     <div class="story-grid">
-      <article class="story-card">
+      <article class="story-card rounded-[32px] overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <img src="assets/images/story-1.jpg"
              loading="lazy" decoding="async"
              onerror="this.onerror=null;this.src='https://placehold.co/400x260/efb058/ffffff?text=CCMHA+Orphanage';"
@@ -356,7 +363,7 @@
         <h3><span data-i18n="story.card1.title">くっくま孤児院</span></h3>
         <p data-i18n="story.card1.body">22人の子どもたちが暮らす家。毎日の食事、教育、医療を提供し、子どもたちが自立できるまでサポートしています。</p>
       </article>
-      <article class="story-card">
+      <article class="story-card rounded-[32px] overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <img src="assets/images/story-2.jpg"
              loading="lazy" decoding="async"
              onerror="this.onerror=null;this.src='https://placehold.co/400x260/e89a4f/ffffff?text=Daily+Life';"
@@ -364,7 +371,7 @@
         <h3><span data-i18n="story.card2.title">毎朝5時からの挑戦</span></h3>
         <p data-i18n="story.card2.body">子どもたちは毎朝5時に起きて、カンボジア伝統舞踊を練習。学校の勉強と両立しながら、日々頑張っています。</p>
       </article>
-      <article class="story-card">
+      <article class="story-card rounded-[32px] overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <img src="assets/images/story-3.jpg"
              loading="lazy" decoding="async"
              onerror="this.onerror=null;this.src='https://placehold.co/400x260/d98543/ffffff?text=Graduates';"
@@ -383,7 +390,7 @@
 <div class="section-arrow-down" aria-hidden="true"></div>
 
 <!-- ============ CONCEPT ============ -->
-<section class="concept" id="concept">
+<section class="concept reveal" id="concept">
   <div class="section-inner">
     <p class="section-eyebrow" data-i18n="concept.eyebrow">CONCEPT</p>
     <h2 class="section-title" data-i18n="concept.title" data-i18n-html>すべての子どもに<br>「当たり前の幸せ」を</h2>
@@ -392,35 +399,35 @@
     </p>
     <div class="concept-layout">
       <div class="concept-grid">
-        <div class="concept-item">
+        <div class="concept-item rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
           <div class="concept-icon"><svg class="icon"><use href="#icon-bowl"/></svg></div>
           <div class="concept-text">
             <h4 data-i18n="concept.item1.title">食</h4>
             <p data-i18n="concept.item1.body">おなかいっぱい食べられること。栄養のある食事で、子どもたちの成長を支えます。</p>
           </div>
         </div>
-        <div class="concept-item">
+        <div class="concept-item rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
           <div class="concept-icon"><svg class="icon"><use href="#icon-book"/></svg></div>
           <div class="concept-text">
             <h4 data-i18n="concept.item2.title">学び</h4>
             <p data-i18n="concept.item2.body">子どもが教育を受けられること。学ぶ楽しさと、未来への可能性を広げます。</p>
           </div>
         </div>
-        <div class="concept-item">
+        <div class="concept-item rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
           <div class="concept-icon"><svg class="icon"><use href="#icon-briefcase"/></svg></div>
           <div class="concept-text">
             <h4 data-i18n="concept.item3.title">仕事</h4>
             <p data-i18n="concept.item3.body">働く環境が整っていること。自立して生きる力を育みます。</p>
           </div>
         </div>
-        <div class="concept-item">
+        <div class="concept-item rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
           <div class="concept-icon"><svg class="icon"><use href="#icon-sparkle"/></svg></div>
           <div class="concept-text">
             <h4 data-i18n="concept.item4.title">夢</h4>
             <p data-i18n="concept.item4.body">未来に夢や希望を持てること。一人ひとりの夢を全力で応援します。</p>
           </div>
         </div>
-        <div class="concept-item">
+        <div class="concept-item rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
           <div class="concept-icon"><svg class="icon"><use href="#icon-heart"/></svg></div>
           <div class="concept-text">
             <h4 data-i18n="concept.item5.title">愛</h4>
@@ -428,7 +435,7 @@
           </div>
         </div>
       </div>
-      <div class="concept-photo">
+      <div class="concept-photo rounded-[32px] overflow-hidden">
         <img src="assets/images/concept-children.jpg"
              loading="lazy" decoding="async"
              onerror="this.onerror=null;this.src='https://placehold.co/520x640/efb058/ffffff?text=Children+Smiling';"
@@ -438,11 +445,15 @@
   </div>
 </section>
 
-<!-- Wave divider: concept → how it works -->
-<div class="wave-divider" aria-hidden="true"></div>
+<!-- Wave divider: concept (white) → how it works (beige) -->
+<div class="section-wave section-wave-howitworks" aria-hidden="true">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,60 C240,0 480,110 720,60 C960,10 1200,100 1440,50 L1440,120 L0,120 Z" fill="#fdf5e6"/>
+  </svg>
+</div>
 
 <!-- ============ HOW IT WORKS (diagram) ============ -->
-<section class="how-it-works" id="how-it-works">
+<section class="how-it-works reveal" id="how-it-works">
   <div class="section-inner">
     <p class="section-eyebrow" data-i18n="howItWorks.eyebrow">HOW IT WORKS</p>
     <h2 class="section-title" data-i18n="howItWorks.title" data-i18n-html>あなたの寄付が<br>子どもの未来になるまで</h2>
@@ -451,7 +462,7 @@
     </p>
 
     <div class="flow-diagram">
-      <div class="flow-step">
+      <div class="flow-step rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <div class="flow-badge">01</div>
         <div class="flow-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -469,7 +480,7 @@
         </svg>
       </div>
 
-      <div class="flow-step">
+      <div class="flow-step rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <div class="flow-badge">02</div>
         <div class="flow-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -489,7 +500,7 @@
         </svg>
       </div>
 
-      <div class="flow-step">
+      <div class="flow-step rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <div class="flow-badge">03</div>
         <div class="flow-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -510,7 +521,7 @@
         </svg>
       </div>
 
-      <div class="flow-step">
+      <div class="flow-step rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <div class="flow-badge">04</div>
         <div class="flow-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -524,48 +535,55 @@
   </div>
 </section>
 
+<!-- Wave divider: how-it-works (beige) → support (orange) -->
+<div class="section-wave section-wave-support" aria-hidden="true">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,70 C240,20 480,100 720,60 C960,20 1200,90 1440,40 L1440,120 L0,120 Z" fill="#e67e22"/>
+  </svg>
+</div>
+
 <!-- ============ SUPPORT / STATS ============ -->
-<section class="support" id="support">
+<section class="support reveal" id="support">
   <div class="section-inner">
     <p class="section-eyebrow" data-i18n="support.eyebrow">SUPPORT</p>
     <h2 class="section-title" data-i18n="support.title">21年間の支援の軌跡</h2>
     <div class="stats-grid">
-      <div class="stat-card">
+      <div class="stat-card rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <div class="stat-icon"><svg class="icon stat-icon-svg"><use href="#icon-stat-calendar"/></svg></div>
         <p class="stat-num">
           <span class="stat-number" data-count="21">0</span><span class="stat-unit" data-i18n="support.stat1.unit">年</span>
         </p>
         <p class="stat-label" data-i18n="support.stat1.label" data-i18n-html>2005年から続く支援活動</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <div class="stat-icon"><svg class="icon stat-icon-svg"><use href="#icon-stat-book-people"/></svg></div>
         <p class="stat-num">
           <span class="stat-number" data-count="11800">0</span><span class="stat-unit" data-i18n="support.stat2.unit">+</span>
         </p>
         <p class="stat-label" data-i18n="support.stat2.label" data-i18n-html>教育プログラムで<br>支援した子どもたち</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <div class="stat-icon"><svg class="icon stat-icon-svg"><use href="#icon-stat-house-family"/></svg></div>
         <p class="stat-num">
           <span class="stat-number" data-count="22">0</span><span class="stat-unit" data-i18n="support.stat3.unit">人</span>
         </p>
         <p class="stat-label" data-i18n="support.stat3.label" data-i18n-html>くっくま孤児院で<br>暮らす子どもたち</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <div class="stat-icon"><svg class="icon stat-icon-svg"><use href="#icon-stat-school"/></svg></div>
         <p class="stat-num">
           <span class="stat-number" data-count="55">0</span><span class="stat-unit" data-i18n="support.stat4.unit">校+</span>
         </p>
         <p class="stat-label" data-i18n="support.stat4.label">学校建設・修繕支援</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <div class="stat-icon"><svg class="icon stat-icon-svg"><use href="#icon-stat-scholarship"/></svg></div>
         <p class="stat-num">
           <span class="stat-number" data-count="805">0</span><span class="stat-unit" data-i18n="support.stat5.unit">人</span>
         </p>
         <p class="stat-label" data-i18n="support.stat5.label" data-i18n-html>2024年度の<br>奨学金支援</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <div class="stat-icon"><svg class="icon stat-icon-svg"><use href="#icon-stat-award"/></svg></div>
         <p class="stat-num">
           <span class="stat-prefix" data-i18n="support.stat6.prefix">上位 </span><span class="stat-number" data-count="3">0</span><span class="stat-unit">%</span>
@@ -576,8 +594,15 @@
   </div>
 </section>
 
+<!-- Wave divider: support (orange) → moments (white) -->
+<div class="section-wave section-wave-moments" aria-hidden="true">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,50 C240,100 480,20 720,60 C960,100 1200,30 1440,70 L1440,120 L0,120 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
 <!-- ============ EVERYDAY MOMENTS ============ -->
-<section class="moments">
+<section class="moments reveal">
   <div class="section-inner moments-head">
     <p class="section-eyebrow" data-i18n="moments.eyebrow">EVERYDAY MOMENTS</p>
     <h2 class="section-title" data-i18n="moments.title">子どもたちの日常</h2>
@@ -623,7 +648,7 @@
 </section>
 
 <!-- ============ DONATE / CHANGES LIVES TODAY ============ -->
-<section class="donate" id="donate">
+<section class="donate reveal" id="donate">
   <div class="section-inner">
     <p class="section-eyebrow accent" data-i18n="donate.eyebrow">Changes Lives Today.</p>
     <h2 class="section-title" data-i18n="donate.title">今、最も必要な支援を</h2>
@@ -631,8 +656,8 @@
       現場では毎日、新しいニーズが生まれます。緊急で具体的なニーズにリアルタイムで対応するプロジェクト型寄付が重要です。
     </p>
     <ul class="donate-list">
-      <li class="donate-item">
-        <div class="donate-thumb">
+      <li class="donate-item rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+        <div class="donate-thumb rounded-[20px] overflow-hidden">
           <img src="assets/images/donate-roof.jpg" loading="lazy" decoding="async"
                onerror="this.onerror=null;this.src='https://placehold.co/160x160/f3a847/ffffff?text=Roof';"
                alt="学校の屋根修繕">
@@ -647,8 +672,8 @@
           <a href="donate.html?project=roof" class="btn btn-small" data-i18n="donate.action">支援する</a>
         </div>
       </li>
-      <li class="donate-item">
-        <div class="donate-thumb">
+      <li class="donate-item rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+        <div class="donate-thumb rounded-[20px] overflow-hidden">
           <img src="assets/images/donate-toilet.jpg" loading="lazy" decoding="async"
                onerror="this.onerror=null;this.src='https://placehold.co/160x160/efb058/ffffff?text=Toilet';"
                alt="学校のトイレ建設">
@@ -663,8 +688,8 @@
           <a href="donate.html?project=toilet" class="btn btn-small" data-i18n="donate.action">支援する</a>
         </div>
       </li>
-      <li class="donate-item">
-        <div class="donate-thumb">
+      <li class="donate-item rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+        <div class="donate-thumb rounded-[20px] overflow-hidden">
           <img src="assets/images/donate-meals.jpg" loading="lazy" decoding="async"
                onerror="this.onerror=null;this.src='https://placehold.co/160x160/e89a4f/ffffff?text=Meals';"
                alt="子どもたちへの毎日の食事">
@@ -679,8 +704,8 @@
           <a href="donate.html?project=meals" class="btn btn-small" data-i18n="donate.action">支援する</a>
         </div>
       </li>
-      <li class="donate-item">
-        <div class="donate-thumb">
+      <li class="donate-item rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+        <div class="donate-thumb rounded-[20px] overflow-hidden">
           <img src="assets/images/donate-general.jpg" loading="lazy" decoding="async"
                onerror="this.onerror=null;this.src='https://placehold.co/160x160/d98543/ffffff?text=Support';"
                alt="最も必要なところへ">
@@ -700,13 +725,13 @@
 </section>
 
 <!-- ============ REPORT ============ -->
-<section class="report" id="report">
+<section class="report reveal" id="report">
   <div class="section-inner report-inner">
     <div class="report-copy">
       <p class="section-eyebrow" data-i18n="report.eyebrow">REPORT</p>
       <h2 class="section-title" data-i18n="report.title" data-i18n-html>隠れたコストなし。<br>正直なインパクトのみ。</h2>
       <p data-i18n="report.body">あなたには、お金がどのように使われているかを正確に知る権利があると、私たちは信じています。</p>
-      <div class="report-feature">
+      <div class="report-feature rounded-[24px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <p class="report-feature-title"><svg class="icon"><use href="#icon-trophy"/></svg><span data-i18n="report.featureTitle">認定NPO法人</span></p>
         <p class="report-feature-body" data-i18n="report.featureBody">日本のNPOのわずか3%にしか認められない基準をクリアしています。</p>
       </div>
@@ -721,7 +746,7 @@
 </section>
 
 <!-- ============ FINAL CTA ============ -->
-<section class="final-cta">
+<section class="final-cta reveal">
   <div class="final-cta-bg">
     <img src="assets/images/final-cta-bg.jpg" loading="lazy" decoding="async"
          onerror="this.onerror=null;this.src='https://placehold.co/1600x700/2a1a0a/ffffff?text=Children+of+Cambodia';"
@@ -775,6 +800,7 @@
 
 <script src="js/i18n.js"></script>
 <script src="js/stats.js"></script>
+<script src="js/reveal.js"></script>
 <script>
   (function () {
     var header = document.querySelector('.site-header');
