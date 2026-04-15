@@ -339,6 +339,7 @@ ul { list-style: none; }
   position: absolute;
   border-radius: 50%;
   opacity: 0;
+  transform-origin: center center;
   animation: circle-pop 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   transition: translate 0.5s ease;
 }
@@ -442,6 +443,7 @@ ul { list-style: none; }
     linear-gradient(#fff 0 0) border-box;
   mask-composite: exclude;
   opacity: 0;
+  transform-origin: center center;
   animation: circle-pop 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   transition: translate 0.5s ease;
 }
@@ -466,10 +468,19 @@ ul { list-style: none; }
 .hero:hover .circle-outline-2 { translate:  6px  -4px; }
 .hero:hover .hero-photo    { transform: translateY(-10px); }
 
-/* Keyframe: gentle opacity fade-in (no transform to keep positioning stable) */
+/* Keyframe: soft pop-in — scale up from a small point and gently rise */
 @keyframes circle-pop {
-  0%  { opacity: 0; }
-  100%{ opacity: var(--circle-opacity, 0.95); }
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.4);
+  }
+  60% {
+    opacity: var(--circle-opacity, 0.95);
+  }
+  100% {
+    opacity: var(--circle-opacity, 0.95);
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* Gentle continuous opacity breathing after the initial fade-in */
@@ -485,13 +496,13 @@ ul { list-style: none; }
 .circle-4 { animation-delay: 1.3s, 4s; }
 
 @keyframes circle-breathe {
-  0%, 100% { opacity: var(--circle-opacity, 0.95); }
-  50%      { opacity: calc(var(--circle-opacity, 0.95) * 0.88); }
+  0%, 100% { opacity: var(--circle-opacity, 0.95); transform: scale(1); }
+  50%      { opacity: calc(var(--circle-opacity, 0.95) * 0.88); transform: scale(1.02); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .circle,
-  .circle-outline { animation: none; opacity: var(--circle-opacity, 0.95); }
+  .circle-outline { animation: none; opacity: var(--circle-opacity, 0.95); transform: none; }
   .hero:hover .circle-1,
   .hero:hover .circle-2,
   .hero:hover .circle-3,
@@ -523,29 +534,6 @@ ul { list-style: none; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-/* Cambodia flag clipped by country shape, circular badge left-aligned */
-.hero-country {
-  position: absolute;
-  left: -32px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(300px, 92%, 480px);
-  aspect-ratio: 1;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.hero-country svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  opacity: 0.72;
-}
-.hero-copy > :not(.hero-country) {
-  position: relative;
-  z-index: 1;
 }
 .hero-photo {
   grid-column: 2;
