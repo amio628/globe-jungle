@@ -1752,8 +1752,8 @@ ul { list-style: none; }
     grid-row: 1;
     position: relative;
     z-index: 5;
-    padding-top: 96px;
-    padding-bottom: 96px;
+    padding-top: 64px;
+    padding-bottom: 64px;
     justify-content: center;
     align-items: center;
   }
@@ -1914,7 +1914,7 @@ ul { list-style: none; }
 @media (max-width: 560px) {
   .hero-title { font-size: 44px; line-height: 1.2; }
   .hero-inner { padding: 0 16px 40px; }
-  .hero-copy { padding-top: 78px; padding-bottom: 78px; }
+  .hero-copy { padding-top: 48px; padding-bottom: 48px; }
   /* On narrow phones circle-1 is bigger, so push --c1-bottom further down
      and every accent rides along via their calc(var(--c1-bottom) + ...) */
   .hero-bg { --c1-bottom: 118vw; }
