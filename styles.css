@@ -781,10 +781,27 @@ ul { list-style: none; }
     linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
     url('assets/images/concept-bg.jpg') center / cover no-repeat;
 }
+/* Solid white strip at the top so the section title sits on clean
+   whitespace instead of overlapping the concept background image.
+   Fades smoothly into the image area right above the content grid. */
+.concept::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: clamp(520px, 45vw, 600px);
+  background: linear-gradient(to bottom,
+    #ffffff 0%,
+    #ffffff 85%,
+    rgba(255, 255, 255, 0) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
 .concept .section-inner {
   position: relative;
   z-index: 1;
-  padding-top: 180px;
+  padding-top: 140px;
 }
 .concept .section-eyebrow {
   color: var(--orange) !important;
