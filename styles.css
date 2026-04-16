@@ -1,9 +1,9 @@
 /* ============ BASE ============ */
 :root {
   /* ---- Modern palette: vibrant orange + warm neutral ---- */
-  --orange: #FF8C00;
-  --main-orange: #FF8C00;
-  --orange-deep: #E07000;
+  --orange: #e67e22;
+  --main-orange: #e67e22;
+  --orange-deep: #c4621a;
   --orange-soft: #FFF3E6;
   --beige: #F9F7F2;
   --beige-soft: #F4F1EB;
@@ -587,12 +587,7 @@ ul { list-style: none; }
 
 /* ============ FEATURE BAR ============ */
 .feature-bar {
-  background: #ffffff;
-  border-bottom: none;
-  padding: 0 24px 0;
-  margin-top: -40px;
-  position: relative;
-  z-index: 10;
+  display: none;
 }
 .feature-bar-inner {
   max-width: 960px;
@@ -621,26 +616,26 @@ ul { list-style: none; }
   inset: 0;
   clip-path: polygon(0 0, 100% 0, 100% 30%, 50% 100%, 0 30%);
 }
-/* story(orange-soft) → concept(bg image) */
+/* story(orange-soft) → concept(white header) */
 .arrow-story-concept {
-  background: var(--beige);
+  background: #ffffff;
 }
 .arrow-story-concept::before {
   background: var(--orange-soft);
 }
-/* how-it-works(white) → support(beige) */
+/* how-it-works(beige) → support(orange) */
 .arrow-how-support {
-  background: var(--beige);
+  background: var(--orange);
 }
 .arrow-how-support::before {
-  background: #ffffff;
+  background: var(--beige);
 }
-/* report(beige) → final-cta(dark) */
+/* report(white) → final-cta(dark) */
 .arrow-report-cta {
   background: var(--brown);
 }
 .arrow-report-cta::before {
-  background: var(--beige);
+  background: #ffffff;
 }
 
 /* ============ REVEAL ON SCROLL (Phase 5) ============ */
@@ -772,9 +767,9 @@ ul { list-style: none; }
   right: 0;
   height: clamp(340px, 42vw, 600px);
   background: linear-gradient(to bottom,
-    var(--beige) 0%,
-    var(--beige) 60%,
-    rgba(249, 247, 242, 0) 100%);
+    #ffffff 0%,
+    #ffffff 60%,
+    rgba(255, 255, 255, 0) 100%);
   z-index: 0;
   pointer-events: none;
 }
@@ -879,7 +874,7 @@ ul { list-style: none; }
 }
 
 /* ============ HOW IT WORKS (diagram) ============ */
-.how-it-works { background: #ffffff; }
+.how-it-works { background: var(--beige); }
 .how-it-works-lead {
   font-size: clamp(14px, 1.2vw, 16px);
   color: var(--muted);
@@ -961,30 +956,12 @@ ul { list-style: none; }
 /* ============ SUPPORT ============ */
 .support {
   position: relative;
-  background: var(--beige);
-  color: var(--brown);
+  background: var(--orange);
+  color: #ffffff;
   overflow: hidden;
 }
-.support::before,
-.support::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0.15;
-}
-.support::before {
-  width: 400px; height: 400px;
-  left: -160px; top: -160px;
-  background: linear-gradient(135deg, #FE82B3, #FFA56D);
-}
-.support::after {
-  width: 350px; height: 350px;
-  right: -120px; bottom: -120px;
-  background: linear-gradient(135deg, #BECC90, #8DDBD1);
-}
-.support .section-eyebrow { color: var(--orange); }
-.support .section-title { color: var(--brown); }
+.support .section-eyebrow { color: #ffffff; }
+.support .section-title { color: #ffffff; }
 .support .section-inner { position: relative; }
 .stats-grid {
   display: grid;
@@ -1067,10 +1044,11 @@ ul { list-style: none; }
   line-height: 1.7;
 }
 .support .stat-label { color: var(--brown-muted); }
+.support .support-lead { color: rgba(255, 255, 255, 0.9); }
 
 /* ============ MOMENTS (slow marquee) ============ */
 .moments {
-  background: var(--beige);
+  background: #ffffff;
   overflow: hidden;
 }
 .moments-head {
@@ -1204,7 +1182,7 @@ ul { list-style: none; }
 }
 
 /* ============ REPORT ============ */
-.report { background: var(--beige); }
+.report { background: #ffffff; }
 .report-inner {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
