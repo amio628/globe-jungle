@@ -47,9 +47,9 @@ module.exports = {
           "sans-serif",
         ],
         heading: [
-          '"Poppins"',
+          '"Playfair Display"',
           '"Zen Maru Gothic"',
-          "sans-serif",
+          "serif",
         ],
       },
     },
