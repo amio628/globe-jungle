@@ -18,36 +18,37 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Brand palette — keep in sync with the CSS variables in
-        // styles.css (:root).  Added `accent` (#f0ad4e) from the
-        // RiseHand / reference-design direction.
         brand: {
-          orange: "#e67e22",
-          "orange-deep": "#c4621a",
-          "orange-soft": "#fbe8d3",
-          accent: "#f0ad4e",
-          beige: "#fdf5e6",
-          "beige-soft": "#fbf1dc",
-          "beige-border": "#e8dcc2",
-          brown: "#4a2c1d",
-          "brown-muted": "#8b6f5c",
+          orange: "#FF8C00",
+          "orange-deep": "#E07000",
+          "orange-soft": "#FFF3E6",
+          accent: "#FF8C00",
+          beige: "#F9F7F2",
+          "beige-soft": "#F4F1EB",
+          "beige-border": "#E5E0D5",
+          brown: "#2D1B0E",
+          "brown-muted": "#6B5744",
         },
       },
       borderRadius: {
-        // Card radii targeted by Phase 3 (24–32px).
         card: "24px",
         "card-lg": "32px",
       },
       boxShadow: {
-        // Soft lift for hover-animated cards (Phase 4).
-        lift: "0 18px 40px -18px rgba(74, 44, 29, 0.25)",
+        lift: "0 12px 32px -12px rgba(45, 27, 14, 0.12)",
       },
       fontFamily: {
         sans: [
+          '"Inter"',
           '"Noto Sans JP"',
           '"Hiragino Kaku Gothic ProN"',
           '"Yu Gothic"',
           "system-ui",
+          "sans-serif",
+        ],
+        heading: [
+          '"Poppins"',
+          '"Zen Maru Gothic"',
           "sans-serif",
         ],
       },
