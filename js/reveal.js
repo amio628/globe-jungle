@@ -1,10 +1,13 @@
 /*
- * reveal.js — lightweight scroll-reveal (Phase 5).
+ * reveal.js — lightweight scroll-reveal with staggered child animations.
  *
  * Elements tagged with the `.reveal` class start hidden (opacity:0,
  * translateY(40px)) via styles.css.  As soon as they intersect the
  * viewport this script adds the `.show` class, which triggers a
  * CSS transition to fade + rise them into place.
+ *
+ * Child elements with `.stagger-item` animate in one-by-one with
+ * incrementing transition-delay for a cascading effect.
  *
  * Respects `prefers-reduced-motion` and gracefully degrades on
  * browsers without IntersectionObserver.
@@ -24,6 +27,10 @@
     if (reduceMotion || !("IntersectionObserver" in window)) {
       targets.forEach(function (el) {
         el.classList.add("show");
+        var children = el.querySelectorAll(".stagger-item");
+        children.forEach(function (child) {
+          child.classList.add("show");
+        });
       });
       return;
     }
@@ -33,6 +40,20 @@
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
           entry.target.classList.add("show");
+
+          // Stagger children with incrementing delay
+          var children = entry.target.querySelectorAll(".stagger-item");
+          var count = children.length;
+          // Use shorter delay when there are many children
+          var delay = count > 5 ? 0.08 : 0.12;
+
+          children.forEach(function (child, index) {
+            child.style.transitionDelay = (index * delay) + "s";
+            requestAnimationFrame(function () {
+              child.classList.add("show");
+            });
+          });
+
           io.unobserve(entry.target);
         });
       },
