@@ -7,14 +7,13 @@
 <meta name="description" data-i18n="meta.description" content="カンボジアの子どもたちに、当たり前の幸せを届ける認定NPO法人グローブジャングルの寄付サイトです。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <!-- Tailwind utility layer — compiled from src/tailwind.css via `npm run build:css`.
      Loaded AFTER styles.css so added utility classes can override base styles. -->
 <link rel="stylesheet" href="assets/css/tailwind.css">
 <link rel="preload" as="image" href="assets/images/hero-children.png" fetchpriority="high">
 <link rel="preload" as="image" href="assets/images/hero-circle-photo.jpg">
-<link rel="preload" as="image" href="assets/images/hero-circle-photo-2.jpg">
 </head>
 <body>
 
@@ -303,6 +302,12 @@
     </div>
   </div>
 </section>
+<!-- Wave: hero → feature bar -->
+<div class="wave-divider wave-hero" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 40C240 80 480 0 720 40C960 80 1200 20 1440 50L1440 80H0Z" fill="var(--beige)"/>
+  </svg>
+</div>
 
 <!-- ============ FEATURE BAR ============ -->
 <section class="feature-bar reveal">
@@ -359,8 +364,12 @@
   </div>
 </section>
 
-<!-- Down-arrow divider: story → concept -->
-<div class="section-arrow-down" aria-hidden="true"></div>
+<!-- Wave divider: story → concept -->
+<div class="wave-divider wave-story-concept" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 30C360 80 720 0 1080 50C1260 70 1380 20 1440 40L1440 80H0Z" fill="var(--beige)"/>
+  </svg>
+</div>
 
 <!-- ============ CONCEPT ============ -->
 <section class="concept reveal" id="concept">
@@ -502,6 +511,13 @@
   </div>
 </section>
 
+
+<!-- Wave divider: how-it-works → support -->
+<div class="wave-divider wave-to-support" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 50C200 10 500 70 720 30C940 -10 1200 60 1440 30L1440 80H0Z" fill="var(--beige)"/>
+  </svg>
+</div>
 
 <!-- ============ SUPPORT / STATS ============ -->
 <section class="support reveal" id="support">
@@ -699,6 +715,13 @@
     </div>
   </div>
 </section>
+
+<!-- Wave divider: report → final CTA -->
+<div class="wave-divider wave-to-cta" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 40C360 80 720 0 1080 50C1260 70 1380 30 1440 45L1440 80H0Z" fill="#2D1B0E"/>
+  </svg>
+</div>
 
 <!-- ============ FINAL CTA ============ -->
 <section class="final-cta reveal">
