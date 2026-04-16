@@ -332,7 +332,7 @@ ul { list-style: none; }
 /* ============ HERO ============ */
 .hero {
   position: relative;
-  background-color: var(--beige);
+  background-color: #ffffff;
   color: var(--brown);
   overflow: hidden;
   min-height: 720px;
@@ -502,7 +502,9 @@ ul { list-style: none; }
   text-transform: uppercase;
 }
 .hero-title {
-  font-family: var(--font-head);
+  font-family: "Yu Gothic", "游ゴシック", "YuGothic", "游ゴシック体",
+               "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN",
+               "Hiragino Sans", sans-serif;
   font-size: clamp(36px, 5.4vw, 64px);
   font-weight: 700;
   line-height: 1.2;
@@ -585,9 +587,9 @@ ul { list-style: none; }
 
 /* ============ FEATURE BAR ============ */
 .feature-bar {
-  background: var(--beige);
+  background: #ffffff;
   border-bottom: none;
-  padding: 0 24px;
+  padding: 0 24px 0;
   margin-top: -40px;
   position: relative;
   z-index: 10;
@@ -599,37 +601,45 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  background: #ffffff;
+  background: var(--beige);
   border-radius: 24px;
   border: none;
-  box-shadow: 0 12px 48px -16px rgba(45, 27, 14, 0.12);
+  box-shadow: 0 8px 32px -12px rgba(45, 27, 14, 0.08);
 }
 
-/* ============ WAVE DIVIDERS ============ */
-.wave-divider {
+/* ============ SECTION ARROW DIVIDERS ============ */
+.section-arrow-down {
   position: relative;
-  width: 100%;
-  line-height: 0;
+  height: 72px;
   overflow: hidden;
   pointer-events: none;
+  line-height: 0;
 }
-.wave-divider svg {
-  display: block;
-  width: 100%;
-  height: 60px;
+.section-arrow-down::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 50% 100%, 0 30%);
 }
-.wave-hero {
+/* story(orange-soft) → concept(bg image) */
+.arrow-story-concept {
   background: var(--beige);
-  margin-top: -1px;
 }
-.wave-hero svg { height: 50px; }
-.wave-story-concept {
+.arrow-story-concept::before {
+  background: var(--orange-soft);
+}
+/* how-it-works(white) → support(beige) */
+.arrow-how-support {
+  background: var(--beige);
+}
+.arrow-how-support::before {
   background: #ffffff;
 }
-.wave-to-support {
-  background: #ffffff;
+/* report(beige) → final-cta(dark) */
+.arrow-report-cta {
+  background: var(--brown);
 }
-.wave-to-cta {
+.arrow-report-cta::before {
   background: var(--beige);
 }
 
@@ -692,7 +702,7 @@ ul { list-style: none; }
 }
 
 /* ============ STORY ============ */
-.story { background: #fff; }
+.story { background: var(--orange-soft); }
 .story-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -747,29 +757,31 @@ ul { list-style: none; }
 }
 
 /* ============ CONCEPT ============ */
-
-/* Wave divider between story and concept */
-.section-arrow-down {
-  position: relative;
-  height: 0;
-  background: transparent;
-  overflow: visible;
-  pointer-events: none;
-  line-height: 0;
-  display: none;
-}
-
 .concept {
   position: relative;
   overflow: hidden;
-  background: var(--beige);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+    url('assets/images/concept-bg.jpg') center / cover no-repeat;
 }
 .concept::before {
-  display: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: clamp(340px, 42vw, 600px);
+  background: linear-gradient(to bottom,
+    var(--beige) 0%,
+    var(--beige) 60%,
+    rgba(249, 247, 242, 0) 100%);
+  z-index: 0;
+  pointer-events: none;
 }
 .concept .section-inner {
   position: relative;
   z-index: 1;
+  padding-top: clamp(100px, 13vw, 200px);
 }
 .concept .section-eyebrow {
   color: var(--orange) !important;
@@ -861,7 +873,7 @@ ul { list-style: none; }
   line-height: 2;
   color: var(--orange);
   text-align: center;
-  background: var(--orange-soft);
+  background: #ffffff;
   border-radius: 20px;
   position: relative;
 }
@@ -1789,7 +1801,7 @@ ul { list-style: none; }
     left: 8vw; top: 22vw;
     right: auto; bottom: auto;
   }
-  .wave-divider svg { height: 40px; }
+  .section-arrow-down { height: 56px; }
   .flow-diagram { flex-direction: column; gap: 28px; }
   .flow-step { flex: 0 0 auto; max-width: none; }
   .how-it-works-lead { margin-bottom: 36px; }
@@ -1870,7 +1882,7 @@ ul { list-style: none; }
   .footer-inner { grid-template-columns: 1fr; }
   .story-quote { padding: 8px 16px; }
   .amount-grid { grid-template-columns: repeat(2, 1fr); }
-  .wave-divider svg { height: 32px; }
+  .section-arrow-down { height: 44px; }
   .header-inner { gap: 10px; padding: 14px 16px; }
   .logo { gap: 8px; }
   .logo-img { height: 36px; }
