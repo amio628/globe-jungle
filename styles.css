@@ -724,6 +724,167 @@ ul { list-style: none; }
   stroke-linejoin: round;
 }
 
+/* ============ PHASE 1: ORGANIC DESIGN FOUNDATION ============ */
+/*
+ * Foundation classes for the organic circular brushup.
+ * Brand constraints (strict):
+ *   - Primary palette stays orange / beige / brown
+ *   - The existing colorful multi-circle gradient (pink -> peach -> yellow
+ *     -> green -> mint) is the design axis; we REUSE it as a decoration,
+ *     not replace it.
+ * These classes are additive: they do not touch any existing selector.
+ */
+
+/* --- .bubble: decorative floating circle ---------------------------- */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  pointer-events: none;
+  will-change: transform;
+  display: block;
+  flex-shrink: 0;
+}
+.bubble > img,
+.bubble-photo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+/* Variant: colorful multi-stop gradient (the brand signature gradient) */
+.bubble-gradient {
+  background: linear-gradient(130deg,
+    #FE82B3 0%,
+    #FE82B3 16%,
+    #FFA56D 32%,
+    #FABD5E 50%,
+    #BECC90 68%,
+    #8DDBD1 84%,
+    #8DDBD1 100%);
+}
+.bubble-gradient-soft { opacity: 0.55; }
+.bubble-gradient-ghost { opacity: 0.25; }
+
+/* Variant: warm orange gradient (blends with the main palette) */
+.bubble-orange {
+  background: linear-gradient(135deg,
+    var(--orange) 0%,
+    var(--orange-deep) 100%);
+}
+.bubble-orange-soft {
+  background: linear-gradient(135deg,
+    var(--orange-soft) 0%,
+    var(--orange) 100%);
+  opacity: 0.55;
+}
+
+/* Variant: flat accent fills */
+.bubble-beige  { background: var(--beige-soft); }
+.bubble-brown  { background: var(--brown); }
+.bubble-white  { background: #ffffff; box-shadow: 0 12px 32px -16px rgba(74, 44, 29, 0.22); }
+
+/* Outline-only bubble (thin ring around other content) */
+.bubble-outline {
+  background: transparent;
+  border: 1px solid var(--beige-border);
+}
+.bubble-outline-orange {
+  background: transparent;
+  border: 1.5px solid var(--orange);
+}
+
+/* Sizes (absolute circles can also be overridden inline) */
+.bubble-xs { width: 56px; }
+.bubble-sm { width: 96px; }
+.bubble-md { width: 160px; }
+.bubble-lg { width: 240px; }
+.bubble-xl { width: 340px; }
+.bubble-2xl { width: 480px; }
+
+/* Gentle floating animation for decorative bubbles */
+@keyframes bubble-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+.bubble-float {
+  animation: bubble-float 9s ease-in-out infinite;
+}
+.bubble-float-slow  { animation: bubble-float 14s ease-in-out infinite; }
+.bubble-float-fast  { animation: bubble-float 6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .bubble-float,
+  .bubble-float-slow,
+  .bubble-float-fast { animation: none; }
+}
+
+/* --- .bg-mega-text: oversized transparent English label ------------- */
+.bg-mega-text {
+  position: absolute;
+  font-family: var(--font-head);
+  font-size: clamp(140px, 22vw, 520px);
+  font-weight: 900;
+  color: rgba(230, 126, 34, 0.06);
+  letter-spacing: -0.03em;
+  line-height: 0.85;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+  text-transform: uppercase;
+}
+.bg-mega-text-brown  { color: rgba(74, 44, 29, 0.05); }
+.bg-mega-text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(230, 126, 34, 0.18);
+}
+@media (max-width: 900px) {
+  .bg-mega-text {
+    font-size: clamp(96px, 26vw, 260px);
+  }
+}
+
+/* --- .section-wave: curved section boundary (SVG wrapper) ----------- */
+.section-wave {
+  display: block;
+  width: 100%;
+  line-height: 0;
+  pointer-events: none;
+  overflow: hidden;
+  position: relative;
+}
+.section-wave svg {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+.section-wave-sm svg { height: 56px; }
+.section-wave-lg svg { height: 120px; }
+.section-wave-flip svg { transform: scaleY(-1); }
+@media (max-width: 900px) {
+  .section-wave svg       { height: 56px; }
+  .section-wave-lg svg    { height: 80px; }
+  .section-wave-sm svg    { height: 40px; }
+}
+
+/* Wrapper pattern: a section whose content layers on top of bubbles
+ * and mega text while keeping them behind interactive elements.
+ * Apply `.organic-stage` on a section root to opt in.
+ */
+.organic-stage {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.organic-stage > .container,
+.organic-stage > .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
 /* ============ STORY ============ */
 .story { background: #fff; }
 .story-grid {
