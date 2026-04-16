@@ -345,10 +345,10 @@ ul { list-style: none; }
   animation: circle-pop 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   transition: translate 0.5s ease;
 }
-/* Shadow: colorful gradient peeking out from behind the main photo circle */
+/* Colorful gradient border ring behind the main photo circle */
 .circle-shadow-1 {
-  width: 600px; height: 600px;
-  right: -90px; top: 60px;
+  width: 594px; height: 594px;
+  right: -68px; top: 32px;
   background: linear-gradient(130deg,
     #FE82B3 0%,
     #FE82B3 16%,
@@ -358,7 +358,7 @@ ul { list-style: none; }
     #8DDBD1 84%,
     #8DDBD1 100%);
   opacity: 0;
-  --circle-opacity: 0.6;
+  --circle-opacity: 0.85;
   z-index: 0;
   animation-delay: 0.1s;
 }
@@ -380,55 +380,9 @@ ul { list-style: none; }
   display: block;
   border-radius: 50%;
 }
-/* 2 — Small gradient accent (lower-left, decorative) */
-.circle-2 {
-  width: 110px; height: 110px;
-  left: 6%; bottom: 14%;
-  top: auto;
-  right: auto;
-  background: linear-gradient(130deg,
-    #FE82B3 0%,
-    #FFA56D 32%,
-    #FABD5E 50%,
-    #BECC90 68%,
-    #8DDBD1 100%);
-  --circle-opacity: 0.85;
-  animation-delay: 0.7s;
-}
-/* 3 — Small secondary photo circle (overlaps upper-left of circle-1) */
-.circle-3 {
-  width: 170px; height: 170px;
-  right: 38%; top: -30px;
-  left: auto;
-  background: #ffffff;
-  box-shadow: 0 18px 40px -20px rgba(74, 44, 29, 0.25);
-  animation-delay: 1s;
-  border-radius: 50%;
-  overflow: hidden;
-  clip-path: circle(50%);
-  z-index: 2;
-}
-.circle-3 img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  clip-path: circle(50%);
-  opacity: 1;
-}
-/* 4 — Tiny gradient dot (bottom-right accent) */
-.circle-4 {
-  width: 56px; height: 56px;
-  right: 8%; bottom: 16%;
-  background: linear-gradient(130deg,
-    #FE82B3 0%,
-    #FFA56D 32%,
-    #FABD5E 50%,
-    #BECC90 68%,
-    #8DDBD1 100%);
-  animation-delay: 1.3s;
-}
+/* 2, 3, 4 — Removed (small accent/photo circles no longer used in hero) */
+.circle-2, .circle-3, .circle-4 { display: none; }
+.circle-3 img { display: none; }
 /* 5 — Legacy photo circle, replaced by .circle-1 main photo */
 .circle-photo-bg { display: none; }
 
@@ -473,9 +427,6 @@ ul { list-style: none; }
 /* -- Hover parallax: circles shift when hero is hovered -- */
 .hero:hover .circle-1         { translate: -10px -6px; }
 .hero:hover .circle-shadow-1  { translate:  12px  10px; }
-.hero:hover .circle-2         { translate:  16px  10px; }
-.hero:hover .circle-3         { translate: -10px   8px; }
-.hero:hover .circle-4         { translate:   8px  -6px; }
 .hero:hover .circle-outline-1 { translate: -8px  12px; }
 .hero:hover .circle-outline-2 { translate:  6px  -4px; }
 
@@ -495,16 +446,12 @@ ul { list-style: none; }
 }
 
 /* Gentle continuous opacity breathing after the initial fade-in */
-.circle-1,
-.circle-2,
-.circle-4 {
+.circle-1 {
   animation:
     circle-pop 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards,
     circle-breathe 10s ease-in-out infinite;
+  animation-delay: 0.2s, 2.9s;
 }
-.circle-1 { animation-delay: 0.2s, 2.9s; }
-.circle-2 { animation-delay: 0.7s, 3.4s; }
-.circle-4 { animation-delay: 1.3s, 4s; }
 
 @keyframes circle-breathe {
   0%, 100% { opacity: var(--circle-opacity, 0.95); transform: scale(1); }
@@ -516,9 +463,6 @@ ul { list-style: none; }
   .circle-outline { animation: none; opacity: var(--circle-opacity, 0.95); transform: none; }
   .hero:hover .circle-1,
   .hero:hover .circle-shadow-1,
-  .hero:hover .circle-2,
-  .hero:hover .circle-3,
-  .hero:hover .circle-4,
   .hero:hover .circle-outline-1,
   .hero:hover .circle-outline-2 { translate: none; transform: none; }
 }
@@ -1439,6 +1383,7 @@ ul { list-style: none; }
   border-radius: 50%;
 }
 .donate-hero-bg .circle-2 {
+  display: block;
   width: 260px; height: 260px;
   right: -40px; top: 20px;
   background: linear-gradient(130deg,
@@ -1793,10 +1738,10 @@ ul { list-style: none; }
   .hero-title { line-height: 1.2; }
   .hero-title-line { white-space: normal; }
   .hero-sub { margin-bottom: 24px; }
-  /* circle-shadow-1: colorful gradient behind the main photo circle */
+  /* circle-shadow-1: colorful gradient border ring behind photo circle */
   .circle-shadow-1 {
     width: 76vw; height: 76vw;
-    right: -6vw; top: 2vw;
+    right: 2vw; top: 0vw;
     left: auto; bottom: auto;
   }
   /* circle-1: main photo circle anchored at the top of the mobile hero */
@@ -1804,24 +1749,6 @@ ul { list-style: none; }
     width: 72vw; height: 72vw;
     right: 4vw; top: -2vw;
     left: auto;
-  }
-  /* Small gradient accent — lower-left */
-  .circle-2 {
-    width: 64px; height: 64px;
-    left: 6vw; top: 66vw;
-    right: auto; bottom: auto;
-  }
-  /* Small secondary photo circle — left side, slightly under circle-1 */
-  .circle-3 {
-    width: 96px; height: 96px;
-    left: -3vw; top: 40vw;
-    right: auto; bottom: auto;
-  }
-  /* Tiny gradient dot */
-  .circle-4 {
-    width: 30px; height: 30px;
-    right: 6vw; top: 68vw;
-    left: auto; bottom: auto;
   }
   /* Outline rings */
   .circle-outline-1 {
@@ -1889,11 +1816,8 @@ ul { list-style: none; }
 @media (max-width: 560px) {
   .hero-inner { padding: 0 16px 40px; }
   .hero-copy { padding-top: 82vw; padding-bottom: 16px; }
-  .circle-shadow-1 { width: 90vw; height: 90vw; right: -12vw; top: 4vw; }
+  .circle-shadow-1 { width: 88vw; height: 88vw; right: -1vw; top: -1vw; }
   .circle-1 { width: 82vw; height: 82vw; right: 2vw; top: -4vw; }
-  .circle-3 { width: 82px; height: 82px; left: -2vw; top: 46vw; }
-  .circle-2 { width: 52px; height: 52px; left: 4vw; top: 72vw; }
-  .circle-4 { width: 26px; height: 26px; right: 4vw; top: 74vw; }
   .circle-outline-1 { width: 40px; height: 40px; left: 40vw; top: 78vw; }
   .circle-outline-2 { width: 28px; height: 28px; left: 6vw; top: 24vw; }
   .hero .hero-ctas {
