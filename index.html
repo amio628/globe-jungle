@@ -271,16 +271,16 @@
 <!-- ============ HERO ============ -->
 <section class="hero reveal">
   <div class="hero-bg">
-    <!-- Colorful gradient pulled behind as a soft shadow for the main photo circle -->
-    <div class="circle circle-shadow-1" aria-hidden="true"></div>
-    <div class="circle circle-1">
-      <img src="assets/images/hero-circle-photo.jpg"
-           loading="eager" decoding="async" fetchpriority="high"
-           onerror="this.onerror=null;this.src='https://placehold.co/560x560/f3a847/ffffff?text=Children';"
-           alt="">
-    </div>
-    <div class="circle-outline circle-outline-1"></div>
-    <div class="circle-outline circle-outline-2"></div>
+    <!-- Large soft gradient wash — right side background -->
+    <div class="hero-wash" aria-hidden="true"></div>
+    <!-- Decorative filled gradient circles (scattered, sub) -->
+    <div class="deco-circle deco-circle-1" aria-hidden="true"></div>
+    <div class="deco-circle deco-circle-2" aria-hidden="true"></div>
+    <div class="deco-circle deco-circle-3" aria-hidden="true"></div>
+    <!-- Colorful ring outlines at random positions -->
+    <div class="deco-ring deco-ring-1" aria-hidden="true"></div>
+    <div class="deco-ring deco-ring-2" aria-hidden="true"></div>
+    <div class="deco-ring deco-ring-3" aria-hidden="true"></div>
   </div>
   <div class="hero-inner">
     <div class="hero-copy">
@@ -364,54 +364,70 @@
 <!-- ============ CONCEPT ============ -->
 <section class="concept reveal" id="concept">
   <div class="section-inner">
-    <p class="section-eyebrow" data-i18n="concept.eyebrow">CONCEPT</p>
-    <h2 class="section-title" data-i18n="concept.title" data-i18n-html>すべての子どもに<br>「当たり前の幸せ」を</h2>
-    <p class="concept-lead" data-i18n="concept.lead">
-      私たちは、これらを「特権」ではなく「当たり前の幸せ」にすることを目指しています。
-    </p>
-    <div class="concept-layout">
+    <!-- Top: header text (left) + photo (right) -->
+    <div class="concept-header">
+      <div class="concept-header-text">
+        <p class="section-eyebrow" data-i18n="concept.eyebrow">CONCEPT</p>
+        <h2 class="section-title" data-i18n="concept.title" data-i18n-html>すべての子どもに<br>「当たり前の幸せ」を</h2>
+        <p class="concept-lead" data-i18n="concept.lead">
+          私たちは、これらを「特権」ではなく「当たり前の幸せ」にすることを目指しています。
+        </p>
+      </div>
+      <div class="concept-photo stagger-item">
+        <img src="assets/images/concept-children.jpg"
+             loading="lazy" decoding="async"
+             onerror="this.onerror=null;this.src='https://placehold.co/520x400/efb058/ffffff?text=Children+Smiling';"
+             alt="Children of CCMHA">
+      </div>
+    </div>
+    <!-- Bottom: map + 5 happinesses -->
+    <div class="concept-bottom">
+      <div class="concept-map stagger-item">
+        <svg class="concept-map-svg" viewBox="0 0 240 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cambodia map">
+          <path d="M80 40 L110 30 L148 22 L170 30 L192 50 L200 78 L196 108 L186 130 L178 148 L158 168 L140 188 L120 202 L100 210 L78 200 L58 178 L42 152 L34 124 L32 96 L38 70 L52 50 Z"
+                fill="var(--orange-soft)" stroke="var(--orange)" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="140" cy="140" r="6" fill="var(--orange)"/>
+          <line x1="140" y1="134" x2="140" y2="110" stroke="var(--orange)" stroke-width="1.5"/>
+          <text x="140" y="104" text-anchor="middle" fill="var(--orange)" font-size="11" font-weight="700" font-family="var(--font-en)">Phnom Penh</text>
+          <text x="120" y="240" text-anchor="middle" fill="var(--brown-muted)" font-size="12" font-weight="600" font-family="var(--font-en)">CAMBODIA</text>
+        </svg>
+      </div>
       <div class="concept-grid">
-        <div class="concept-item stagger-item transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+        <div class="concept-item stagger-item">
           <div class="concept-icon"><svg class="icon"><use href="#icon-bowl"/></svg></div>
           <div class="concept-text">
             <h4 data-i18n="concept.item1.title">食</h4>
             <p data-i18n="concept.item1.body">おなかいっぱい食べられること。栄養のある食事で、子どもたちの成長を支えます。</p>
           </div>
         </div>
-        <div class="concept-item stagger-item transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+        <div class="concept-item stagger-item">
           <div class="concept-icon"><svg class="icon"><use href="#icon-book"/></svg></div>
           <div class="concept-text">
             <h4 data-i18n="concept.item2.title">学び</h4>
             <p data-i18n="concept.item2.body">子どもが教育を受けられること。学ぶ楽しさと、未来への可能性を広げます。</p>
           </div>
         </div>
-        <div class="concept-item stagger-item transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+        <div class="concept-item stagger-item">
           <div class="concept-icon"><svg class="icon"><use href="#icon-briefcase"/></svg></div>
           <div class="concept-text">
             <h4 data-i18n="concept.item3.title">仕事</h4>
             <p data-i18n="concept.item3.body">働く環境が整っていること。自立して生きる力を育みます。</p>
           </div>
         </div>
-        <div class="concept-item stagger-item transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+        <div class="concept-item stagger-item">
           <div class="concept-icon"><svg class="icon"><use href="#icon-sparkle"/></svg></div>
           <div class="concept-text">
             <h4 data-i18n="concept.item4.title">夢</h4>
             <p data-i18n="concept.item4.body">未来に夢や希望を持てること。一人ひとりの夢を全力で応援します。</p>
           </div>
         </div>
-        <div class="concept-item stagger-item transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+        <div class="concept-item stagger-item">
           <div class="concept-icon"><svg class="icon"><use href="#icon-heart"/></svg></div>
           <div class="concept-text">
             <h4 data-i18n="concept.item5.title">愛</h4>
             <p data-i18n="concept.item5.body">自由に人を愛し、愛情を受け取ること。温かいつながりの中で育ちます。</p>
           </div>
         </div>
-      </div>
-      <div class="concept-photo stagger-item">
-        <img src="assets/images/concept-children.jpg"
-             loading="lazy" decoding="async"
-             onerror="this.onerror=null;this.src='https://placehold.co/520x640/efb058/ffffff?text=Children+Smiling';"
-             alt="Children of CCMHA">
       </div>
     </div>
   </div>
