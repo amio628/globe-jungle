@@ -271,7 +271,9 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero reveal">
+  <span class="bg-mega-text bg-mega-hero" aria-hidden="true">HAPPY</span>
   <div class="hero-bg">
+    <span class="bubble bubble-gradient bubble-gradient-ghost bubble-float-slow bubble-hero-accent" aria-hidden="true"></span>
     <div class="circle circle-1"></div>
     <div class="circle circle-2"></div>
     <div class="circle circle-3">
@@ -330,7 +332,11 @@
 </section>
 
 <!-- ============ STORY ============ -->
-<section class="story reveal" id="story">
+<section class="story organic-stage reveal" id="story">
+  <span class="bg-mega-text bg-mega-story" aria-hidden="true">STORY</span>
+  <span class="bubble bubble-gradient bubble-gradient-ghost bubble-float bubble-story-1" aria-hidden="true"></span>
+  <span class="bubble bubble-orange-soft bubble-float-slow bubble-story-2" aria-hidden="true"></span>
+  <span class="bubble bubble-outline-orange bubble-story-3" aria-hidden="true"></span>
   <div class="section-inner">
     <p class="section-eyebrow" data-i18n="story.eyebrow">STORY</p>
     <h2 class="section-title" data-i18n="story.title" data-i18n-html>くっくま孤児院から始まる、<br>未来のリーダーたち</h2>
@@ -564,7 +570,11 @@
 
 
 <!-- ============ EVERYDAY MOMENTS ============ -->
-<section class="moments reveal">
+<section class="moments organic-stage reveal">
+  <span class="bg-mega-text bg-mega-moments" aria-hidden="true">MOMENTS</span>
+  <span class="bubble bubble-gradient bubble-gradient-soft bubble-float bubble-moments-1" aria-hidden="true"></span>
+  <span class="bubble bubble-orange-soft bubble-float-slow bubble-moments-2" aria-hidden="true"></span>
+  <span class="bubble bubble-beige bubble-float-fast bubble-moments-3" aria-hidden="true"></span>
   <div class="section-inner moments-head">
     <p class="section-eyebrow" data-i18n="moments.eyebrow">EVERYDAY MOMENTS</p>
     <h2 class="section-title" data-i18n="moments.title">子どもたちの日常</h2>
@@ -608,6 +618,13 @@
     </div>
   </div>
 </section>
+
+<!-- Wave divider: moments → donate -->
+<div class="section-wave section-wave-moments-donate" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="currentColor"/>
+  </svg>
+</div>
 
 <!-- ============ DONATE / CHANGES LIVES TODAY ============ -->
 <section class="donate reveal" id="donate">
@@ -763,6 +780,7 @@
 <script src="js/i18n.js"></script>
 <script src="js/stats.js"></script>
 <script src="js/reveal.js"></script>
+<script src="js/parallax.js"></script>
 <script>
   (function () {
     var header = document.querySelector('.site-header');
