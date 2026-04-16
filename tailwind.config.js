@@ -19,8 +19,8 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          orange: "#FF8C00",
-          "orange-deep": "#E07000",
+          orange: "#e67e22",
+          "orange-deep": "#c4621a",
           "orange-soft": "#FFF3E6",
           accent: "#FF8C00",
           beige: "#F9F7F2",
